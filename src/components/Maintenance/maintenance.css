@@ -1,0 +1,78 @@
+.maintenance-page {
+  min-height: 100vh;
+  background: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.maintenance-card {
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.maintenance-card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.maintenance-card label {
+  color: #fff;
+  margin-top: 1rem;
+  display: block;
+}
+
+.maintenance-card input,
+.maintenance-card select,
+.maintenance-card textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: none;
+}
+
+.maintenance-card button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 12px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.maintenance-card button:hover {
+  opacity: 0.9;
+}
+.success_popup {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: #0abf53;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  z-index: 9999;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
