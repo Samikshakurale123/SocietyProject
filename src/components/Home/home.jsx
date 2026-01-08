@@ -21,7 +21,7 @@ export default function Home() {
               fugit, sed quia consequuntur magni dolores eosqui ratione.
             </p>
 
-            <Link to="/register" className="register_btn">
+            <Link to ="/register" className="btn">
               Register
             </Link>
           </div>

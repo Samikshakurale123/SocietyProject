@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===============================
+   ROOT VARIABLES
+================================ */
+:root {
+  --primary-color: #e42525;
+  --secondary-color: #ffc2b4;
+  --bg-color: #171717;
+  --card-bg: rgb(92, 101, 104);
+  --white-color: #fdfffc;
+  --green-color: #0abf53;
+  --border-color-light: rgba(255, 255, 255, 0.2);
+  --box-shadow: 0 1rem 3rem rgb(0 0 0 / 15%);
+  --font-family: 'Poppins', sans-serif;
+}
+ /* ===============================
+   BACKGROUND COLOR
+================================ */
+.registration-page {
+  background-color: #302e2e;
+  min-height: 100vh;
+  padding-top: 2rem;
+}
+
+
+/* ===============================
+   PAGE LAYOUT
+================================ */
+.registration-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 1rem;
+}
+
+/* ===============================
+   TITLE
+================================ */
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+/* ===============================
+   SUCCESS MESSAGE
+================================ */
+.alert-success {
+  background-color: var(--green-color);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ===============================
+   CARD
+================================ */
+.registration-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.registration-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 2rem 4rem rgb(0 0 0 / 25%);
+}
+
+/* ===============================
+   FORM ELEMENTS
+================================ */
+.form-label {
+  font-weight: 500;
+  color: var(--white-color);
+}
+
+.form-control {
+  background-color: rgb(255 255 255 / 6%);
+  border: 1px solid var(--border-color-light);
+  color: var(--white-color);
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: rgb(255 255 255 / 10%);
+  box-shadow: 0 0 0 0.2rem rgb(153 0 51 / 25%);
+}
+
+/* ===============================
+   ERROR TEXT
+================================ */
+.error-text {
+  display: block;
+  margin-top: 0.25rem;
+  color: #ff6b6b;
+  font-size: 0.875rem;
+}
+
+/* ===============================
+   SECURITY QUESTIONS SECTION
+================================ */
+.security-box {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(
+    145deg,
+    rgba(153, 0, 51, 0.15),
+    rgba(255, 194, 180, 0.05)
+  );
+  border: 1px solid var(--border-color-light);
+}
+
+.security-box h4 {
+  color: var(--secondary-color);
+  margin-bottom: 0.25rem;
+}
+
+.security-hint {
+  font-size: 0.9rem;
+  color: #b7b7b7;
+  margin-bottom: 1rem;
+}
+
+/* ===============================
+   BUTTON
+================================ */
+.btn-submit {
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: var(--bg-color);
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.75rem 2.5rem;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(
+    90deg,
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  color: var(--white-color);
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+================================ */
+@media (max-width: 768px) {
+  .registration-card {
+    padding: 1.5rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .registration-container {
+    padding: 0.5rem;
+    margin: 2rem auto;
+  }
+
+  .btn-submit {
+    width: 100%;
+  }
+}

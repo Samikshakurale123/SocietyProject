@@ -14,10 +14,20 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/maintenance" element={<Maintenance />} />
-        <Route path="/register" element={<RegistrationForm />} />
+        
+        {/* Updated: wrap registration page for custom background */}
+        <Route
+          path="/register"
+          element={
+            <div className="registration-page">
+              <RegistrationForm />
+            </div>
+          }
+        />
       </Routes>
     </Router>
   );
 }
 
 export default App;
+
