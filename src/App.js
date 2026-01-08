@@ -8,6 +8,7 @@ import RegistrationForm from "./components/Registration/RegistrationForm";
 import Login from "./components/Login/Login";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import Complaints from "./components/Complaints/Complaints";
+import About from "./components/About/About";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/complaint" element={<Complaints />} />
+        <Route path="/about" element={<About />} />
+
       </Routes>
     </Router>
   );

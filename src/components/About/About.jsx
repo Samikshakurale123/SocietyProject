@@ -12,7 +12,7 @@ const About = () => {
       >
         <div className="overlay"></div>
         <div className="hero-content">
-          <h1>Welcome to [Apartment Name]</h1>
+          <h1>Welcome to [ Kumar Varsh Apartment]</h1>
           <p>
             Experience modern, secure, and comfortable living in the heart of
             [City Name].
@@ -65,7 +65,7 @@ const About = () => {
         <p><strong>Email:</strong> info@apartmentname.com</p>
         <address>
           <strong>Address:</strong><br />
-          [Apartment Name]<br />
+          [Kumar Varsh Apartment]<br />
           Main Road, Near Landmark<br />
           City, State, ZIP Code
         </address>
