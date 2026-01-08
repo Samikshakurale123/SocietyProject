@@ -11,23 +11,23 @@ export default function Home() {
       <div className="container">
         <div className="banner_outer">
           {/* Left content */}
-          <div className="col">
+          <div className="col left_col">
             <h1 className="title">
               WE PROMOTE YOUR <span>BUSINESS</span>
             </h1>
 
-            <p>
-              Nemo enim ipsam oluptatem quia reoluptas sit aspernatur aut odit aut
-              fugit, sed quia consequuntur magni dolores eosqui ratione.
+            <p className="subtitle">
+              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+              fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi.
             </p>
 
-            <Link to ="/register" className="btn">
+            <Link to="/register" className="btn">
               Register
             </Link>
           </div>
 
           {/* Right image */}
-          <div className="col">
+          <div className="col right_col">
             <div className="sub_banner_image">
               <img src={BannerImage} alt="Banner" />
             </div>

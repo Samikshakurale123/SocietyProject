@@ -1,9 +1,12 @@
+/* ================== BASE NAVBAR ================== */
 .navbar_header {
-  background: #111;
   position: fixed;
   top: 0;
   width: 100%;
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  background: rgba(17, 17, 17, 0.85); /* Semi-transparent */
   z-index: 1000;
+  transition: all 0.3s ease;
 }
 
 .navbar_container {
@@ -12,34 +15,141 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
+  padding: 15px 20px;
 }
 
 .navbar_brand {
   display: flex;
   align-items: center;
-  color: white;
-  font-size: 18px;
+  color: #fff;
+  font-size: 20px;
   font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .navbar_brand img {
-  width: 45px;
+  width: 50px;
   margin-right: 10px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.navbar_brand img:hover {
+  transform: rotate(10deg) scale(1.1);
 }
 
 .navbar_menu {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 30px;
 }
 
 .navbar_menu li a {
-  color: white;
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar_menu li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background: crimson;
+  transition: 0.3s;
+}
+
+.navbar_menu li a:hover::after {
+  width: 100%;
 }
 
 .navbar_menu li a:hover {
   color: crimson;
+}
+
+/* ================== HAMBURGER MENU ================== */
+.navbar_toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.navbar_toggle span {
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Hamburger to X animation */
+.navbar_toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar_toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar_toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ================== TABLET ================== */
+@media (max-width: 1024px) {
+  .navbar_container {
+    padding: 12px 20px;
+  }
+
+  .navbar_menu {
+    gap: 20px;
+  }
+
+  .navbar_brand {
+    font-size: 18px;
+  }
+
+  .navbar_menu li a {
+    font-size: 15px;
+  }
+}
+
+/* ================== MOBILE ================== */
+@media (max-width: 767px) {
+  .navbar_toggle {
+    display: flex;
+  }
+
+  .navbar_menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(17, 17, 17, 0.95);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  .navbar_menu.active {
+    max-height: 500px; /* enough for all links */
+  }
+
+  .navbar_menu li {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .navbar_menu li a {
+    font-size: 18px;
+    padding: 10px 0;
+  }
 }

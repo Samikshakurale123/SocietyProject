@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo/logo.jpg";
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
   return (
     <header className="navbar_header">
       <div className="navbar_container">
@@ -13,13 +17,33 @@ export default function Navbar() {
           <span>Kumar Varsh</span>
         </div>
 
+        {/* Hamburger Icon */}
+        <div
+          className={`navbar_toggle ${menuOpen ? "open" : ""}`}
+          onClick={toggleMenu}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
         {/* Menu */}
-        <ul className="navbar_menu">
-          <li><Link to="/">Home</Link></li>
-          <li><a href="#about">About Us</a></li>
-          <li><Link to="/maintenance">Maintenance</Link></li>
-          <li><Link to="/complaint">Complaint</Link></li>
-          <li><Link to="/login">Login</Link></li>
+        <ul className={`navbar_menu ${menuOpen ? "active" : ""}`}>
+          <li>
+            <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          </li>
+          <li>
+            <a href="#about" onClick={() => setMenuOpen(false)}>About Us</a>
+          </li>
+          <li>
+            <Link to="/maintenance" onClick={() => setMenuOpen(false)}>Maintenance</Link>
+          </li>
+          <li>
+            <Link to="/complaint" onClick={() => setMenuOpen(false)}>Complaint</Link>
+          </li>
+          <li>
+            <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
+          </li>
         </ul>
       </div>
     </header>
