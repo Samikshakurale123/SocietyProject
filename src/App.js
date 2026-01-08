@@ -5,7 +5,9 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Maintenance from "./components/Maintenance/Maintenance";
 import RegistrationForm from "./components/Registration/RegistrationForm";
-import Complaints from "./components/Complaints/Complaints"; // ✅ CHECK PATH
+import Login from "./components/Login/Login";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
+import Complaints from "./components/Complaints/Complaints";
 
 function App() {
   return (
@@ -25,7 +27,8 @@ function App() {
           }
         />
 
-        {/* ✅ ADD THIS */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/complaints" element={<Complaints />} />
       </Routes>
     </Router>
