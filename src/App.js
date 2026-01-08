@@ -17,7 +17,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/maintenance" element={<Maintenance />} />
-
         <Route
           path="/register"
           element={
@@ -26,10 +25,9 @@ function App() {
             </div>
           }
         />
-
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/complaints" element={<Complaints />} />
+        <Route path="/complaint" element={<Complaints />} />
       </Routes>
     </Router>
   );
