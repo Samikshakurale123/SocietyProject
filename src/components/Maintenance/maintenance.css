@@ -107,7 +107,6 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
   .maintenance-card {
     padding: 1.5rem;
