@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Complaints.css";
 
-
 function Complaints() {
   const [complaint, setComplaint] = useState({
     subject: "",
@@ -22,11 +21,10 @@ function Complaints() {
   const handleChange = (e) => {
     const { name, value, files } = e.target;
 
-    if (name === "image" && files[0]) {
+    if (name === "image" && files && files[0]) {
       const reader = new FileReader();
-      reader.onload = () => {
+      reader.onload = () =>
         setComplaint({ ...complaint, image: reader.result });
-      };
       reader.readAsDataURL(files[0]);
     } else {
       setComplaint({ ...complaint, [name]: value });
@@ -40,8 +38,8 @@ function Complaints() {
     }
 
     const updated = [...complaints, complaint];
-    setComplaints(updated);
     localStorage.setItem("complaints", JSON.stringify(updated));
+    setComplaints(updated);
 
     setComplaint({
       subject: "",
@@ -55,83 +53,55 @@ function Complaints() {
   };
 
   return (
-    <div className="complaints-page container mt-4">
+    <div className="complaints-page">
       <h2 className="page-title">Raise a Complaint</h2>
 
       {/* FORM */}
-      <div className="card complaint-card shadow-sm">
-        <div className="card-body">
-          <div className="mb-3">
-            <label>Subject</label>
-            <input
-              className="form-control"
-              name="subject"
-              value={complaint.subject}
-              onChange={handleChange}
-            />
-          </div>
+      <div className="complaint-card">
+        <label>Subject</label>
+        <input
+          name="subject"
+          value={complaint.subject}
+          onChange={handleChange}
+        />
 
-          <div className="mb-3">
-            <label>Description</label>
-            <textarea
-              className="form-control"
-              rows="3"
-              name="body"
-              value={complaint.body}
-              onChange={handleChange}
-            />
-          </div>
+        <label>Description</label>
+        <textarea
+          name="body"
+          value={complaint.body}
+          onChange={handleChange}
+        />
 
-          <div className="row">
-            <div className="col-md-6 mb-3">
-              <label>Date</label>
-              <input
-                type="date"
-                className="form-control"
-                name="date"
-                value={complaint.date}
-                onChange={handleChange}
-              />
-            </div>
+        <label>Date</label>
+        <input
+          type="date"
+          name="date"
+          value={complaint.date}
+          onChange={handleChange}
+        />
 
-            <div className="col-md-6 mb-3">
-              <label>Priority</label>
-              <select
-                className="form-select"
-                name="priority"
-                value={complaint.priority}
-                onChange={handleChange}
-              >
-                <option value="">Select</option>
-                <option>High</option>
-                <option>Medium</option>
-                <option>Low</option>
-              </select>
-            </div>
-          </div>
+        <label>Priority</label>
+        <select
+          name="priority"
+          value={complaint.priority}
+          onChange={handleChange}
+        >
+          <option value="">Select</option>
+          <option>High</option>
+          <option>Medium</option>
+          <option>Low</option>
+        </select>
 
-          <div className="mb-3">
-            <label>Upload Image</label>
-            <input
-              type="file"
-              className="form-control"
-              name="image"
-              onChange={handleChange}
-            />
-          </div>
+        <label>Upload Image</label>
+        <input type="file" name="image" onChange={handleChange} />
 
-          <button className="btn btn-primary w-100" onClick={handleSubmit}>
-            Submit Complaint
-          </button>
-        </div>
+        <button onClick={handleSubmit}>Submit Complaint</button>
       </div>
 
       {/* TABLE */}
-      <h4 className="mt-5">My Complaints</h4>
-
       <div className="table-responsive">
-        <table className="table table-hover table-bordered">
-          <thead className="table-dark">
+        <table className="table table-bordered">
+          <thead>
             <tr>
               <th>Subject</th>
               <th>Date</th>
@@ -170,25 +140,22 @@ function Complaints() {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title">Complaint Details</h5>
-              <button
-                className="btn-close"
-                data-bs-dismiss="modal"
-              ></button>
+              <button className="btn-close" data-bs-dismiss="modal"></button>
             </div>
+
             <div className="modal-body">
               {selected && (
                 <>
                   <p><strong>Subject:</strong> {selected.subject}</p>
                   <p><strong>Date:</strong> {selected.date}</p>
                   <p><strong>Priority:</strong> {selected.priority}</p>
-                  <p><strong>Description:</strong></p>
                   <p>{selected.body}</p>
 
                   {selected.image && (
                     <img
                       src={selected.image}
                       alt="complaint"
-                      className="img-fluid rounded mt-2"
+                      className="img-fluid rounded"
                     />
                   )}
                 </>

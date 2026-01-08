@@ -1,144 +1,151 @@
-/* ============================= */
-/* Page container */
-/* ============================= */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* ===============================
+   PAGE BACKGROUND (GLASS THEME)
+================================ */
 .complaints-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #121212, #1a1a1a);
+  padding-top: 110px; /* space for fixed navbar */
+  padding-bottom: 40px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 1rem;
+
+  font-family: "Poppins", sans-serif;
+
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.65)
+    ),
+    url("../../assets/banner/banner.png") center / cover no-repeat;
 }
 
-/* ============================= */
-/* Page title */
-/* ============================= */
+/* ===============================
+   PAGE TITLE
+================================ */
 .page-title {
-  color: #ffffff;
-  margin-bottom: 1.8rem;
+  color: #ffc2b4;
+  margin-bottom: 1.5rem;
   font-weight: 700;
   text-align: center;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
 }
 
-/* ============================= */
-/* Complaint form card */
-/* ============================= */
+/* ===============================
+   COMPLAINT FORM CARD (GLASS)
+================================ */
 .complaint-card {
-  background: rgba(30, 30, 30, 0.95);
-  padding: 2rem;
-  border-radius: 16px;
   width: 100%;
   max-width: 620px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  padding: 2.4rem;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 18px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
   margin-bottom: 3rem;
-  backdrop-filter: blur(8px);
 }
 
-/* ============================= */
-/* Labels */
-/* ============================= */
+/* ===============================
+   LABELS
+================================ */
 .complaint-card label {
-  color: #040303;
-  margin-top: 1.2rem;
-  display: block;
+  color: #ffffff;
   font-weight: 500;
-  font-size: 0.95rem;
+  margin-top: 1rem;
+  display: block;
 }
 
-/* ============================= */
-/* Inputs, textarea, select */
-/* ============================= */
+/* ===============================
+   INPUTS / TEXTAREA / SELECT
+================================ */
 .complaint-card input,
 .complaint-card textarea,
 .complaint-card select {
   width: 100%;
-  padding: 12px 14px;
-  margin-top: 8px;
+  padding: 0.75rem 0.85rem;
+  margin-top: 0.45rem;
+
   border-radius: 10px;
-  border: 1px solid #ccc;
-  background: #f4eeee;
-  color: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+
   font-size: 0.95rem;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
 }
 
-/* Placeholder color */
 .complaint-card ::placeholder {
-  color: #888;
+  color: rgba(255, 255, 255, 0.65);
 }
 
-/* ============================= */
-/* Focus state (NO black issue) */
-/* ============================= */
 .complaint-card input:focus,
 .complaint-card textarea:focus,
 .complaint-card select:focus {
   outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-  background: #ffffff;
-  color: #111111;
+  border-color: #ffc2b4;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(255, 194, 180, 0.35);
 }
 
-/* Textarea */
+/* Textarea height */
 .complaint-card textarea {
   resize: none;
   min-height: 120px;
 }
 
-/* ============================= */
-/* File input */
-/* ============================= */
-.complaint-card input[type="file"] {
-  padding: 10px;
-  cursor: pointer;
-}
-
-/* ============================= */
-/* Submit button */
-/* ============================= */
+/* ===============================
+   SUBMIT BUTTON
+================================ */
 .complaint-card button {
   margin-top: 2rem;
   width: 100%;
-  padding: 14px;
-  background: linear-gradient(
-    135deg,
-    var(--primary-color),
-    #4da3ff
-  );
-  color: white;
-  border: none;
+
+  padding: 0.85rem;
   border-radius: 50px;
+  border: none;
+
   font-weight: 600;
   font-size: 1rem;
+
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  background: linear-gradient(90deg, #e42525, #ffc2b4);
+  color: #111;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(228, 37, 37, 0.45);
 }
 
 .complaint-card button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(77, 163, 255, 0.6);
+  color: #ffffff;
+  box-shadow: 0 15px 40px rgba(228, 37, 37, 0.65);
 }
 
-/* ============================= */
-/* Table section */
-/* ============================= */
+/* ===============================
+   TABLE SECTION
+================================ */
 .table-responsive {
   width: 100%;
-  max-width: 950px;
-  overflow-x: auto;
+  max-width: 900px;
 }
 
 .table {
-  background: #1e1e1e;
-  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
   border-radius: 12px;
   overflow: hidden;
 }
 
 .table th {
-  background: #2a2a2a;
+  background: rgba(255, 255, 255, 0.18);
   color: #ffffff;
   font-size: 0.9rem;
 }
@@ -149,45 +156,45 @@
   vertical-align: middle;
 }
 
-.table-bordered td,
-.table-bordered th {
-  border-color: #333;
+.table-bordered th,
+.table-bordered td {
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* ============================= */
 /* Clickable rows */
-/* ============================= */
 .clickable-row {
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .clickable-row:hover {
-  background-color: #2c2c2c;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
-/* ============================= */
-/* Modal styling */
-/* ============================= */
+/* ===============================
+   MODAL (BOOTSTRAP SAFE)
+================================ */
 .modal-content {
-  background: #1e1e1e;
-  color: white;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+
   border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
 }
 
 .modal-header {
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .modal-title {
-  color: #ffffff;
+  color: #ffc2b4;
   font-weight: 600;
 }
 
 .modal-body p {
-  margin-bottom: 10px;
   font-size: 0.95rem;
+  margin-bottom: 0.6rem;
 }
 
 /* Close button */
@@ -195,31 +202,27 @@
   filter: invert(1);
 }
 
-/* ============================= */
-/* Responsive */
-/* ============================= */
+/* ===============================
+   RESPONSIVE
+================================ */
 @media (max-width: 768px) {
   .complaint-card {
-    padding: 1.5rem;
-  }
-
-  .page-title {
-    margin-bottom: 1.4rem;
+    padding: 1.8rem;
   }
 }
 
 @media (max-width: 480px) {
   .complaints-page {
-    padding: 1.5rem 0.8rem;
+    padding-top: 95px;
   }
 
   .complaint-card {
-    padding: 1.2rem;
+    padding: 1.5rem;
     border-radius: 14px;
   }
 
   .complaint-card button {
-    padding: 13px;
+    padding: 0.8rem;
     font-size: 0.95rem;
   }
 }
