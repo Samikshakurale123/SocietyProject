@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Maintenance from "./components/Maintenance/Maintenance";
 import RegistrationForm from "./components/Registration/RegistrationForm";
+import Login from "./components/Login/Login";
 
 function App() {
   return (
@@ -12,10 +13,23 @@ function App() {
       <Navbar />
 
       <Routes>
+        {/* Home */}
         <Route path="/" element={<Home />} />
+
+        {/* Maintenance */}
         <Route path="/maintenance" element={<Maintenance />} />
-        
-        {/* Updated: wrap registration page for custom background */}
+
+        {/* Login */}
+        <Route
+          path="/login"
+          element={
+            <div className="page-wrapper">
+              <Login />
+            </div>
+          }
+        />
+
+        {/* Register */}
         <Route
           path="/register"
           element={
@@ -24,14 +38,9 @@ function App() {
             </div>
           }
         />
-        
       </Routes>
-
-      
-      
     </Router>
   );
 }
 
 export default App;
-

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { generateMaintenancePDF } from "../../utils/pdfGenerator";
-import "./maintenance.css";
+import "./Maintenance.css";
 
 function Maintenance() {
   const [showSuccess, setShowSuccess] = useState(false);
