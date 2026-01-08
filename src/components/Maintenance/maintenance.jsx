@@ -27,10 +27,10 @@ const [showSuccess, setShowSuccess] = useState(false);
 
   generateMaintenancePDF(month, year, months, TOTAL, comment);
 
-  // ✅ Show success popup
+  
   setShowSuccess(true);
 
-  // ✅ Hide popup after 3 seconds
+  
   setTimeout(() => {
     setShowSuccess(false);
   }, 3000);

@@ -3,7 +3,7 @@ import jsPDF from "jspdf";
 export const generateMaintenancePDF = (month, year, months, total, comment) => {
   const doc = new jsPDF();
 
-  // Logo from public folder (NO IMPORT ISSUES)
+ 
   const logoPath = "/logo.jpg";
 
   const img = new Image();
