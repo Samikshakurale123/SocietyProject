@@ -13,7 +13,7 @@ export default function Home() {
           {/* Left content */}
           <div className="col left_col">
             <h1 className="title">
-              WE PROMOTE YOUR <span>BUSINESS</span>
+              WELCOME TO <span>KUMAR VARSH</span>
             </h1>
 
             <p className="subtitle">

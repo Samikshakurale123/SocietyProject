@@ -6,6 +6,7 @@ import Home from "./components/Home/Home";
 import Maintenance from "./components/Maintenance/Maintenance";
 import RegistrationForm from "./components/Registration/RegistrationForm";
 import Login from "./components/Login/Login";
+import About from "./components/About/About";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
       <Routes>
         {/* Home */}
         <Route path="/" element={<Home />} />
+
+          {/* About */}
+          <Route path="/About" element={<About />} />
 
         {/* Maintenance */}
         <Route path="/maintenance" element={<Maintenance />} />

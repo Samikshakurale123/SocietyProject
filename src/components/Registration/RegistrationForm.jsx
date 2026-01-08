@@ -182,10 +182,6 @@ export default function RegistrationForm() {
           {/* SOCIETY */}
           <div className="row mb-4">
             <div className="col-md-4">
-              <label className="form-label">Society</label>
-              <input className="form-control" name="society" onChange={handleChange} />
-            </div>
-            <div className="col-md-4">
               <label className="form-label">Wing</label>
               <input className="form-control" name="wing" onChange={handleChange} />
             </div>
