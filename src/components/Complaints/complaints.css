@@ -1,37 +1,225 @@
+/* ============================= */
+/* Page container */
+/* ============================= */
 .complaints-page {
-  max-width: 900px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #121212, #1a1a1a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
 }
 
+/* ============================= */
+/* Page title */
+/* ============================= */
 .page-title {
+  color: #ffffff;
+  margin-bottom: 1.8rem;
+  font-weight: 700;
   text-align: center;
-  font-weight: 600;
-  margin-bottom: 25px;
-  color: #0d6efd;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
 }
 
+/* ============================= */
+/* Complaint form card */
+/* ============================= */
 .complaint-card {
-  border-radius: 10px;
+  background: rgba(30, 30, 30, 0.95);
+  padding: 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 620px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  margin-bottom: 3rem;
+  backdrop-filter: blur(8px);
 }
 
+/* ============================= */
+/* Labels */
+/* ============================= */
 .complaint-card label {
+  color: #040303;
+  margin-top: 1.2rem;
+  display: block;
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
-.table th,
+/* ============================= */
+/* Inputs, textarea, select */
+/* ============================= */
+.complaint-card input,
+.complaint-card textarea,
+.complaint-card select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 8px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #f4eeee;
+  color: #111111;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+/* Placeholder color */
+.complaint-card ::placeholder {
+  color: #888;
+}
+
+/* ============================= */
+/* Focus state (NO black issue) */
+/* ============================= */
+.complaint-card input:focus,
+.complaint-card textarea:focus,
+.complaint-card select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  background: #ffffff;
+  color: #111111;
+}
+
+/* Textarea */
+.complaint-card textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+/* ============================= */
+/* File input */
+/* ============================= */
+.complaint-card input[type="file"] {
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* ============================= */
+/* Submit button */
+/* ============================= */
+.complaint-card button {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    #4da3ff
+  );
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.complaint-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(77, 163, 255, 0.6);
+}
+
+/* ============================= */
+/* Table section */
+/* ============================= */
+.table-responsive {
+  width: 100%;
+  max-width: 950px;
+  overflow-x: auto;
+}
+
+.table {
+  background: #1e1e1e;
+  color: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table th {
+  background: #2a2a2a;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
 .table td {
+  color: #eaeaea;
+  font-size: 0.9rem;
   vertical-align: middle;
-  text-align: center;
 }
 
+.table-bordered td,
+.table-bordered th {
+  border-color: #333;
+}
+
+/* ============================= */
+/* Clickable rows */
+/* ============================= */
 .clickable-row {
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .clickable-row:hover {
-  background-color: #f2f6ff;
+  background-color: #2c2c2c;
+}
+
+/* ============================= */
+/* Modal styling */
+/* ============================= */
+.modal-content {
+  background: #1e1e1e;
+  color: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.modal-header {
+  border-bottom: 1px solid #333;
+}
+
+.modal-title {
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .modal-body p {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+/* Close button */
+.btn-close {
+  filter: invert(1);
+}
+
+/* ============================= */
+/* Responsive */
+/* ============================= */
+@media (max-width: 768px) {
+  .complaint-card {
+    padding: 1.5rem;
+  }
+
+  .page-title {
+    margin-bottom: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .complaints-page {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .complaint-card {
+    padding: 1.2rem;
+    border-radius: 14px;
+  }
+
+  .complaint-card button {
+    padding: 13px;
+    font-size: 0.95rem;
+  }
 }

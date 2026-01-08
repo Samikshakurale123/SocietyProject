@@ -1,57 +1,87 @@
 .maintenance-page {
   min-height: 100vh;
-  background: var(--bg-color);
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
 }
 
+/* Card */
 .maintenance-card {
   background: #1e1e1e;
   padding: 2rem;
-  border-radius: 12px;
+  border-radius: 14px;
   width: 100%;
   max-width: 450px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
 
+/* Heading */
 .maintenance-card h2 {
   text-align: center;
   margin-bottom: 1.5rem;
+  color: #ffffff;
+  font-weight: 600;
 }
 
+/* Labels */
 .maintenance-card label {
-  color: #fff;
+  color: #eaeaea;
   margin-top: 1rem;
   display: block;
+  font-size: 0.9rem;
 }
 
+/* Inputs */
 .maintenance-card input,
 .maintenance-card select,
 .maintenance-card textarea {
   width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 6px;
-  border: none;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #2a2a2a;
+  color: #ffffff;
+  font-size: 0.95rem;
 }
 
+/* Placeholder */
+.maintenance-card input::placeholder,
+.maintenance-card textarea::placeholder {
+  color: #b5b5b5;
+}
+
+/* Focus */
+.maintenance-card input:focus,
+.maintenance-card select:focus,
+.maintenance-card textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+}
+
+/* Button */
 .maintenance-card button {
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
   width: 100%;
-  padding: 12px;
-  background: var(--primary-color);
+  padding: 13px;
+  background: linear-gradient(135deg, var(--primary-color), #4da3ff);
   color: white;
   border: none;
   border-radius: 30px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .maintenance-card button:hover {
-  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(77, 163, 255, 0.4);
 }
+
+/* Success popup */
 .success_popup {
   position: fixed;
   top: 80px;
@@ -59,10 +89,10 @@
   background: #0abf53;
   color: white;
   padding: 12px 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 600;
   z-index: 9999;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
   animation: slideIn 0.4s ease;
 }
 
@@ -76,3 +106,10 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 480px) {
+  .maintenance-card {
+    padding: 1.5rem;
+  }
+}
+

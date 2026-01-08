@@ -28,22 +28,12 @@ export default function Navbar() {
         </div>
 
         {/* Menu */}
-        <ul className={`navbar_menu ${menuOpen ? "active" : ""}`}>
-          <li>
-            <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          </li>
-          <li>
-            <a href="#about" onClick={() => setMenuOpen(false)}>About Us</a>
-          </li>
-          <li>
-            <Link to="/maintenance" onClick={() => setMenuOpen(false)}>Maintenance</Link>
-          </li>
-          <li>
-            <Link to="/complaint" onClick={() => setMenuOpen(false)}>Complaint</Link>
-          </li>
-          <li>
-            <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
-          </li>
+        <ul className="navbar_menu">
+          <li><Link to="/">Home</Link></li>
+          <li><a href="#about">About Us</a></li>
+          <li><Link to="/maintenance">Maintenance</Link></li>
+          <li><Link to="/complaint">Complaint</Link></li>
+          <li><Link to="/login">Login</Link></li>
         </ul>
       </div>
     </header>
