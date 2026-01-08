@@ -8,6 +8,7 @@ import RegistrationForm from "./components/Registration/RegistrationForm";
 import Login from "./components/Login/Login";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import Complaints from "./components/Complaints/Complaints";
+import About from "./components/About/About";
 
 function App() {
   return (
@@ -17,7 +18,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/maintenance" element={<Maintenance />} />
-
         <Route
           path="/register"
           element={
@@ -26,10 +26,11 @@ function App() {
             </div>
           }
         />
-
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/complaints" element={<Complaints />} />
+        <Route path="/complaint" element={<Complaints />} />
+        <Route path="/about" element={<About />} />
+
       </Routes>
     </Router>
   );
