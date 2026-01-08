@@ -67,6 +67,13 @@ a {
   padding-left: 1rem;
 }
 
+/* Navbar height fix */
+.page-wrapper {
+  padding-top: 100px;
+  min-height: 100vh;
+}
+
+
 
 .btn_wrapper {
   margin-top: 5rem; 

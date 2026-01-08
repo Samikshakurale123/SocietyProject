@@ -14,7 +14,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className="navbar_brand">
           <img src={Logo} alt="Logo" />
-          <span>Kumar Varsh</span>
+          <span>Kumar Varsh Apartment</span>
         </div>
 
         {/* Hamburger Icon */}
@@ -30,7 +30,7 @@ export default function Navbar() {
         {/* Menu */}
         <ul className="navbar_menu">
           <li><Link to="/">Home</Link></li>
-          <li><a href="#about">About Us</a></li>
+          <li><Link to="/About" >About Us</Link></li>
           <li><Link to="/maintenance">Maintenance</Link></li>
           <li><Link to="/complaint">Complaint</Link></li>
           <li><Link to="/login">Login</Link></li>
