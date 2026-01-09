@@ -56,7 +56,7 @@
    LABELS
 ================================ */
 .complaint-card label {
-  color: #ffffff;
+  color: #ebe6e6;
   font-weight: 500;
   margin-top: 1rem;
   display: block;
@@ -76,7 +76,7 @@
   border: 1px solid rgba(255, 255, 255, 0.35);
 
   background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  color: #090909;
 
   font-size: 0.95rem;
   transition: all 0.3s ease;

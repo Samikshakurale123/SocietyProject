@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { generateMaintenancePDF } from "../../utils/pdfGenerator";
 import "./Maintenance.css";
 
 function Maintenance() {
+  // show success popup
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const RATE = 2200;
+  // store logged-in user name
+  const [userName, setUserName] = useState("");
 
+  // maintenance details
+  const RATE = 2200;
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [months, setMonths] = useState(1);
@@ -14,6 +18,15 @@ function Maintenance() {
 
   const TOTAL = months * RATE;
 
+  // 🔹 GET USER NAME FROM LOCAL STORAGE
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("registeredUser"));
+    if (user && user.name) {
+      setUserName(user.name);
+    }
+  }, []);
+
+  // 🔹 HANDLE DOWNLOAD
   const handleDownload = () => {
     if (!month || !year) {
       alert("Please select month and year");
@@ -34,6 +47,14 @@ function Maintenance() {
   return (
     <div className="maintenance-page">
       <div className="maintenance-card">
+
+        {/* USER NAME DISPLAY */}
+        {userName && (
+          <h4 className="welcome-text">
+            Welcome, {userName} 👋
+          </h4>
+        )}
+
         <h2>Maintenance Details</h2>
 
         <label>Month</label>
@@ -81,6 +102,7 @@ function Maintenance() {
             ✅ Receipt downloaded successfully!
           </div>
         )}
+
       </div>
     </div>
   );
