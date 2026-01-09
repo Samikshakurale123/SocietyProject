@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { generateMaintenancePDF } from "../../utils/pdfGenerator";
-import "./maintenance.css";
+import "./Maintenance.css";
 
 function Maintenance() {
   // show success popup
