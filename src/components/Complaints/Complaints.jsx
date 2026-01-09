@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import "./Complaints.css";
+import { useEffect, useState } from "react";
+import "./complaints.css";
 
 const Complaints = () => {
   const [complaint, setComplaint] = useState({

@@ -11,7 +11,6 @@ export default function RegistrationForm() {
     confirmPassword: "",
     dob: "",
     address: "",
-    society: "",
     wing: "",
     flatNumber: "",
     pincode: "",

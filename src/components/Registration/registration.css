@@ -22,7 +22,7 @@
    PAGE WRAPPER (REGISTER ONLY)
 */
 .registration-page {
-  min-height: 100vh;
+  min-height: 1vh;
   padding-top: 110px; /* fixed navbar spacing */
   padding-bottom: 40px;
   background: linear-gradient(
