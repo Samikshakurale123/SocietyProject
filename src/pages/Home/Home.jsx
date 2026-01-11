@@ -1,6 +1,6 @@
 import React from "react";
 import BannerImage from "../../assets/banner/banner-img.jpg";
-import { Link } from "react-router-dom";
+
 
 
 
@@ -25,11 +25,6 @@ export default function Home({ isLoggedIn }) {
                 complaints, and ensure smooth community living.
               </p>
 
-              {isLoggedIn && (
-                <Link to="/maintenance" className="btn btn-primary mt-3">
-                  Go to Maintenance
-                </Link>
-              )}
             </div>
 
             {/* Right Image */}

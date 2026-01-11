@@ -261,6 +261,191 @@ table tr:hover {
 }
 
 /* ===============================
+   COMPLAINTS PAGE ONLY
+================================ */
+
+.complaints-wrapper {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+/* Cards */
+.complaint-card,
+.complaint-list-box {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.complaint-card {
+  width: 100%;
+  max-width: 500px;
+}
+
+.complaint-list-box {
+  width: 100%;
+  max-width: 650px;
+}
+
+/* Message */
+.message-box {
+  background-color: #ecfdf5;
+  color: #065f46;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Submit button (same as login/register) */
+.btn-submit {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #1e40af;
+}
+
+/* Priority badge */
+.priority-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.priority-badge.low {
+  background-color: #16a34a;
+}
+
+.priority-badge.medium {
+  background-color: #f59e0b;
+}
+
+.priority-badge.high {
+  background-color: #dc2626;
+}
+
+/* Action buttons */
+.action-btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.action-btn.edit {
+  background-color: #2563eb;
+  color: white;
+}
+
+.action-btn.delete {
+  background-color: #dc2626;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .complaints-wrapper {
+    flex-direction: column;
+  }
+}
+
+/* ===============================
+   COMPLAINT DETAILS
+================================ */
+.page-container {
+  min-height: 100vh;
+  background: #f4f6f9;
+  padding: 40px 15px;
+}
+
+.complaint-card,
+.complaint-list-box {
+  max-width: 900px;
+  margin: 0 auto 30px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.btn-submit {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.btn-submit:hover {
+  background: #1e40af;
+}
+
+.priority-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+}
+
+.priority-badge.high {
+  background: #dc2626;
+}
+
+.priority-badge.medium {
+  background: #f59e0b;
+}
+
+.priority-badge.low {
+  background: #16a34a;
+}
+
+.action-btn {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.action-btn.edit {
+  background: #2563eb;
+  color: white;
+}
+
+.action-btn.delete {
+  background: #dc2626;
+  color: white;
+}
+
+.message-box {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  background: #e0f2fe;
+  color: #0369a1;
+  text-align: center;
+}
+
+
+
+/* ===============================
    FOOTER
 ================================ */
 .footer {
