@@ -1,37 +1,48 @@
-import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./components/Home/Home";
-import Maintenance from "./components/Maintenance/Maintenance";
-import RegistrationForm from "./components/Registration/RegistrationForm";
-import Login from "./components/Login/Login";
-import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
-import Complaints from "./components/Complaints/Complaints";
-import About from "./components/About/About";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Registration/RegistrationForm";
+import About from "./pages/About/About";
+import Maintenance from "./pages/Maintenance/Maintenance";
+import Complaint from "./pages/Complaints/Complaints";
+import Footer from "./components/Footer/Footer";
+
+import "./App.css";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Persist login on refresh
+  useEffect(() => {
+    const user = localStorage.getItem("loggedInUser");
+    setIsLoggedIn(!!user);
+  }, []);
+
   return (
     <Router>
-      <Navbar />
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/maintenance" element={<Maintenance />} />
-        <Route
-          path="/register"
-          element={
-            <div className="registration-page">
-              <RegistrationForm />
-            </div>
-          }
-        />
-        <Route path="/login" element={<Login />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/complaint" element={<Complaints />} />
+        <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
         <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/register" element={<Register />} />
 
+        {/* Protected Routes */}
+        <Route
+          path="/maintenance"
+          element={isLoggedIn ? <Maintenance /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/complaint"
+          element={isLoggedIn ? <Complaint /> : <Navigate to="/login" />}
+        />
       </Routes>
+
+      <Footer />
     </Router>
   );
 }

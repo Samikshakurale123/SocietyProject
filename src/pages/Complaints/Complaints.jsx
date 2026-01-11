@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Complaints.css";
+import ComplaintDetails from "./ComplaintDetails";
 
 const Complaints = () => {
   const [complaint, setComplaint] = useState({
@@ -13,11 +13,13 @@ const Complaints = () => {
   const [complaints, setComplaints] = useState([]);
   const [selected, setSelected] = useState(null);
 
+  // Load complaints from localStorage
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("complaints")) || [];
     setComplaints(saved);
   }, []);
 
+  // Handle form input
   const handleChange = (e) => {
     const { name, value, files } = e.target;
 
@@ -31,6 +33,7 @@ const Complaints = () => {
     }
   };
 
+  // Submit complaint
   const handleSubmit = () => {
     if (!complaint.subject || !complaint.body || !complaint.date) {
       alert("Please fill all required fields");
@@ -53,11 +56,11 @@ const Complaints = () => {
   };
 
   return (
-    <div className="complaints-page">
-      <h2 className="page-title">Raise a Complaint</h2>
+    <div className="page-container">
+      <h2>Raise a Complaint</h2>
 
       {/* FORM */}
-      <div className="complaint-card">
+      <div className="card">
         <label>Subject</label>
         <input
           name="subject"
@@ -92,15 +95,17 @@ const Complaints = () => {
           <option>Low</option>
         </select>
 
-        <label>Upload Image</label>
+        <label>Upload Image (optional)</label>
         <input type="file" name="image" onChange={handleChange} />
 
         <button onClick={handleSubmit}>Submit Complaint</button>
       </div>
 
       {/* TABLE */}
-      <div className="table-responsive">
-        <table className="table table-bordered">
+      <div className="card">
+        <h3>Submitted Complaints</h3>
+
+        <table>
           <thead>
             <tr>
               <th>Subject</th>
@@ -111,17 +116,13 @@ const Complaints = () => {
           <tbody>
             {complaints.length === 0 ? (
               <tr>
-                <td colSpan="3" className="text-center">
-                  No complaints found
-                </td>
+                <td colSpan="3">No complaints found</td>
               </tr>
             ) : (
               complaints.map((c, i) => (
                 <tr
                   key={i}
-                  className="clickable-row"
-                  data-bs-toggle="modal"
-                  data-bs-target="#complaintModal"
+                  style={{ cursor: "pointer" }}
                   onClick={() => setSelected(c)}
                 >
                   <td>{c.subject}</td>
@@ -134,49 +135,14 @@ const Complaints = () => {
         </table>
       </div>
 
-      {/* MODAL */}
-      <div className="modal fade" id="complaintModal" tabIndex="-1">
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Complaint Details</h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-
-            <div className="modal-body">
-              {selected && (
-                <>
-                  <p>
-                    <strong>Subject:</strong> {selected.subject}
-                  </p>
-                  <p>
-                    <strong>Date:</strong> {selected.date}
-                  </p>
-                  <p>
-                    <strong>Priority:</strong> {selected.priority}
-                  </p>
-                  <p>{selected.body}</p>
-
-                  {selected.image && (
-                    <img
-                      src={selected.image}
-                      alt="complaint"
-                      className="img-fluid rounded"
-                    />
-                  )}
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* DETAILS PANEL */}
+      <ComplaintDetails
+        selected={selected}
+        onClose={() => setSelected(null)}
+      />
     </div>
   );
 };
 
 export default Complaints;
+

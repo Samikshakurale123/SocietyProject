@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // for redirecting to login
-import "./ForgotPassword.css";
+import { useNavigate } from "react-router-dom";
+
 
 export default function ForgotPassword() {
   const navigate = useNavigate();
@@ -15,23 +15,24 @@ export default function ForgotPassword() {
   const [verified, setVerified] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [passwordChanged, setPasswordChanged] = useState(false); // track password change
+  const [passwordChanged, setPasswordChanged] = useState(false);
 
-  // HANDLE INPUT CHANGE
+  // Handle input change
   const handleChange = (e) => {
     setAnswers({ ...answers, [e.target.name]: e.target.value });
   };
 
-  // VERIFY SECURITY QUESTIONS
+  // Verify security answers
   const verifyAnswers = () => {
     const user = JSON.parse(localStorage.getItem("registeredUser"));
+
     if (!user) {
-      setError("❌ No registered user found");
+      setError("No registered user found");
       return;
     }
 
     if (!answers.securityA1 || !answers.securityA2 || !answers.securityA3) {
-      setError("❌ All security questions are required");
+      setError("All security questions are required");
       return;
     }
 
@@ -41,83 +42,75 @@ export default function ForgotPassword() {
       answers.securityA3.toLowerCase() === user.securityA3.toLowerCase();
 
     if (!match) {
-      setError("❌ Security answers are incorrect");
+      setError("Security answers are incorrect");
       return;
     }
 
     setVerified(true);
     setError("");
-    setSuccess("✅ Security questions verified. You can set a new password now.");
+    setSuccess("Security questions verified. Set a new password.");
   };
 
-  // CHANGE PASSWORD
+  // Change password
   const changePassword = () => {
     if (!newPassword) {
-      setError("❌ Please enter a new password");
+      setError("Please enter a new password");
       return;
     }
 
     if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(newPassword)) {
       setError(
-        "❌ Password must have 8 chars, 1 uppercase, 1 number & 1 symbol"
+        "Password must have at least 8 characters, 1 uppercase letter, 1 number and 1 symbol"
       );
       return;
     }
 
     const user = JSON.parse(localStorage.getItem("registeredUser"));
-    if (!user) {
-      setError("❌ No registered user found");
-      return;
-    }
-
     user.password = newPassword;
     localStorage.setItem("registeredUser", JSON.stringify(user));
 
-    setSuccess("✅ Password changed successfully!");
+    setSuccess("Password changed successfully");
     setError("");
-    setNewPassword("");
     setVerified(false);
+    setPasswordChanged(true);
+    setNewPassword("");
     setAnswers({ securityA1: "", securityA2: "", securityA3: "" });
-    setPasswordChanged(true); // show login button
   };
 
   return (
-    <div className="forgot-page">
-      <div className="forgot-card">
+    <div className="page-container">
+      <div className="card">
         <h2>Forgot Password</h2>
 
-        {error && <div className="error">{error}</div>}
-        {success && <div className="success">{success}</div>}
+        {error && <p className="error-text">{error}</p>}
+        {success && <p className="success-text">{success}</p>}
 
         {!passwordChanged ? (
           <>
             {!verified ? (
               <>
                 <input
-                  className="form-control mb-3"
                   placeholder="Favorite color?"
                   name="securityA1"
                   value={answers.securityA1}
                   onChange={handleChange}
-                  required
                 />
+
                 <input
-                  className="form-control mb-3"
-                  placeholder="Mother’s first name?"
+                  placeholder="Mother's first name?"
                   name="securityA2"
                   value={answers.securityA2}
                   onChange={handleChange}
-                  required
                 />
+
                 <input
-                  className="form-control mb-4"
                   placeholder="Birth city?"
                   name="securityA3"
                   value={answers.securityA3}
                   onChange={handleChange}
-                  required
                 />
-                <button className="btn-verify" onClick={verifyAnswers}>
+
+                <button onClick={verifyAnswers}>
                   Verify Answers
                 </button>
               </>
@@ -128,23 +121,18 @@ export default function ForgotPassword() {
                   placeholder="Enter new password"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  required
                 />
-                <button className="btn-change" onClick={changePassword}>
+
+                <button onClick={changePassword}>
                   Change Password
                 </button>
               </>
             )}
           </>
         ) : (
-          <div className="login-redirect">
-            <button
-              className="btn-login"
-              onClick={() => navigate("/login")}
-            >
-              Go to Login
-            </button>
-          </div>
+          <button onClick={() => navigate("/login")}>
+            Go to Login
+          </button>
         )}
       </div>
     </div>

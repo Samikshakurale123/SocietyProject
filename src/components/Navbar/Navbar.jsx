@@ -1,63 +1,112 @@
-import React, { useState } from "react";
-import "./Navbar.css";
-import { Link } from "react-router-dom";
-import Logo from "../../assets/logo/logo.jpg";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
+import logo from "../../assets/logo/logo.jpg";
 
-export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [showMenu, setShowMenu] = useState(false);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (user) {
+      setUsername(user.name);
+    } else {
+      setUsername("");
+    }
+  }, [isLoggedIn]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("loggedInUser");
+    setIsLoggedIn(false);
+    navigate("/login");
   };
 
   return (
-    <header className="navbar_header">
-      <div className="navbar_container">
-        {/* Logo */}
-        <div className="navbar_brand">
-          <img src={Logo} alt="Logo" />
-          <span>Kumar Varsh Apartment</span>
-        </div>
+    <nav className="navbar navbar-expand-lg custom-navbar">
+      <div className="container-fluid">
+        
+       {/* Left side logo */}
+      <Link className="navbar-brand d-flex align-items-center" to="/">
+        <img
+          src={logo}
+          alt="Kumar Varsh Logo"
+          className="navbar-logo me-2"
+        />
+        <span className="brand-name">Kumar Varsh</span>
+      </Link>
 
-        {/* Hamburger Icon */}
-        <div
-          className={`navbar_toggle ${menuOpen ? "open" : ""}`}
-          onClick={toggleMenu}
+
+
+        {/* Toggle button for mobile */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
         >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-        {/* Menu */}
-        <ul className={`navbar_menu ${menuOpen ? "open" : ""}`}>
-          <li>
-            <Link to="/" onClick={() => setMenuOpen(false)}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/About" onClick={() => setMenuOpen(false)}>
-              About Us
-            </Link>
-          </li>
-          <li>
-            <Link to="/maintenance" onClick={() => setMenuOpen(false)}>
-              Maintenance
-            </Link>
-          </li>
-          <li>
-            <Link to="/complaint" onClick={() => setMenuOpen(false)}>
-              Complaint
-            </Link>
-          </li>
-          <li>
-            <Link to="/login" onClick={() => setMenuOpen(false)}>
-              Login
-            </Link>
-          </li>
-        </ul>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto align-items-center">
+
+            {/* COMMON */}
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
+
+            {!isLoggedIn ? (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/about">About Us</Link>
+                </li>
+
+                <li className="nav-item ms-3">
+                  <Link className="btn btn-primary btn-sm px-4" to="/login">
+                    Login
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/maintenance">Maintenance</Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link" to="/complaint">Complaints</Link>
+                </li>
+
+                {/* User Icon */}
+                <li className="nav-item position-relative ms-3">
+                  <FaUserCircle
+                    size={26}
+                    className="user-icon"
+                    onClick={() => setShowMenu(!showMenu)}
+                  />
+
+                  {showMenu && (
+                    <div className="user-dropdown">
+                      <p className="username">{username}</p>
+                      <button
+                        className="btn btn-outline-danger btn-sm w-100"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  )}
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
       </div>
-    </header>
+    </nav>
   );
-}
+};
+
+export default Navbar;
