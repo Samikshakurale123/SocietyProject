@@ -2,28 +2,31 @@ import { useEffect, useState } from "react";
 import ComplaintDetails from "./ComplaintDetails";
 
 const Complaints = () => {
-  const [complaint, setComplaint] = useState({
+  const emptyForm = {
     subject: "",
     body: "",
     date: "",
     priority: "",
-    image: ""
-  });
+    image: "",
+    progress: "Pending"
+  };
 
+  const [complaint, setComplaint] = useState(emptyForm);
   const [complaints, setComplaints] = useState([]);
-  const [selected, setSelected] = useState(null);
+  const [editIndex, setEditIndex] = useState(null);
+  const [message, setMessage] = useState("");
 
-  // Load complaints from localStorage
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("complaints")) || [];
     setComplaints(saved);
   }, []);
 
-  // Handle form input
+  const today = new Date().toISOString().split("T")[0];
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
 
-    if (name === "image" && files && files[0]) {
+    if (name === "image" && files[0]) {
       const reader = new FileReader();
       reader.onload = () =>
         setComplaint({ ...complaint, image: reader.result });
@@ -33,113 +36,151 @@ const Complaints = () => {
     }
   };
 
-  // Submit complaint
   const handleSubmit = () => {
-    if (!complaint.subject || !complaint.body || !complaint.date) {
-      alert("Please fill all required fields");
+    if (
+      complaint.subject.length < 3 ||
+      complaint.body.length < 5 ||
+      !complaint.date ||
+      !complaint.priority
+    ) {
+      setMessage("Please fill all mandatory fields correctly");
       return;
     }
 
-    const updated = [...complaints, complaint];
+    let updated;
+
+    if (editIndex !== null) {
+      updated = [...complaints];
+      updated[editIndex] = complaint;
+      setEditIndex(null);
+      setMessage("Complaint updated successfully");
+    } else {
+      updated = [...complaints, complaint];
+      setMessage("Complaint submitted successfully");
+    }
+
     localStorage.setItem("complaints", JSON.stringify(updated));
     setComplaints(updated);
+    setComplaint(emptyForm);
 
-    setComplaint({
-      subject: "",
-      body: "",
-      date: "",
-      priority: "",
-      image: ""
-    });
+    setTimeout(() => setMessage(""), 3000);
+  };
 
-    alert("Complaint submitted successfully");
+  const handleEdit = (index) => {
+    setComplaint(complaints[index]);
+    setEditIndex(index);
+  };
+
+  const handleDelete = (index) => {
+    if (!window.confirm("Are you sure you want to delete this complaint?"))
+      return;
+
+    const updated = complaints.filter((_, i) => i !== index);
+    localStorage.setItem("complaints", JSON.stringify(updated));
+    setComplaints(updated);
+  };
+
+  const priorityBadge = (p) => {
+    return `priority-badge ${p.toLowerCase()}`;
   };
 
   return (
-    <div className="page-container">
-      <h2>Raise a Complaint</h2>
+    <div className="complaints-page">
+      <h2 className="page-title">Raise a Complaint</h2>
 
-      {/* FORM */}
-      <div className="card">
-        <label>Subject</label>
+      <div className="complaint-card">
+        <label>Subject *</label>
         <input
           name="subject"
           value={complaint.subject}
           onChange={handleChange}
         />
 
-        <label>Description</label>
+        <label>Description *</label>
         <textarea
           name="body"
           value={complaint.body}
           onChange={handleChange}
         />
 
-        <label>Date</label>
+        <label>Date *</label>
         <input
           type="date"
           name="date"
+          min={today}
           value={complaint.date}
           onChange={handleChange}
         />
 
-        <label>Priority</label>
+        <label>Priority *</label>
         <select
           name="priority"
           value={complaint.priority}
           onChange={handleChange}
         >
-          <option value="">Select</option>
-          <option>High</option>
-          <option>Medium</option>
-          <option>Low</option>
+          <option value="">Select Priority</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
         </select>
 
-        <label>Upload Image (optional)</label>
+        <label>Upload Image</label>
         <input type="file" name="image" onChange={handleChange} />
 
-        <button onClick={handleSubmit}>Submit Complaint</button>
+        <button className="submit-btn" onClick={handleSubmit}>
+          {editIndex !== null ? "Update Complaint" : "Submit Complaint"}
+        </button>
+
+        {message && <p className="flash-message">{message}</p>}
       </div>
 
-      {/* TABLE */}
-      <div className="card">
-        <h3>Submitted Complaints</h3>
-
-        <table>
+      <div className="table-responsive">
+        <table className="table table-bordered">
           <thead>
             <tr>
               <th>Subject</th>
               <th>Date</th>
               <th>Priority</th>
+              <th>Progress</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {complaints.length === 0 ? (
               <tr>
-                <td colSpan="3">No complaints found</td>
+                <td colSpan="5">No complaints found</td>
               </tr>
             ) : (
               complaints.map((c, i) => (
-                <tr
-                  key={i}
-                  style={{ cursor: "pointer" }}
-                  onClick={() => setSelected(c)}
-                >
+                <tr key={i}>
                   <td>{c.subject}</td>
                   <td>{c.date}</td>
-                  <td>{c.priority}</td>
+                  <td>
+                    <span className={priorityBadge(c.priority)}>
+                      {c.priority}
+                    </span>
+                  </td>
+                  <td>{c.progress}</td>
+                  <td>
+                    <button
+                      className="action-btn edit"
+                      onClick={() => handleEdit(i)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="action-btn delete"
+                      onClick={() => handleDelete(i)}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               ))
             )}
           </tbody>
         </table>
       </div>
-
-      {/* DETAILS PANEL */}
-      <ComplaintDetails
-        selected={selected}
-        onClose={() => setSelected(null)}
-      />
     </div>
   );
 };
