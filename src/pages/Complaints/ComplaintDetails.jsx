@@ -4,8 +4,8 @@ const ComplaintDetails = ({ selected, onClose }) => {
   if (!selected) return null;
 
   return (
-    <div style={{ marginTop: "30px", borderTop: "1px solid #e5e7eb", paddingTop: "20px" }}>
-      <h3>Complaint Details</h3>
+    <div className="complaint-details-card fade-up">
+      <h3 className="mb-3">Complaint Details</h3>
 
       <p>
         <strong>Subject:</strong> {selected.subject}
@@ -16,32 +16,32 @@ const ComplaintDetails = ({ selected, onClose }) => {
       </p>
 
       <p>
-        <strong>Priority:</strong> {selected.priority}
+        <strong>Priority:</strong>{" "}
+        <span className={`priority-badge ${selected.priority.toLowerCase()}`}>
+          {selected.priority}
+        </span>
       </p>
 
       <p>
-        <strong>Description:</strong><br />
+        <strong>Description:</strong>
+        <br />
         {selected.body}
       </p>
 
       {selected.image && (
-        <div style={{ marginTop: "10px" }}>
-          <img
-            src={selected.image}
-            alt="complaint"
-            style={{ maxWidth: "300px", border: "1px solid #d1d5db" }}
-          />
+        <div className="complaint-image">
+          <img src={selected.image} alt="complaint" />
         </div>
       )}
 
-      <button
-        style={{ marginTop: "16px" }}
-        onClick={onClose}
-      >
-        Close
-      </button>
+      <div className="text-end mt-3">
+        <button className="btn btn-primary" onClick={onClose}>
+          Close
+        </button>
+      </div>
     </div>
   );
 };
 
 export default ComplaintDetails;
+

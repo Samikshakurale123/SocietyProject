@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 export default function ForgotPassword() {
   const navigate = useNavigate();
 
+  const [email, setEmail] = useState("");
   const [answers, setAnswers] = useState({
     securityA1: "",
     securityA2: "",
@@ -13,126 +13,136 @@ export default function ForgotPassword() {
 
   const [newPassword, setNewPassword] = useState("");
   const [verified, setVerified] = useState(false);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const [passwordChanged, setPasswordChanged] = useState(false);
+  const [message, setMessage] = useState({ text: "", type: "" });
+  const [foundUserIndex, setFoundUserIndex] = useState(null);
 
-  // Handle input change
-  const handleChange = (e) => {
+  const handleAnswerChange = (e) => {
     setAnswers({ ...answers, [e.target.name]: e.target.value });
   };
 
-  // Verify security answers
+  /* ================= VERIFY USER ================= */
   const verifyAnswers = () => {
-    const user = JSON.parse(localStorage.getItem("registeredUser"));
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    if (!user) {
-      setError("No registered user found");
+    const index = users.findIndex((u) => u.email === email);
+
+    if (index === -1) {
+      setMessage({ text: "User not found with this email", type: "error" });
       return;
     }
 
-    if (!answers.securityA1 || !answers.securityA2 || !answers.securityA3) {
-      setError("All security questions are required");
+    const user = users[index];
+
+    if (
+      answers.securityA1.toLowerCase() !== user.securityA1.toLowerCase() ||
+      answers.securityA2.toLowerCase() !== user.securityA2.toLowerCase() ||
+      answers.securityA3.toLowerCase() !== user.securityA3.toLowerCase()
+    ) {
+      setMessage({ text: "Security answers do not match", type: "error" });
       return;
     }
 
-    const match =
-      answers.securityA1.toLowerCase() === user.securityA1.toLowerCase() &&
-      answers.securityA2.toLowerCase() === user.securityA2.toLowerCase() &&
-      answers.securityA3.toLowerCase() === user.securityA3.toLowerCase();
-
-    if (!match) {
-      setError("Security answers are incorrect");
-      return;
-    }
-
+    setFoundUserIndex(index);
     setVerified(true);
-    setError("");
-    setSuccess("Security questions verified. Set a new password.");
+    setMessage({
+      text: "Security verified. Please set a new password.",
+      type: "success",
+    });
   };
 
-  // Change password
+  /* ================= CHANGE PASSWORD ================= */
   const changePassword = () => {
-    if (!newPassword) {
-      setError("Please enter a new password");
+    if (
+      !/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(newPassword)
+    ) {
+      setMessage({
+        text:
+          "Password must be 8+ chars with 1 uppercase, 1 number & 1 symbol",
+        type: "error",
+      });
       return;
     }
 
-    if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(newPassword)) {
-      setError(
-        "Password must have at least 8 characters, 1 uppercase letter, 1 number and 1 symbol"
-      );
-      return;
-    }
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    users[foundUserIndex].password = newPassword;
 
-    const user = JSON.parse(localStorage.getItem("registeredUser"));
-    user.password = newPassword;
-    localStorage.setItem("registeredUser", JSON.stringify(user));
+    localStorage.setItem("users", JSON.stringify(users));
 
-    setSuccess("Password changed successfully");
-    setError("");
-    setVerified(false);
-    setPasswordChanged(true);
-    setNewPassword("");
-    setAnswers({ securityA1: "", securityA2: "", securityA3: "" });
+    setMessage({
+      text: "Password changed successfully. Redirecting to login...",
+      type: "success",
+    });
+
+    setTimeout(() => navigate("/login"), 2500);
   };
 
   return (
     <div className="page-container">
-      <div className="card">
-        <h2>Forgot Password</h2>
+      <div className="auth-card">
+        <h2 className="text-center mb-3">Forgot Password</h2>
 
-        {error && <p className="error-text">{error}</p>}
-        {success && <p className="success-text">{success}</p>}
+        {message.text && (
+          <div className={`message-box ${message.type}`}>
+            {message.text}
+          </div>
+        )}
 
-        {!passwordChanged ? (
+        {!verified ? (
           <>
-            {!verified ? (
-              <>
-                <input
-                  placeholder="Favorite color?"
-                  name="securityA1"
-                  value={answers.securityA1}
-                  onChange={handleChange}
-                />
+            <label>Email</label>
+            <input
+              className="form-control"
+              placeholder="Enter registered email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-                <input
-                  placeholder="Mother's first name?"
-                  name="securityA2"
-                  value={answers.securityA2}
-                  onChange={handleChange}
-                />
+            <label>Favorite color?</label>
+            <input
+              className="form-control"
+              name="securityA1"
+              onChange={handleAnswerChange}
+            />
 
-                <input
-                  placeholder="Birth city?"
-                  name="securityA3"
-                  value={answers.securityA3}
-                  onChange={handleChange}
-                />
+            <label>Mother’s first name?</label>
+            <input
+              className="form-control"
+              name="securityA2"
+              onChange={handleAnswerChange}
+            />
 
-                <button onClick={verifyAnswers}>
-                  Verify Answers
-                </button>
-              </>
-            ) : (
-              <>
-                <input
-                  type="password"
-                  placeholder="Enter new password"
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                />
+            <label>Birth city?</label>
+            <input
+              className="form-control"
+              name="securityA3"
+              onChange={handleAnswerChange}
+            />
 
-                <button onClick={changePassword}>
-                  Change Password
-                </button>
-              </>
-            )}
+            <button
+              className="btn btn-submit w-100 mt-3"
+              onClick={verifyAnswers}
+            >
+              Verify Answers
+            </button>
           </>
         ) : (
-          <button onClick={() => navigate("/login")}>
-            Go to Login
-          </button>
+          <>
+            <label>New Password</label>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Enter new password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+
+            <button
+              className="btn btn-submit w-100 mt-3"
+              onClick={changePassword}
+            >
+              Change Password
+            </button>
+          </>
         )}
       </div>
     </div>

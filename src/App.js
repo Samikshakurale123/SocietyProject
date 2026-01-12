@@ -9,6 +9,8 @@ import About from "./pages/About/About";
 import Maintenance from "./pages/Maintenance/Maintenance";
 import Complaint from "./pages/Complaints/Complaints";
 import Footer from "./components/Footer/Footer";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+
 
 import "./App.css";
 
@@ -30,6 +32,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/ForgotPassword" element={<ForgotPassword />} />
 
         {/* Protected Routes */}
         <Route
