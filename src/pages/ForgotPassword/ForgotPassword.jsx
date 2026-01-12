@@ -12,6 +12,7 @@ export default function ForgotPassword() {
   });
 
   const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState(""); // ✅ NEW
   const [verified, setVerified] = useState(false);
   const [message, setMessage] = useState({ text: "", type: "" });
   const [foundUserIndex, setFoundUserIndex] = useState(null);
@@ -58,6 +59,14 @@ export default function ForgotPassword() {
       setMessage({
         text:
           "Password must be 8+ chars with 1 uppercase, 1 number & 1 symbol",
+        type: "error",
+      });
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      setMessage({
+        text: "Passwords do not match",
         type: "error",
       });
       return;
@@ -134,6 +143,15 @@ export default function ForgotPassword() {
               placeholder="Enter new password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
+            />
+
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Confirm new password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
 
             <button
