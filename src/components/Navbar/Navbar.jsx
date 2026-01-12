@@ -1,46 +1,51 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import logo from "../../assets/logo/logo.jpg";
-
 
 const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [showMenu, setShowMenu] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (user) {
-      setUsername(user.name);
+    if (user?.firstName) {
+      setUsername(user.firstName);
     } else {
       setUsername("");
     }
   }, [isLoggedIn]);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
     setIsLoggedIn(false);
+    setShowMenu(false); // ✅ close dropdown
     navigate("/login");
   };
 
   return (
     <nav className="navbar navbar-expand-lg custom-navbar">
       <div className="container-fluid">
-        
-       {/* Left side logo */}
-      <Link className="navbar-brand d-flex align-items-center" to="/">
-        <img
-          src={logo}
-          alt="Kumar Varsh Logo"
-          className="navbar-logo me-2"
-        />
-        <span className="brand-name">Kumar Varsh</span>
-      </Link>
+        {/* Logo */}
+        <Link className="navbar-brand d-flex align-items-center" to="/">
+          <img src={logo} alt="Logo" className="navbar-logo me-2" />
+          <span className="brand-name">Kumar Varsh</span>
+        </Link>
 
-
-
-        {/* Toggle button for mobile */}
         <button
           className="navbar-toggler"
           type="button"
@@ -52,8 +57,6 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto align-items-center">
-
-            {/* COMMON */}
             <li className="nav-item">
               <Link className="nav-link" to="/">Home</Link>
             </li>
@@ -80,8 +83,8 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
                   <Link className="nav-link" to="/complaint">Complaints</Link>
                 </li>
 
-                {/* User Icon */}
-                <li className="nav-item position-relative ms-3">
+                {/* User icon */}
+                <li className="nav-item position-relative ms-3" ref={dropdownRef}>
                   <FaUserCircle
                     size={26}
                     className="user-icon"
@@ -90,7 +93,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
 
                   {showMenu && (
                     <div className="user-dropdown">
-                      <p className="username">{username}</p>
+                      <p className="username">Hi, {username}</p>
                       <button
                         className="btn btn-outline-danger btn-sm w-100"
                         onClick={handleLogout}

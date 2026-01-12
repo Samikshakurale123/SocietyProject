@@ -32,7 +32,7 @@ function Login({ setIsLoggedIn }) {
     setIsLoggedIn(true);
     setMessage({ text: "Login successful!", type: "success" });
 
-    setTimeout(() => navigate("/maintenance"), 800);
+    setTimeout(() => navigate("/"), 800);
   };
 
   // Add fade-up animation on mount
