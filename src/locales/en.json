@@ -1,0 +1,52 @@
+{
+  "appName": "Society Project",
+  "raiseComplaint": "Raise a Complaint",
+
+  "navbar": {
+    "home": "Home",
+    "about": "About Us",
+    "maintenance": "Maintenance",
+    "complaints": "Complaints",
+    "login": "Login",
+    "logout": "Logout",
+    "welcome": "Hi"
+  },
+
+  "home": {
+    "title": "Welcome to Society Management System",
+    "subtitle": "Manage complaints, maintenance payments, and society activities efficiently",
+    "card1": {
+      "title": "Easy Complaint Management",
+      "desc": "Raise and track complaints with real-time updates"
+    },
+    "card2": {
+      "title": "Maintenance Payments",
+      "desc": "View and manage monthly maintenance with downloadable receipts"
+    },
+    "card3": {
+      "title": "Secure & Reliable",
+      "desc": "Your data is safe and accessible anytime"
+    }
+  },
+
+  "complaint": {
+    "title": "Raise a Complaint",
+    "subject": "Subject",
+    "description": "Description",
+    "date": "Date",
+    "priority": "Priority",
+    "image": "Upload Image",
+    "submit": "Submit Complaint",
+    "update": "Update Complaint",
+    "success": "Complaint submitted successfully",
+    "updateSuccess": "Complaint updated successfully",
+    "validation": "Please fill all required fields correctly",
+    "listTitle": "Your Complaints",
+    "noData": "No complaints found",
+    "status": "Status",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete"
+  }
+}
+
