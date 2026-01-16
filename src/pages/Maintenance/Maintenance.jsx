@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { generateMaintenancePDF } from "../../utils/generateMaintenancePDF";
 
 const Maintenance = () => {
+  const { t } = useTranslation();
+
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [monthsCount, setMonthsCount] = useState("");
@@ -18,65 +21,55 @@ const Maintenance = () => {
 
   const handlePay = () => {
     if (!month || !year || !monthsCount) {
-      alert("Please fill all details");
+      alert(t("Please fill all details"));
       return;
     }
     setPaid(true);
-  };
-
-  const handleDownload = () => {
-    generateMaintenancePDF(month, year, monthsCount, amount);
-    setTimeout(() => setShowSuccess(true), 300);
-  };
-
-  const resetForm = () => {
-    setMonth("");
-    setYear("");
-    setMonthsCount("");
-    setAmount(0);
-    setPaid(false);
-    setShowSuccess(false);
   };
 
   return (
     <>
       <div className={`maintenance-page ${showSuccess ? "blur-bg" : ""}`}>
         <div className="maintenance-card">
-          <h2>Maintenance Payment</h2>
+          <h2>{t("Maintenance Payment")}</h2>
 
-          <label>Month <span style={{ color: "red" }}>*</span></label>
+          <label>{t("Month")} *</label>
           <select value={month} onChange={(e) => setMonth(e.target.value)}>
-            <option value="">Select Month</option>
+            <option value="">{t("Select Month")}</option>
             {[
               "January","February","March","April","May","June",
               "July","August","September","October","November","December"
             ].map(m => <option key={m}>{m}</option>)}
           </select>
 
-          <label>Year <span style={{ color: "red" }}>*</span></label>
+          <label>{t("Year")} *</label>
           <input
             type="number"
             value={year}
-            placeholder="Enter Year"
+            placeholder={t("Enter Year")}
             onChange={(e) => setYear(e.target.value)}
           />
 
-          <label>Number of Months <span style={{ color: "red" }}>*</span></label>
+          <label>{t("Number of Months")} *</label>
           <select onChange={(e) => calculateAmount(Number(e.target.value))}>
             <option value="">Select</option>
             {[...Array(12)].map((_, i) => (
-              <option key={i} value={i + 1}>{i + 1} Month{i + 1 > 1 && "s"}</option>
+              <option key={i} value={i + 1}>
+                {i + 1}
+              </option>
             ))}
           </select>
 
-          <label>Total Amount</label>
+          <label>{t("Total Amount")}</label>
           <input value={`₹ ${amount}`} disabled />
 
           {!paid ? (
-            <button className="pay-btn" onClick={handlePay}>Pay Now</button>
+            <button className="pay-btn" onClick={handlePay}>
+              {t("Pay Now")}
+            </button>
           ) : (
-            <button className="download-btn" onClick={handleDownload}>
-              Download Receipt (PDF)
+            <button className="download-btn" onClick={() => setShowSuccess(true)}>
+              {t("Download Receipt")}
             </button>
           )}
         </div>
@@ -85,8 +78,10 @@ const Maintenance = () => {
       {showSuccess && (
         <div className="popup-overlay">
           <div className="popup-card">
-            <h3>Payment Successful</h3>
-            <button onClick={resetForm}>OK</button>
+            <h3>{t("Payment Successful")}</h3>
+            <button onClick={() => window.location.reload()}>
+              {t("OK")}
+            </button>
           </div>
         </div>
       )}

@@ -1,42 +1,45 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const ComplaintDetails = ({ selected, onClose }) => {
+  const { t } = useTranslation("complaintDetails");
+
   if (!selected) return null;
 
   return (
     <div className="complaint-details-card fade-up">
-      <h3 className="mb-3">Complaint Details</h3>
+      <h3 className="mb-3">{t("title")}</h3>
 
       <p>
-        <strong>Subject:</strong> {selected.subject}
+        <strong>{t("subject")}:</strong> {selected.subject}
       </p>
 
       <p>
-        <strong>Date:</strong> {selected.date}
+        <strong>{t("date")}:</strong> {selected.date}
       </p>
 
       <p>
-        <strong>Priority:</strong>{" "}
+        <strong>{t("priority")}:</strong>{" "}
         <span className={`priority-badge ${selected.priority.toLowerCase()}`}>
           {selected.priority}
         </span>
       </p>
 
       <p>
-        <strong>Description:</strong>
+        <strong>{t("description")}:</strong>
         <br />
         {selected.body}
       </p>
 
       {selected.image && (
         <div className="complaint-image">
-          <img src={selected.image} alt="complaint" />
+          <img src={selected.image} alt={t("imageAlt")} />
         </div>
       )}
 
       <div className="text-end mt-3">
         <button className="btn btn-primary" onClick={onClose}>
-          Close
+          {t("close")}
         </button>
       </div>
     </div>
@@ -44,4 +47,3 @@ const ComplaintDetails = ({ selected, onClose }) => {
 };
 
 export default ComplaintDetails;
-

@@ -1,52 +1,197 @@
 {
-  "appName": "Society Project",
-  "raiseComplaint": "Raise a Complaint",
+  "common": {
+    "Home": "Home",
+    "About Us": "About Us",
+    "Maintenance": "Maintenance",
+    "Complaints": "Complaints",
+    "Login": "Login",
+    "Logout": "Logout",
+    "Register": "Register",
+    "Hi": "Hi",
 
-  "navbar": {
-    "home": "Home",
-    "about": "About Us",
-    "maintenance": "Maintenance",
-    "complaints": "Complaints",
-    "login": "Login",
-    "logout": "Logout",
-    "welcome": "Hi"
+    "welcome": "Welcome to",
+    "Welcome to Kumar Varsh": "Welcome to Kumar Varsh",
+    "subtitle": "A simple and reliable platform to manage maintenance, track complaints, and ensure smooth community living.",
+
+    "features": "Our Features",
+    "Our Features": "Our Features",
+
+    "maintenanceTracking": "Maintenance Tracking",
+    "Maintenance Tracking": "Maintenance Tracking",
+    "maintenanceDesc": "Easily manage and track maintenance payments with full transparency.",
+    "Easily manage and track maintenance payments with full transparency.":
+      "Easily manage and track maintenance payments with full transparency.",
+
+    "complaintManagement": "Complaint Management",
+    "Complaint Management": "Complaint Management",
+    "complaintDesc": "Raise and monitor complaints with quick resolution support.",
+    "Raise and monitor complaints with quick resolution support.":
+      "Raise and monitor complaints with quick resolution support.",
+
+    "secureAccess": "Secure Access",
+    "Secure Access": "Secure Access",
+    "secureDesc": "Safe login system ensuring privacy and secure access for residents.",
+    "Safe login system ensuring privacy and secure access for residents.":
+      "Safe login system ensuring privacy and secure access for residents.",
+
+    "Residents": "Residents",
+    "Support": "Support",
+    "Complaint Resolution": "Complaint Resolution",
+
+    "Quick Links": "Quick Links",
+    "A simple and reliable platform for managing maintenance and complaints efficiently.":
+      "A simple and reliable platform for managing maintenance and complaints efficiently.",
+    "All rights reserved.": "All rights reserved.",
+
+    "Login successful!": "Login successful!",
+    "Incorrect password. Please try again.": "Incorrect password. Please try again.",
+    "User not registered. Please register first.":
+      "User not registered. Please register first.",
+
+    "Please fill all details": "Please fill all details",
+    "Payment Successful": "Payment Successful",
+    "OK": "OK"
   },
 
-  "home": {
-    "title": "Welcome to Society Management System",
-    "subtitle": "Manage complaints, maintenance payments, and society activities efficiently",
-    "card1": {
-      "title": "Easy Complaint Management",
-      "desc": "Raise and track complaints with real-time updates"
-    },
-    "card2": {
-      "title": "Maintenance Payments",
-      "desc": "View and manage monthly maintenance with downloadable receipts"
-    },
-    "card3": {
-      "title": "Secure & Reliable",
-      "desc": "Your data is safe and accessible anytime"
-    }
+  "maintenance": {
+    "Maintenance Payment": "Maintenance Payment",
+    "Month": "Month",
+    "Select Month": "Select Month",
+    "Year": "Year",
+    "Enter Year": "Enter Year",
+    "Number of Months": "Number of Months",
+    "Total Amount": "Total Amount",
+    "Pay Now": "Pay Now",
+    "Download Receipt (PDF)": "Download Receipt (PDF)",
+    "Download Receipt": "Download Receipt (PDF)"
   },
 
-  "complaint": {
-    "title": "Raise a Complaint",
+  "login": {
+    "Email": "Email",
+    "Password": "Password",
+    "Enter email": "Enter email",
+    "Enter password": "Enter password",
+    "Email is required": "Email is required",
+    "Password is required": "Password is required",
+    "Forgot password?": "Forgot password?",
+    "Don’t have an account?": "Don’t have an account?"
+  },
+
+  "register": {
+
+  "Register": "Register",
+  "First Name": "First Name",
+  "Last Name": "Last Name",
+  "Email": "Email",
+  "Mobile": "Mobile",
+  "Password": "Password",
+  "Confirm Password": "Confirm Password",
+  "Date of Birth": "Date of Birth",
+  "Address": "Address",
+  "Wing": "Wing",
+  "Flat No": "Flat No",
+  "Pincode": "Pincode",
+  "Security Questions": "Security Questions",
+  "Favorite color?": "Favorite color?",
+  "Mother’s first name?": "Mother’s first name?",
+  "Birth city?": "Birth city?",
+  "Register Button": "Register",
+  "This field is required": "This field is required",
+  "Enter a valid email": "Enter a valid email",
+  "Enter valid 10-digit mobile": "Enter valid 10-digit mobile",
+  "Enter valid 6-digit pincode": "Enter valid 6-digit pincode",
+  "Future date not allowed": "Future date not allowed",
+  "Min 8 chars, 1 uppercase, 1 number & 1 symbol": "Min 8 chars, 1 uppercase, 1 number & 1 symbol",
+  "Passwords do not match": "Passwords do not match",
+  "User already registered": "User already registered",
+  "Registration successful! Redirecting to login page...": "Registration successful! Redirecting to login page...",
+  "Please fix the errors above.": "Please fix the errors above."
+
+  },
+
+  "forgotPassword": {
+    "title": "Forgot Password",
+    "email": "Email",
+    "emailPlaceholder": "Enter registered email",
+    "favoriteColor": "Favorite color?",
+    "motherName": "Mother’s first name?",
+    "birthCity": "Birth city?",
+    "verifyAnswers": "Verify Answers",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "changePassword": "Change Password",
+
+    "userNotFound": "User not found with this email",
+    "securityMismatch": "Security answers do not match",
+    "securityVerified": "Security verified. Please set a new password.",
+    "passwordRule":
+      "Password must be 8+ chars with 1 uppercase, 1 number & 1 symbol",
+    "passwordMismatch": "Passwords do not match",
+    "passwordChanged":
+      "Password changed successfully. Redirecting to login..."
+  },
+
+  "complaintDetails": {
+    "title": "Complaint Details",
     "subject": "Subject",
-    "description": "Description",
     "date": "Date",
     "priority": "Priority",
-    "image": "Upload Image",
-    "submit": "Submit Complaint",
-    "update": "Update Complaint",
-    "success": "Complaint submitted successfully",
-    "updateSuccess": "Complaint updated successfully",
-    "validation": "Please fill all required fields correctly",
-    "listTitle": "Your Complaints",
-    "noData": "No complaints found",
-    "status": "Status",
-    "actions": "Actions",
-    "edit": "Edit",
-    "delete": "Delete"
+    "description": "Description",
+    "close": "Close",
+    "imageAlt": "Complaint image"
+  },
+
+  "about": {
+    "title": "About Kumar Varsh Apartment",
+    "intro":
+      "Kumar Varsh Apartment offers modern, secure, and comfortable living designed for families seeking a peaceful residential environment.",
+
+    "overviewTitle": "Project Overview",
+    "projectTypeLabel": "Project Type",
+    "projectType": "Residential Apartment",
+    "floorsLabel": "Total Floors",
+    "floors": "Ground + 5 Floors",
+    "unitsLabel": "Total Units",
+    "units": "40 Apartments",
+    "typesLabel": "Apartment Types",
+    "types": "1 BHK / 2 BHK / 3 BHK",
+    "statusLabel": "Construction Status",
+    "status": "Completed",
+    "completionLabel": "Completion Date",
+    "completion": "March 2025",
+
+    "amenitiesTitle": "Amenities & Features",
+    "amenities": [
+      "Spacious and well-ventilated rooms",
+      "Modern kitchen and bathrooms",
+      "24/7 security",
+      "Lift facility",
+      "Power backup",
+      "Dedicated parking",
+      "Continuous water supply",
+      "Fire safety systems"
+    ],
+
+    "locationTitle": "Location Advantages",
+    "locationDesc":
+      "The apartment is strategically located with easy access to schools, hospitals, shopping centers, and public transport. The neighborhood is peaceful and secure, ideal for families.",
+
+    "contactTitle": "Contact Information",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "addressLabel": "Address",
+
+    "address": {
+      "line1": "Kumar Varsh Apartment",
+      "line2": "Main Road, Near Landmark",
+      "line3": "City, State, ZIP Code"
+    },
+
+    "mapTitle": "Location Map"
   }
 }
+
+
+
+
 
