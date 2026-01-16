@@ -5,8 +5,8 @@ import { generateMaintenancePDF } from "../../utils/generateMaintenancePDF";
 const Maintenance = () => {
   const { t } = useTranslation();
 
-  // 👉 States
-  const [month, setMonth] = useState("");          // store INDEX (0–11)
+  // ✅ States
+  const [monthIndex, setMonthIndex] = useState("");
   const [year, setYear] = useState("");
   const [monthsCount, setMonthsCount] = useState("");
   const [amount, setAmount] = useState(0);
@@ -15,42 +15,44 @@ const Maintenance = () => {
 
   const monthlyCharge = 2200;
 
-  // 👉 Get translated months ARRAY
+  // ✅ Translated months array
   const months = t("months", { returnObjects: true });
 
-  // 👉 Calculate amount
+  // ✅ Calculate amount
   const calculateAmount = (count) => {
     setMonthsCount(count);
     setAmount(count * monthlyCharge);
   };
 
-  // 👉 Pay handler
+  // ✅ Pay button
   const handlePay = () => {
-    if (month === "" || !year || !monthsCount) {
+    if (monthIndex === "" || !year || !monthsCount) {
       alert(t("maintenance.validation"));
       return;
     }
     setPaid(true);
   };
 
-  // 👉 Download PDF
+  // ✅ Download PDF
   const handleDownload = () => {
-    const selectedMonthName =
-      month !== "" && Array.isArray(months) ? months[month] : "";
+    const selectedMonth =
+      Array.isArray(months) && monthIndex !== ""
+        ? months[monthIndex]
+        : "";
 
     generateMaintenancePDF(
-      selectedMonthName,
+      selectedMonth,
       year,
       monthsCount,
       amount
     );
 
-    setTimeout(() => setShowSuccess(true), 300);
+    setShowSuccess(true);
   };
 
-  // 👉 Reset
+  // ✅ Reset
   const resetForm = () => {
-    setMonth("");
+    setMonthIndex("");
     setYear("");
     setMonthsCount("");
     setAmount(0);
@@ -69,16 +71,13 @@ const Maintenance = () => {
             {t("maintenance.month")} <span style={{ color: "red" }}>*</span>
           </label>
           <select
-            value={month}
-            onChange={(e) => setMonth(e.target.value)}
+            value={monthIndex}
+            onChange={(e) => setMonthIndex(e.target.value)}
           >
-            <option value="">
-              {t("maintenance.selectMonth")}
-            </option>
-
+            <option value="">{t("maintenance.selectMonth")}</option>
             {Array.isArray(months) &&
-              months.map((m, index) => (
-                <option key={index} value={index}>
+              months.map((m, i) => (
+                <option key={i} value={i}>
                   {m}
                 </option>
               ))}
@@ -95,7 +94,7 @@ const Maintenance = () => {
             onChange={(e) => setYear(e.target.value)}
           />
 
-          {/* Number of months */}
+          {/* Number of Months */}
           <label>
             {t("maintenance.monthsCount")}{" "}
             <span style={{ color: "red" }}>*</span>
@@ -104,10 +103,7 @@ const Maintenance = () => {
             value={monthsCount}
             onChange={(e) => calculateAmount(Number(e.target.value))}
           >
-            <option value="">
-              {t("maintenance.select")}
-            </option>
-
+            <option value="">{t("maintenance.select")}</option>
             {[...Array(12)].map((_, i) => (
               <option key={i} value={i + 1}>
                 {i + 1}

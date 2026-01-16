@@ -15,4 +15,6 @@ export default function LanguageSwitcher() {
       <option value="mr">मराठी</option>
     </select>
   );
+ HEAD
 }
+ a88120abffe9888408b73cd077c05d2ce2f2a810

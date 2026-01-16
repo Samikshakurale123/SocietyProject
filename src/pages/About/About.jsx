@@ -1,56 +1,52 @@
 import React from "react";
-
+import { useTranslation } from "react-i18next";
 
 const About = () => {
+  const { t } = useTranslation("about");
+
   return (
     <div className="page">
-      <h1>About Kumar Varsh Apartment</h1>
+      <h1>{t("title")}</h1>
 
-      <p>
-        Kumar Varsh Apartment offers modern, secure, and comfortable living
-        designed for families seeking a peaceful residential environment.
-      </p>
+      <p>{t("intro")}</p>
 
-      <h2>Project Overview</h2>
+      <h2>{t("overviewTitle")}</h2>
       <ul>
-        <li><strong>Project Type:</strong> Residential Apartment</li>
-        <li><strong>Total Floors:</strong> Ground + 5 Floors</li>
-        <li><strong>Total Units:</strong> 40 Apartments</li>
-        <li><strong>Apartment Types:</strong> 1 BHK / 2 BHK / 3 BHK</li>
-        <li><strong>Construction Status:</strong> Completed</li>
-        <li><strong>Completion Date:</strong> March 2025</li>
+        <li><strong>{t("projectTypeLabel")}:</strong> {t("projectType")}</li>
+        <li><strong>{t("floorsLabel")}:</strong> {t("floors")}</li>
+        <li><strong>{t("unitsLabel")}:</strong> {t("units")}</li>
+        <li><strong>{t("typesLabel")}:</strong> {t("types")}</li>
+        <li><strong>{t("statusLabel")}:</strong> {t("status")}</li>
+        <li><strong>{t("completionLabel")}:</strong> {t("completion")}</li>
       </ul>
 
-      <h2>Amenities & Features</h2>
+      <h2>{t("amenitiesTitle")}</h2>
       <ul>
-        <li>Spacious and well-ventilated rooms</li>
-        <li>Modern kitchen and bathrooms</li>
-        <li>24/7 security</li>
-        <li>Lift facility</li>
-        <li>Power backup</li>
-        <li>Dedicated parking</li>
-        <li>Continuous water supply</li>
-        <li>Fire safety systems</li>
+        <li>{t("amenities.0")}</li>
+        <li>{t("amenities.1")}</li>
+        <li>{t("amenities.2")}</li>
+        <li>{t("amenities.3")}</li>
+        <li>{t("amenities.4")}</li>
+        <li>{t("amenities.5")}</li>
+        <li>{t("amenities.6")}</li>
+        <li>{t("amenities.7")}</li>
       </ul>
 
-      <h2>Location Advantages</h2>
+      <h2>{t("locationTitle")}</h2>
+      <p>{t("locationDesc")}</p>
+
+      <h2>{t("contactTitle")}</h2>
+      <p><strong>{t("phoneLabel")}:</strong> +91 98765 43210</p>
+      <p><strong>{t("emailLabel")}:</strong> info@apartmentname.com</p>
+
       <p>
-        The apartment is strategically located with easy access to schools,
-        hospitals, shopping centers, and public transport. The neighborhood is
-        peaceful and secure, ideal for families.
+        <strong>{t("addressLabel")}:</strong><br />
+        {t("address.line1")}<br />
+        {t("address.line2")}<br />
+        {t("address.line3")}
       </p>
 
-      <h2>Contact Information</h2>
-      <p><strong>Phone:</strong> +91 98765 43210</p>
-      <p><strong>Email:</strong> info@apartmentname.com</p>
-      <p>
-        <strong>Address:</strong><br />
-        Kumar Varsh Apartment<br />
-        Main Road, Near Landmark<br />
-        City, State, ZIP Code
-      </p>
-
-      <h2>Location Map</h2>
+      <h2>{t("mapTitle")}</h2>
       <iframe
         title="Apartment Location"
         src="https://www.google.com/maps?q=City&output=embed"
@@ -64,4 +60,3 @@ const About = () => {
 };
 
 export default About;
-

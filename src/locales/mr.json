@@ -1,56 +1,67 @@
 {
-  "appName": "सोसायटी प्रकल्प",
-  "raiseComplaint": "तक्रार नोंदवा",
+  "Home": "मुख्यपृष्ठ",
+  "About Us": "आमच्याबद्दल",
+  "Maintenance": "मेंटेनन्स",
+  "Complaints": "तक्रारी",
+  "Login": "लॉगिन",
+  "Logout": "लॉगआउट",
+  "Register": "नोंदणी करा",
+  "Hi": "नमस्कार",
 
-  "navbar": {
-    "home": "मुख्यपृष्ठ",
-    "about": "आमच्याबद्दल",
-    "maintenance": "देखभाल",
-    "complaints": "तक्रारी",
-    "login": "लॉगिन",
-    "logout": "लॉगआउट",
-    "welcome": "नमस्कार"
-  },
+  "Welcome to Kumar Varsh": "कुमार वर्ष मध्ये आपले स्वागत आहे",
+  "A simple and reliable platform to manage maintenance, track complaints, and ensure smooth community living.": "मेंटेनन्स व्यवस्थापन, तक्रारींचा मागोवा आणि सुरळीत सामुदायिक जीवनासाठी एक विश्वासार्ह व्यासपीठ.",
 
-  "home": {
-    "title": "सोसायटी व्यवस्थापन प्रणालीमध्ये आपले स्वागत आहे",
-    "subtitle": "तक्रारी, देखभाल शुल्क आणि उपक्रम सहज व्यवस्थापित करा",
-    "card1": {
-      "title": "सुलभ तक्रार व्यवस्थापन",
-      "desc": "रिअल-टाइम अपडेटसह तक्रारी नोंदवा"
-    },
-    "card2": {
-      "title": "देखभाल शुल्क",
-      "desc": "मासिक देखभाल पहा आणि पावती डाउनलोड करा"
-    },
-    "card3": {
-      "title": "सुरक्षित आणि विश्वासार्ह",
-      "desc": "तुमचा डेटा पूर्णपणे सुरक्षित आहे"
-    }
-  },
+  "Our Features": "आमची वैशिष्ट्ये",
+  "Maintenance Tracking": "मेंटेनन्स ट्रॅकिंग",
+  "Easily manage and track maintenance payments with full transparency.": "मेंटेनन्स पेमेंट पारदर्शकतेने व्यवस्थापित करा.",
+  "Complaint Management": "तक्रार व्यवस्थापन",
+  "Raise and monitor complaints with quick resolution support.": "जलद निवारणासाठी तक्रारी नोंदवा व ट्रॅक करा.",
+  "Secure Access": "सुरक्षित प्रवेश",
+  "Safe login system ensuring privacy and secure access for residents.": "रहिवाशांसाठी सुरक्षित लॉगिन प्रणाली.",
 
-  "complaint": {
-    "title": "तक्रार नोंदवा",
-    "subject": "विषय",
-    "description": "वर्णन",
-    "date": "दिनांक",
-    "priority": "प्राधान्य",
-    "image": "प्रतिमा अपलोड करा",
-    "submit": "तक्रार सबमिट करा",
-    "update": "तक्रार अपडेट करा",
-    "success": "तक्रार यशस्वीरीत्या नोंदवली",
-    "updateSuccess": "तक्रार अपडेट केली",
-    "validation": "कृपया सर्व आवश्यक माहिती भरा",
-    "listTitle": "आपल्या तक्रारी",
-    "noData": "कोणतीही तक्रार उपलब्ध नाही",
-    "status": "स्थिती",
-    "actions": "क्रिया",
-    "edit": "संपादन",
-    "delete": "हटवा"
-  },
+  "Quick Links": "जलद दुवे",
+  "A simple and reliable platform for managing maintenance and complaints efficiently.": "मेंटेनन्स आणि तक्रारी प्रभावीपणे व्यवस्थापित करण्यासाठी एक विश्वासार्ह व्यासपीठ.",
+  "All rights reserved.": "सर्व हक्क राखीव.",
 
- 
- 
+  "Residents": "रहिवासी",
+  "Support": "सहाय्य",
+  "Complaint Resolution": "तक्रार निवारण",
+
+  "Forgot Password": "पासवर्ड विसरलात",
+  "Email": "ईमेल",
+  "Password": "पासवर्ड",
+  "Confirm Password": "पासवर्डची पुष्टी",
+  "Verify Answers": "उत्तरे पडताळा",
+  "Change Password": "पासवर्ड बदला",
+
+  "Maintenance Payment": "मेंटेनन्स पेमेंट",
+  "Month": "महिना",
+  "Select Month": "महिना निवडा",
+  "Year": "वर्ष",
+  "Enter Year": "वर्ष प्रविष्ट करा",
+  "Number of Months": "महिन्यांची संख्या",
+  "Total Amount": "एकूण रक्कम",
+  "Pay Now": "आता भरा",
+  "Download Receipt": "पावती डाउनलोड करा",
+  "Download Receipt (PDF)": "पावती डाउनलोड करा (PDF)",
+  "Payment Successful": "भरणा यशस्वी",
+  "Please fill all details": "कृपया सर्व माहिती भरा",
+  "OK": "ठीक आहे",
+
+  "Complaint Details": "तक्रार तपशील",
+  "Subject": "विषय",
+  "Date": "तारीख",
+  "Priority": "प्राधान्य",
+  "Description": "वर्णन",
+  "Close": "बंद करा",
+  "imageAlt": "तक्रारीची प्रतिमा",
+
+  "Login successful!": "लॉगिन यशस्वी!",
+  "Incorrect password. Please try again.": "चुकीचा पासवर्ड. कृपया पुन्हा प्रयत्न करा.",
+  "User not registered. Please register first.": "वापरकर्ता नोंदणीकृत नाही. कृपया आधी नोंदणी करा.",
+  "Registration successful! Redirecting to login page...": "नोंदणी यशस्वी! लॉगिन पृष्ठावर वळवले जात आहे...",
+  "Please fix the errors above.": "कृपया वरील त्रुटी दुरुस्त करा.",
+
   "months": [
     "जानेवारी",
     "फेब्रुवारी",
