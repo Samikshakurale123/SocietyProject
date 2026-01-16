@@ -1,10 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 import logo from "../../assets/logo/logo.jpg";
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
+
 
 const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
   const [username, setUsername] = useState("");
   const [showMenu, setShowMenu] = useState(false);
   const dropdownRef = useRef(null);
@@ -33,7 +38,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
     setIsLoggedIn(false);
-    setShowMenu(false); // ✅ close dropdown
+    setShowMenu(false);
     navigate("/login");
   };
 
@@ -45,6 +50,11 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
           <img src={logo} alt="Logo" className="navbar-logo me-2" />
           <span className="brand-name">Kumar Varsh</span>
         </Link>
+
+        {/* 🌐 Language Switcher */}
+        <div className="ms-auto me-3">
+          <LanguageSwitcher />
+        </div>
 
         <button
           className="navbar-toggler"
@@ -58,29 +68,37 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto align-items-center">
             <li className="nav-item">
-              <Link className="nav-link" to="/">Home</Link>
+              <Link className="nav-link" to="/">
+                {t("Home")}
+              </Link>
             </li>
 
             {!isLoggedIn ? (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/about">About Us</Link>
+                  <Link className="nav-link" to="/about">
+                    {t("About Us")}
+                  </Link>
                 </li>
 
                 <li className="nav-item ms-3">
                   <Link className="btn btn-primary btn-sm px-4" to="/login">
-                    Login
+                    {t("Login")}
                   </Link>
                 </li>
               </>
             ) : (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/maintenance">Maintenance</Link>
+                  <Link className="nav-link" to="/maintenance">
+                    {t("Maintenance")}
+                  </Link>
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link" to="/complaint">Complaints</Link>
+                  <Link className="nav-link" to="/complaint">
+                    {t("Complaints")}
+                  </Link>
                 </li>
 
                 {/* User icon */}
@@ -93,12 +111,14 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
 
                   {showMenu && (
                     <div className="user-dropdown">
-                      <p className="username">Hi, {username}</p>
+                      <p className="username">
+                        {t("Hi")}, {username}
+                      </p>
                       <button
                         className="btn btn-outline-danger btn-sm w-100"
                         onClick={handleLogout}
                       >
-                        Logout
+                        {t("Logout")}
                       </button>
                     </div>
                   )}

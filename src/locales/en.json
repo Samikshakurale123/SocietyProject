@@ -47,6 +47,37 @@
     "actions": "Actions",
     "edit": "Edit",
     "delete": "Delete"
+  },
+
+  
+  "months": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ],
+
+  "maintenance": {
+    "title": "Maintenance Payment",
+    "month": "Month",
+    "selectMonth": "Select Month",
+    "year": "Year",
+    "enterYear": "Enter Year",
+    "monthsCount": "Number of Months",
+    "select": "Select",
+    "totalAmount": "Total Amount",
+    "payNow": "Pay Now",
+    "download": "Download Receipt (PDF)",
+    "success": "Payment Successful",
+    "ok": "OK",
+    "validation": "Please fill all details"
   }
 }
-
