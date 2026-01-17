@@ -43,35 +43,35 @@
     "imageAlt": "Complaint image"
   },
 
-  "months": [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-  ],
-
   "maintenance": {
     "title": "Maintenance Payment",
     "month": "Month",
-    "selectMonth": "Select Month",
     "year": "Year",
-    "enterYear": "Enter Year",
-    "monthsCount": "Number of Months",
-    "select": "Select",
-    "totalAmount": "Total Amount",
+    "monthCount": "Number of Months",
+    "total": "Total Amount",
     "payNow": "Pay Now",
-    "download": "Download Receipt (PDF)",
-    "success": "Payment Successful",
-    "ok": "OK",
-    "validation": "Please fill all details"
+    "downloadReceipt": "Download Receipt",
+    "success": "Success",
+    "paymentSuccess": "Payment completed successfully",
+    "fillAllFields": "Please fill all required fields",
+    "selectMonth": "Select Month",
+    "enterYear": "Enter Year",
+    "select": "Select"
+  },
+
+  "months": {
+    "jan": "January",
+    "feb": "February",
+    "mar": "March",
+    "apr": "April",
+    "may": "May",
+    "jun": "June",
+    "jul": "July",
+    "aug": "August",
+    "sep": "September",
+    "oct": "October",
+    "nov": "November",
+    "dec": "December"
   },
 
   "login": {
