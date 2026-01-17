@@ -13,12 +13,20 @@ i18n
     resources: {
       en: { translation: en },
       hi: { translation: hi },
-      mr: { translation: mr }
+      mr: { translation: mr },
     },
+
+    // 👇 IMPORTANT
     fallbackLng: "en",
+
+    detection: {
+      order: ["localStorage", "navigator"],
+      caches: ["localStorage"],
+    },
+
     interpolation: {
-      escapeValue: false
-    }
+      escapeValue: false,
+    },
   });
 
 export default i18n;

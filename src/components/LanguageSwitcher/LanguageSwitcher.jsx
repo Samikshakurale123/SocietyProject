@@ -1,23 +1,30 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 const LanguageSwitcher = () => {
-  const { i18n } = useTranslation();
-
-  const changeLanguage = (lang) => {
-    i18n.changeLanguage(lang);
-  };
-
   return (
-    <select
-      onChange={(e) => changeLanguage(e.target.value)}
-      defaultValue={i18n.language}
-      style={{ padding: "4px", borderRadius: "4px" }}
-    >
-      <option value="en">English</option>
-      <option value="hi">हिंदी</option>
-      <option value="mr">मराठी</option>
-    </select>
+    <div className="d-flex gap-2">
+      <button
+        className="btn btn-outline-secondary btn-sm"
+        onClick={() => i18n.changeLanguage("en")}
+      >
+        EN
+      </button>
+
+      <button
+        className="btn btn-outline-secondary btn-sm"
+        onClick={() => i18n.changeLanguage("hi")}
+      >
+        हिंदी
+      </button>
+
+      <button
+        className="btn btn-outline-secondary btn-sm"
+        onClick={() => i18n.changeLanguage("mr")}
+      >
+        मराठी
+      </button>
+    </div>
   );
 };
 

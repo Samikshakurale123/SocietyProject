@@ -498,60 +498,54 @@ table tr:hover {
   color: #ffffff;
 }
 
-
 /* ===============================
-   MAINTENANCE PAGE (ISOLATED)
+   MAINTENANCE PAGE
 ================================ */
-
-.maintenance-page {
-  min-height: calc(100vh - 140px);
+.maintenance-container {
+  min-height: calc(100vh - 70px); /* Adjust for navbar height */
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 40px 20px;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
   background-color: #f4f6f9;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* Blur background when popup open */
-.blur-bg {
-  filter: blur(3px);
-  pointer-events: none;
-}
-
-/* Card */
 .maintenance-card {
-  background: #ffffff;
   width: 100%;
-  max-width: 500px;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  max-width: 520px;
+  background: #fff;
+  padding: 40px 32px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
 }
 
 .maintenance-card h2 {
-  text-align: center;
-  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 600;
   color: #1f2937;
+  margin-bottom: 25px;
 }
 
-/* Labels */
 .maintenance-card label {
   font-size: 14px;
   font-weight: 500;
-  margin-top: 12px;
-  display: block;
   color: #374151;
+  margin-bottom: 6px;
+  display: block;
+  text-align: left;
 }
 
-/* Inputs & selects */
 .maintenance-card input,
 .maintenance-card select {
   width: 100%;
-  padding: 10px;
-  margin-top: 6px;
-  border-radius: 4px;
+  padding: 11px 12px;
+  border-radius: 6px;
   border: 1px solid #d1d5db;
   font-size: 14px;
+  margin-bottom: 18px;
 }
 
 .maintenance-card input:focus,
@@ -560,108 +554,110 @@ table tr:hover {
   border-color: #2563eb;
 }
 
-/* Button spacing */
-.pay-spacing {
-  margin-top: 20px;
+/* Buttons */
+.pay-btn,
+.download-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
 }
 
-/* Pay button (blue like login/register) */
 .pay-btn {
-  width: 100%;
   background-color: #2563eb;
   color: #ffffff;
-  border: none;
-  padding: 10px;
-  font-size: 15px;
-  font-weight: 500;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
 .pay-btn:hover {
   background-color: #1e40af;
 }
 
-/* Download button */
 .download-btn {
-  width: 100%;
   background-color: #16a34a;
   color: #ffffff;
-  border: none;
-  padding: 10px;
-  font-size: 15px;
-  font-weight: 500;
-  border-radius: 4px;
-  cursor: pointer;
 }
-
-.maintenance-card input,
-.maintenance-card select {
-  margin-bottom: 16px;   /* ✅ creates equal space before Pay button */
-}
-
 
 .download-btn:hover {
   background-color: #15803d;
 }
 
-/* ===============================
-   SUCCESS POPUP
-================================ */
-
+/* SUCCESS POPUP */
 .popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0,0,0,0.45);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
 }
 
-.popup-card {
-  background: #ffffff;
+.popup {
+  background: #fff;
   padding: 30px;
   border-radius: 8px;
+  text-align: center;
   width: 90%;
   max-width: 380px;
-  text-align: center;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.popup-icon {
-  font-size: 40px;
-  color: #16a34a;
-  margin-bottom: 10px;
-}
-
-.popup-card h3 {
-  margin-bottom: 8px;
+.popup h3 {
+  margin-bottom: 12px;
   color: #1f2937;
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.popup-card p {
+.popup p {
   font-size: 14px;
   color: #4b5563;
   margin-bottom: 20px;
 }
 
-.popup-btn {
+.popup button {
   background-color: #2563eb;
-  color: #ffffff;
+  color: #fff;
   border: none;
-  padding: 8px 18px;
-  border-radius: 4px;
-  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
-.popup-btn:hover {
+.popup button:hover {
   background-color: #1e40af;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .maintenance-card {
+    padding: 30px 20px;
+  }
+
+  .maintenance-card h2 {
+    font-size: 24px;
+  }
+
+  .maintenance-card input,
+  .maintenance-card select {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+
+  .pay-btn,
+  .download-btn {
+    font-size: 14px;
+    padding: 11px;
+  }
+}
+
 /* ===============================
    PRIMARY BUTTON (LOGIN / REGISTER / FORGOT / COMPLAINT / MAINTENANCE)
 ================================ */

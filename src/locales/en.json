@@ -72,7 +72,8 @@
     "oct": "October",
     "nov": "November",
     "dec": "December"
-  },
+  
+},
 
   "login": {
     "Email": "Email",
@@ -135,24 +136,23 @@
     "passwordChanged": "Password changed successfully. Redirecting to login..."
   },
 
-  "complaint": {
-    "title": "Register Complaint",
+  "complaintDetails": {
+    "title": "Complaint Details",
     "subject": "Subject",
-    "description": "Description",
     "date": "Date",
     "priority": "Priority",
-    "upload": "Upload Image",
+    "image": "Upload Image",
     "submit": "Submit Complaint",
-    "status": "Status",
+    "update": "Update Complaint",
     "success": "Complaint submitted successfully",
-    "validation": "Please fill all required fields",
-    "pending": "Pending"
-  },
-
-  "priority": {
-    "high": "High",
-    "medium": "Medium",
-    "low": "Low"
+    "updateSuccess": "Complaint updated successfully",
+    "validation": "Please fill all required fields correctly",
+    "listTitle": "Your Complaints",
+    "noData": "No complaints found",
+    "status": "Status",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete"
   },
 
   "about": {

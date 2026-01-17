@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "../../App.css";
 
 export default function RegistrationForm() {
@@ -59,14 +60,17 @@ export default function RegistrationForm() {
       formData.password &&
       !/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(formData.password)
     )
-      err.password =
-        "Min 8 chars, 1 uppercase, 1 number & 1 symbol";
+      err.password = "Min 8 chars, 1 uppercase, 1 number & 1 symbol";
 
     if (formData.password !== formData.confirmPassword)
       err.confirmPassword = "Passwords do not match";
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    if (users.some(u => u.email === formData.email || u.mobile === formData.mobile)) {
+    if (
+      users.some(
+        (u) => u.email === formData.email || u.mobile === formData.mobile
+      )
+    ) {
       err.email = err.mobile = "User already registered";
     }
 
@@ -77,18 +81,17 @@ export default function RegistrationForm() {
   // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (validate()) {
       const users = JSON.parse(localStorage.getItem("users")) || [];
       users.push(formData);
       localStorage.setItem("users", JSON.stringify(users));
 
-      // Show success message
       setMessage({
         text: "Registration successful! Redirecting to login page...",
         type: "success",
       });
 
-      // Auto redirect after 2 seconds
       setTimeout(() => navigate("/login"), 2000);
     } else {
       setMessage({ text: "Please fix the errors above.", type: "error" });
@@ -106,7 +109,6 @@ export default function RegistrationForm() {
       <div className="registration-card fade-up">
         <h2 className="text-center mb-4">Register</h2>
 
-        {/* Inline message */}
         {message.text && (
           <div className={`message-box ${message.type}`}>
             {message.text}
@@ -118,13 +120,26 @@ export default function RegistrationForm() {
           <div className="row mb-3">
             <div className="col-md-6">
               <label>First Name</label>
-              <input className="form-control" name="firstName" onChange={handleChange} />
-              {errors.firstName && <span className="error-text">{errors.firstName}</span>}
+              <input
+                className="form-control"
+                name="firstName"
+                onChange={handleChange}
+              />
+              {errors.firstName && (
+                <span className="error-text">{errors.firstName}</span>
+              )}
             </div>
+
             <div className="col-md-6">
               <label>Last Name</label>
-              <input className="form-control" name="lastName" onChange={handleChange} />
-              {errors.lastName && <span className="error-text">{errors.lastName}</span>}
+              <input
+                className="form-control"
+                name="lastName"
+                onChange={handleChange}
+              />
+              {errors.lastName && (
+                <span className="error-text">{errors.lastName}</span>
+              )}
             </div>
           </div>
 
@@ -132,13 +147,27 @@ export default function RegistrationForm() {
           <div className="row mb-3">
             <div className="col-md-6">
               <label>Email</label>
-              <input className="form-control" name="email" onChange={handleChange} />
-              {errors.email && <span className="error-text">{errors.email}</span>}
+              <input
+                className="form-control"
+                name="email"
+                onChange={handleChange}
+              />
+              {errors.email && (
+                <span className="error-text">{errors.email}</span>
+              )}
             </div>
+
             <div className="col-md-6">
               <label>Mobile</label>
-              <input className="form-control" name="mobile" maxLength="10" onChange={handleChange} />
-              {errors.mobile && <span className="error-text">{errors.mobile}</span>}
+              <input
+                className="form-control"
+                name="mobile"
+                maxLength="10"
+                onChange={handleChange}
+              />
+              {errors.mobile && (
+                <span className="error-text">{errors.mobile}</span>
+              )}
             </div>
           </div>
 
@@ -146,54 +175,114 @@ export default function RegistrationForm() {
           <div className="row mb-3">
             <div className="col-md-6">
               <label>Password</label>
-              <input type="password" className="form-control" name="password" onChange={handleChange} />
-              {errors.password && <span className="error-text">{errors.password}</span>}
+              <input
+                type="password"
+                className="form-control"
+                name="password"
+                onChange={handleChange}
+              />
+              {errors.password && (
+                <span className="error-text">{errors.password}</span>
+              )}
             </div>
+
             <div className="col-md-6">
               <label>Confirm Password</label>
-              <input type="password" className="form-control" name="confirmPassword" onChange={handleChange} />
-              {errors.confirmPassword && <span className="error-text">{errors.confirmPassword}</span>}
+              <input
+                type="password"
+                className="form-control"
+                name="confirmPassword"
+                onChange={handleChange}
+              />
+              {errors.confirmPassword && (
+                <span className="error-text">
+                  {errors.confirmPassword}
+                </span>
+              )}
             </div>
           </div>
 
           {/* DOB */}
           <div className="mb-3">
             <label>Date of Birth</label>
-            <input type="date" className="form-control" name="dob" max={new Date().toISOString().split("T")[0]} onChange={handleChange} />
-            {errors.dob && <span className="error-text">{errors.dob}</span>}
+            <input
+              type="date"
+              className="form-control"
+              name="dob"
+              max={new Date().toISOString().split("T")[0]}
+              onChange={handleChange}
+            />
+            {errors.dob && (
+              <span className="error-text">{errors.dob}</span>
+            )}
           </div>
 
           {/* Address */}
           <div className="mb-3">
             <label>Address</label>
-            <textarea className="form-control" rows="2" name="address" onChange={handleChange} />
+            <textarea
+              className="form-control"
+              rows="2"
+              name="address"
+              onChange={handleChange}
+            />
           </div>
 
-          {/* Society */}
+          {/* Wing & Flat */}
           <div className="row mb-3">
             <div className="col-md-6">
               <label>Wing</label>
-              <input className="form-control" name="wing" onChange={handleChange} />
+              <input
+                className="form-control"
+                name="wing"
+                onChange={handleChange}
+              />
             </div>
             <div className="col-md-6">
               <label>Flat No</label>
-              <input className="form-control" name="flatNumber" onChange={handleChange} />
+              <input
+                className="form-control"
+                name="flatNumber"
+                onChange={handleChange}
+              />
             </div>
           </div>
 
           {/* Pincode */}
           <div className="mb-3">
             <label>Pincode</label>
-            <input className="form-control" name="pincode" maxLength="6" onChange={handleChange} />
-            {errors.pincode && <span className="error-text">{errors.pincode}</span>}
+            <input
+              className="form-control"
+              name="pincode"
+              maxLength="6"
+              onChange={handleChange}
+            />
+            {errors.pincode && (
+              <span className="error-text">{errors.pincode}</span>
+            )}
           </div>
 
-          {/* Security questions */}
+          {/* Security Questions */}
           <div className="mb-3">
             <h5>Security Questions</h5>
-            <input className="form-control mb-2" placeholder="Favorite color?" name="securityA1" onChange={handleChange} />
-            <input className="form-control mb-2" placeholder="Mother’s first name?" name="securityA2" onChange={handleChange} />
-            <input className="form-control mb-2" placeholder="Birth city?" name="securityA3" onChange={handleChange} />
+            <input
+              className="form-control mb-2"
+              placeholder="Favorite color?"
+              name="securityA1"
+              onChange={handleChange}
+            />
+            <input
+              className="form-control mb-2"
+              placeholder="Mother’s first name?"
+              name="securityA2"
+              onChange={handleChange}
+            />
+            <input
+              className="form-control mb-2"
+              placeholder="Birth city?"
+              name="securityA3"
+              onChange={handleChange}
+            />
           </div>
 
           {/* Register Button */}
