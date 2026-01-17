@@ -60,7 +60,7 @@ export default function ForgotPassword() {
 
   return (
     <div className="page-container">
-      <div className="auth-card fade-up">
+      <div className="auth-card fade-up show">
         <h2 className="text-center mb-3">{t("forgotTitle")}</h2>
 
         {message.text && <div className={`message-box ${message.type}`}>{message.text}</div>}

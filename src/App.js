@@ -12,12 +12,9 @@ import Maintenance from "./pages/Maintenance/Maintenance";
 import Complaint from "./pages/Complaints/Complaints";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 
-import "./App.css";
-
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Persist login on refresh
   useEffect(() => {
     const user = localStorage.getItem("loggedInUser");
     setIsLoggedIn(!!user);
@@ -29,7 +26,7 @@ function App() {
 
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/register" element={<Register />} />
@@ -45,7 +42,7 @@ function App() {
           element={isLoggedIn ? <Complaint /> : <Navigate to="/login" replace />}
         />
 
-        {/* Catch-all redirect */}
+        {/* 404 */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 

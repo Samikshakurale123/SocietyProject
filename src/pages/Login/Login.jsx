@@ -33,7 +33,7 @@ function Login({ setIsLoggedIn }) {
 
   return (
     <div className="page-container">
-      <div className="auth-card fade-up">
+      <div className="auth-card fade-up show">
         <h2 className="text-center mb-4">{t("loginTitle")}</h2>
 
         {message.text && <div className={`message-box ${message.type}`}>{message.text}</div>}
@@ -62,7 +62,7 @@ function Login({ setIsLoggedIn }) {
           </div>
 
           <div className="text-end mb-3">
-            <Link to="/ForgotPassword" className="link-text">{t("loginForgot")}</Link>
+            <Link to="/forgotpassword" className="link-text">{t("loginForgot")}</Link>
           </div>
 
           <button type="submit" className="btn btn-primary w-100">{t("loginButton")}</button>

@@ -3,30 +3,27 @@ import { useTranslation } from "react-i18next";
 
 const MONTHLY_CHARGE = 2200;
 
+// month keys (DO NOT TRANSLATE THESE)
+const MONTH_KEYS = [
+  "january",
+  "february",
+  "march",
+  "april",
+  "may",
+  "june",
+  "july",
+  "august",
+  "september",
+  "october",
+  "november",
+  "december"
+];
+
 const Maintenance = () => {
   const { t } = useTranslation();
 
-  const months = t("months", { returnObjects: true });
-
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
-<<<<<<< HEAD
-  const [numMonths, setNumMonths] = useState("");
-  const [amount, setAmount] = useState(0);
-  const [paid, setPaid] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
-
-  const monthlyCharge = 2200;
-
-  const calculateAmount = (count) => {
-    setNumMonths(count);
-    setAmount(count * monthlyCharge);
-  };
-
-  const handlePay = () => {
-    if (!month || !year || !numMonths) {
-      alert(t("maintenanceFillAllDetails"));
-=======
   const [monthsCount, setMonthsCount] = useState("");
   const [isPaid, setIsPaid] = useState(false);
 
@@ -36,30 +33,22 @@ const Maintenance = () => {
 
   const handlePay = () => {
     if (!month || !year || !monthsCount) {
-      alert(t("Please fill all details")); // ✅ translated
->>>>>>> 903ae14ef92ceeff1775da8a3da3340003dcfa10
+      alert(t("maintenance.validation"));
       return;
     }
     setIsPaid(true);
   };
 
   const handleDownload = () => {
-    generateMaintenancePDF(month, year, monthsCount, totalAmount);
+    console.log("Downloading receipt:", {
+      month,
+      year,
+      monthsCount,
+      totalAmount
+    });
   };
 
   return (
-<<<<<<< HEAD
-    <>
-      <div className={`maintenance-page ${showSuccess ? "blur-bg" : ""}`}>
-        <div className="maintenance-card">
-          <h2>{t("maintenanceTitle")}</h2>
-
-          <label>{t("maintenanceMonth")} *</label>
-          <select value={month} onChange={(e) => setMonth(e.target.value)}>
-            <option value="">{t("maintenanceSelectMonth")}</option>
-            {["January","February","March","April","May","June","July","August","September","October","November","December"].map(m => (
-              <option key={m}>{m}</option>
-=======
     <div className="maintenance-page">
       <div className="maintenance-card">
         <h2>{t("maintenance.title")}</h2>
@@ -68,42 +57,13 @@ const Maintenance = () => {
         <label>{t("maintenance.month")} *</label>
         <select value={month} onChange={(e) => setMonth(e.target.value)}>
           <option value="">{t("maintenance.selectMonth")}</option>
-          {Array.isArray(months) &&
-            months.map((m, i) => (
-              <option key={i} value={m}>
-                {m}
-              </option>
->>>>>>> 903ae14ef92ceeff1775da8a3da3340003dcfa10
-            ))}
+          {MONTH_KEYS.map((m) => (
+            <option key={m} value={m}>
+              {t(`maintenance.months.${m}`)}
+            </option>
+          ))}
         </select>
 
-<<<<<<< HEAD
-          <label>{t("maintenanceYear")} *</label>
-          <input type="number" value={year} placeholder={t("maintenanceEnterYear")} onChange={(e) => setYear(e.target.value)} />
-
-          <label>{t("maintenanceNumMonths")} *</label>
-          <select onChange={(e) => calculateAmount(Number(e.target.value))}>
-            <option value="">Select</option>
-            {[...Array(12)].map((_, i) => <option key={i}>{i + 1}</option>)}
-          </select>
-
-          <label>{t("maintenanceTotalAmount")}</label>
-          <input value={`₹ ${amount}`} disabled />
-
-          {!paid ? (
-            <button className="pay-btn" onClick={handlePay}>{t("maintenancePayNow")}</button>
-          ) : (
-            <button className="download-btn" onClick={() => setShowSuccess(true)}>{t("maintenanceDownloadReceipt")}</button>
-          )}
-        </div>
-      </div>
-
-      {showSuccess && (
-        <div className="popup-overlay">
-          <div className="popup-card">
-            <h3>{t("maintenancePaymentSuccess")}</h3>
-            <button onClick={() => window.location.reload()}>{t("maintenanceOK")}</button>
-=======
         {/* Year */}
         <label>{t("maintenance.year")} *</label>
         <input
@@ -114,43 +74,32 @@ const Maintenance = () => {
         />
 
         {/* Months Count */}
-        <label>{t("maintenance.monthCount")} *</label>
+        <label>{t("maintenance.monthsCount")} *</label>
         <select
           value={monthsCount}
           onChange={(e) => setMonthsCount(Number(e.target.value))}
         >
           <option value="">{t("maintenance.select")}</option>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ].map((n) => (
-            <option key={n} value={n}>
-              {n}
-            </option>
+          {[1,2,3,4,5,6,7,8,9,10,11,12].map((n) => (
+            <option key={n} value={n}>{n}</option>
           ))}
         </select>
 
-        {/* Total */}
-        <label>{t("maintenance.total")}</label>
+        {/* Total Amount */}
+        <label>{t("maintenance.totalAmount")}</label>
         <input value={`₹ ${totalAmount}`} readOnly />
 
         {/* Buttons */}
         {!isPaid ? (
           <div className="pay-spacing">
-            <button
-              type="button"
-              className="pay-btn"
-              onClick={handlePay}
-            >
+            <button type="button" className="pay-btn" onClick={handlePay}>
               {t("maintenance.payNow")}
             </button>
->>>>>>> 903ae14ef92ceeff1775da8a3da3340003dcfa10
           </div>
         ) : (
           <div className="pay-spacing">
-            <button
-              type="button"
-              className="download-btn"
-              onClick={handleDownload}
-            >
-              {t("maintenance.downloadReceipt")} {/* ✅ FIXED */}
+            <button type="button" className="download-btn" onClick={handleDownload}>
+              {t("maintenance.download")}
             </button>
           </div>
         )}
