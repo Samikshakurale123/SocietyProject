@@ -10,12 +10,13 @@ const Complaints = () => {
     date: "",
     priority: "",
     image: "",
-    progress: t("complaint.pending")
+    progress: t("complaint.pending"),
   };
 
   const [form, setForm] = useState(initialForm);
   const [list, setList] = useState([]);
   const [msg, setMsg] = useState("");
+  const [selectedComplaint, setSelectedComplaint] = useState(null);
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -30,21 +31,16 @@ const Complaints = () => {
     if (name === "image" && files?.[0]) {
       const reader = new FileReader();
       reader.onload = () =>
-        setForm({ ...form, image: reader.result });
+        setForm((prev) => ({ ...prev, image: reader.result }));
       reader.readAsDataURL(files[0]);
     } else {
-      setForm({ ...form, [name]: value });
+      setForm((prev) => ({ ...prev, [name]: value }));
     }
   };
 
   const handleSubmit = () => {
-    if (
-      form.subject.length < 3 ||
-      form.body.length < 5 ||
-      !form.date ||
-      !form.priority
-    ) {
-      setMsg(t("complaint.error"));
+    if (!form.subject || !form.body || !form.date || !form.priority) {
+      setMsg(t("complaint.validation"));
       return;
     }
 
@@ -54,38 +50,32 @@ const Complaints = () => {
 
     setForm(initialForm);
     setMsg(t("complaint.success"));
-
     setTimeout(() => setMsg(""), 3000);
   };
 
   return (
-    <div className="complaints-wrapper">
+    <div className="page-container">
+      {/* ================= FORM ================= */}
       <div className="complaint-card">
         <h2>{t("complaint.title")}</h2>
 
-        {msg && <div className="message-box">{msg}</div>}
+        {msg && <div className="message-box success">{msg}</div>}
 
-        <label>
-          {t("complaint.subject")} <span className="required">*</span>
-        </label>
+        <label>{t("complaint.subject")} *</label>
         <input
           name="subject"
           value={form.subject}
           onChange={handleChange}
         />
 
-        <label>
-          {t("complaint.description")} <span className="required">*</span>
-        </label>
+        <label>{t("complaint.description")} *</label>
         <textarea
           name="body"
           value={form.body}
           onChange={handleChange}
         />
 
-        <label>
-          {t("complaint.date")} <span className="required">*</span>
-        </label>
+        <label>{t("complaint.date")} *</label>
         <input
           type="date"
           name="date"
@@ -94,14 +84,10 @@ const Complaints = () => {
           onChange={handleChange}
         />
 
-        {/* ✅ CLEAN PRIORITY UI */}
-        <label>
-          {t("complaint.priority")} <span className="required">*</span>
-        </label>
-
-        <div className="priority-radio">
-          {["High", "Medium", "Low"].map((p) => (
-            <label key={p} className={`radio-btn ${p.toLowerCase()}`}>
+        <label>{t("complaint.priority")} *</label>
+        <div className="priority-group">
+          {["high", "medium", "low"].map((p) => (
+            <label key={p} className={`priority-option ${p}`}>
               <input
                 type="radio"
                 name="priority"
@@ -109,7 +95,7 @@ const Complaints = () => {
                 checked={form.priority === p}
                 onChange={handleChange}
               />
-              {t(`priority.${p.toLowerCase()}`)}
+              <span>{t(`priority.${p}`)}</span>
             </label>
           ))}
         </div>
@@ -122,38 +108,99 @@ const Complaints = () => {
         </button>
       </div>
 
-      {/* LIST */}
+      {/* ================= TABLE (FIRST IMAGE STYLE) ================= */}
       {list.length > 0 && (
-        <table className="table table-bordered">
-          <thead>
-            <tr>
-              <th>{t("complaint.subject")}</th>
-              <th>{t("complaint.date")}</th>
-              <th>{t("complaint.priority")}</th>
-              <th>{t("complaint.status")}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {list.map((c, i) => (
-              <tr key={i}>
-                <td>{c.subject}</td>
-                <td>{c.date}</td>
-                <td>
-                  <span className={`priority-badge ${c.priority.toLowerCase()}`}>
-                    {t(`priority.${c.priority.toLowerCase()}`)}
-                  </span>
-                </td>
-                <td>{c.progress}</td>
+        <div className="complaint-list-box">
+          <table>
+            <thead>
+              <tr>
+                <th>{t("complaint.subject")}</th>
+                <th>{t("complaint.date")}</th>
+                <th>{t("complaint.priority")}</th>
+                <th>{t("complaint.status")}</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody>
+              {list.map((c, i) => (
+                <tr
+                  key={i}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setSelectedComplaint(c)}
+                >
+                  <td>{c.subject}</td>
+                  <td>{c.date}</td>
+                  <td>
+                    <span className={`priority-badge ${c.priority}`}>
+                      {t(`priority.${c.priority}`)}
+                    </span>
+                  </td>
+                  <td>{c.progress}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* ================= POPUP DETAILS ================= */}
+      {selectedComplaint && (
+        <div className="popup-overlay">
+          <div className="popup-card">
+            <h3>{t("complaint.title")}</h3>
+
+            <p>
+              <strong>{t("complaint.subject")}:</strong>{" "}
+              {selectedComplaint.subject}
+            </p>
+
+            <p>
+              <strong>{t("complaint.description")}:</strong>{" "}
+              {selectedComplaint.body}
+            </p>
+
+            <p>
+              <strong>{t("complaint.date")}:</strong>{" "}
+              {selectedComplaint.date}
+            </p>
+
+            <p>
+              <strong>{t("complaint.priority")}:</strong>{" "}
+              <span
+                className={`priority-badge ${selectedComplaint.priority}`}
+              >
+                {t(`priority.${selectedComplaint.priority}`)}
+              </span>
+            </p>
+
+            <p>
+              <strong>{t("complaint.status")}:</strong>{" "}
+              {selectedComplaint.progress}
+            </p>
+
+            {selectedComplaint.image && (
+              <img
+                src={selectedComplaint.image}
+                alt="complaint"
+                style={{
+                  width: "100%",
+                  marginTop: "12px",
+                  borderRadius: "6px",
+                }}
+              />
+            )}
+
+            <button
+              className="popup-btn"
+              onClick={() => setSelectedComplaint(null)}
+            >
+              {t("common.close")}
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );
 };
 
 export default Complaints;
-
-
-
