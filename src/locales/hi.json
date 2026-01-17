@@ -1,90 +1,68 @@
 {
-  "common": {
-    "Home": "होम",
-    "About Us": "हमारे बारे में",
-    "Maintenance": "मेंटेनेंस",
-    "Complaints": "शिकायतें",
-    "Login": "लॉगिन",
-    "Logout": "लॉगआउट",
-    "Register": "रजिस्टर",
-    "Hi": "नमस्ते",
-
-    "welcome": "आपका स्वागत है",
-    "Welcome to Kumar Varsh": "कुमार वर्ष में आपका स्वागत है",
-    "subtitle": "मेंटेनेंस प्रबंधन, शिकायतों की निगरानी और बेहतर सामुदायिक जीवन के लिए एक सरल और विश्वसनीय प्लेटफ़ॉर्म।",
-
-    "features": "हमारी विशेषताएँ",
-    "maintenanceTracking": "मेंटेनेंस ट्रैकिंग",
-    "maintenanceDesc": "पूरी पारदर्शिता के साथ मेंटेनेंस भुगतान को आसानी से प्रबंधित करें।",
-
-    "complaintManagement": "शिकायत प्रबंधन",
-    "complaintDesc": "त्वरित समाधान सहायता के साथ शिकायत दर्ज करें और उसकी स्थिति देखें।",
-
-    "secureAccess": "सुरक्षित पहुँच",
-    "secureDesc": "निवासियों की गोपनीयता के लिए सुरक्षित लॉगिन प्रणाली।",
-
-    "Residents": "निवासी",
-    "Support": "सहायता",
-    "Complaint Resolution": "शिकायत समाधान",
-
-    "Quick Links": "त्वरित लिंक",
-    "All rights reserved.": "सभी अधिकार सुरक्षित।",
-
-    "Login successful!": "लॉगिन सफल हुआ!",
-    "Incorrect password. Please try again.": "गलत पासवर्ड। कृपया पुनः प्रयास करें।",
-    "User not registered. Please register first.": "उपयोगकर्ता पंजीकृत नहीं है। कृपया पहले रजिस्टर करें।",
-
-    "Please fill all details": "कृपया सभी विवरण भरें",
-    "Payment Successful": "भुगतान सफल",
-    "OK": "ठीक है",
-
-    "description": "विवरण",
-    "close": "बंद करें",
-    "imageAlt": "शिकायत की छवि"
+  "Home": "मुख्यपृष्ठ",
+  "About Us": "हमारे बारे में",
+  "Maintenance": "मेंटेनेंस",
+  "Complaints": "शिकायतें",
+  "Login": "लॉगिन",
+  "Logout": "लॉगआउट",
+  "Register": "रजिस्टर करें",
+  "Hi": "नमस्ते",
+  "WelcomeMessage": "कुमार वर्ष में आपका स्वागत है",
+  "subtitle": "मेंटेनेंस प्रबंधन, शिकायतों को ट्रैक करने और सुचारू सामुदायिक जीवन के लिए एक सरल और विश्वसनीय प्लेटफ़ॉर्म।",
+  "features": "हमारी विशेषताएँ",
+  "maintenanceTracking": "मेंटेनेंस ट्रैकिंग",
+  "maintenanceDesc": "पूरी पारदर्शिता के साथ रखरखाव भुगतान प्रबंधित करें।",
+  "complaintManagement": "शिकायत प्रबंधन",
+  "complaintDesc": "तेज़ समाधान सहायता के साथ शिकायतें दर्ज करें।",
+  "secureAccess": "सुरक्षित पहुँच",
+  "secureDesc": "निवासियों के लिए सुरक्षित और गोपनीय लॉगिन सिस्टम।",
+  "Residents": "निवासी",
+  "Support": "सहायता",
+  "Complaint Resolution": "शिकायत समाधान",
+  "Quick Links": "त्वरित लिंक",
+  "All rights reserved.": "सभी अधिकार सुरक्षित।",
+  "loginTitle": "लॉगिन",
+  "loginEmail": "ईमेल",
+  "loginPassword": "पासवर्ड",
+  "loginButton": "लॉगिन",
+  "loginForgot": "पासवर्ड भूल गए?",
+  "loginNoAccount": "खाता नहीं है?",
+  "loginIncorrectPassword": "गलत पासवर्ड। कृपया पुनः प्रयास करें।",
+  "loginUserNotFound": "उपयोगकर्ता पंजीकृत नहीं है। कृपया पहले रजिस्टर करें।",
+  "loginSuccess": "लॉगिन सफल!",
+  "forgotPassword": {
+    "title": "पासवर्ड भूल गए",
+    "email": "ईमेल",
+    "emailPlaceholder": "पंजीकृत ईमेल दर्ज करें",
+    "favoriteColor": "पसंदीदा रंग?",
+    "motherName": "माँ का पहला नाम?",
+    "birthCity": "जन्म शहर?",
+    "verifyAnswers": "उत्तर सत्यापित करें",
+    "newPassword": "नया पासवर्ड",
+    "confirmPassword": "पासवर्ड की पुष्टि करें",
+    "changePassword": "पासवर्ड बदलें",
+    "userNotFound": "इस ईमेल से कोई उपयोगकर्ता नहीं मिला",
+    "securityMismatch": "सुरक्षा उत्तर मेल नहीं खाते",
+    "securityVerified": "सुरक्षा सत्यापित। कृपया नया पासवर्ड सेट करें।",
+    "passwordRule": "पासवर्ड 8+ अक्षरों का होना चाहिए, 1 बड़ा अक्षर, 1 संख्या और 1 प्रतीक",
+    "passwordMismatch": "पासवर्ड मेल नहीं खाते",
+    "passwordChanged": "पासवर्ड सफलतापूर्वक बदल दिया गया। लॉगिन पृष्ठ पर जा रहे हैं..."
   },
-
   "maintenance": {
     "title": "मेंटेनेंस भुगतान",
     "month": "महीना",
-    "year": "वर्ष",
-    "monthCount": "महीनों की संख्या",
-    "total": "कुल राशि",
-    "payNow": "अभी भुगतान करें",
-    "downloadReceipt": "रसीद डाउनलोड करें",
-    "success": "सफलता",
-    "paymentSuccess": "भुगतान सफल रहा",
-    "fillAllFields": "कृपया सभी आवश्यक फ़ील्ड भरें",
     "selectMonth": "महीना चुनें",
+    "year": "वर्ष",
     "enterYear": "वर्ष दर्ज करें",
-    "select": "चुनें"
+    "monthsCount": "महिनों की संख्या",
+    "select": "चुनें",
+    "totalAmount": "कुल राशि",
+    "payNow": "अभी भुगतान करें",
+    "download": "रसीद डाउनलोड करें",
+    "success": "भुगतान सफल",
+    "ok": "ठीक है",
+    "validation": "कृपया सभी विवरण भरें"
   },
-  "months": {
-    "jan": "जनवरी",
-    "feb": "फरवरी",
-    "mar": "मार्च",
-    "apr": "अप्रैल",
-    "may": "मई",
-    "jun": "जून",
-    "jul": "जुलाई",
-    "aug": "अगस्त",
-    "sep": "सितंबर",
-    "oct": "अक्टूबर",
-    "nov": "नवंबर",
-    "dec": "दिसंबर"
-  
-},
-
-  "login": {
-    "Email": "ईमेल",
-    "Password": "पासवर्ड",
-    "Enter email": "ईमेल दर्ज करें",
-    "Enter password": "पासवर्ड दर्ज करें",
-    "Email is required": "ईमेल आवश्यक है",
-    "Password is required": "पासवर्ड आवश्यक है",
-    "Forgot password?": "पासवर्ड भूल गए?",
-    "Don’t have an account?": "खाता नहीं है?"
-  },
-
   "register": {
     "Register": "रजिस्टर",
     "First Name": "पहला नाम",
@@ -114,27 +92,6 @@
     "Registration successful! Redirecting to login page...": "पंजीकरण सफल! लॉगिन पेज पर भेजा जा रहा है...",
     "Please fix the errors above.": "कृपया ऊपर दी गई त्रुटियाँ ठीक करें।"
   },
-
-  "forgotPassword": {
-    "title": "पासवर्ड भूल गए",
-    "email": "ईमेल",
-    "emailPlaceholder": "पंजीकृत ईमेल दर्ज करें",
-    "favoriteColor": "पसंदीदा रंग?",
-    "motherName": "माता का पहला नाम?",
-    "birthCity": "जन्म शहर?",
-    "verifyAnswers": "उत्तर सत्यापित करें",
-    "newPassword": "नया पासवर्ड",
-    "confirmPassword": "पासवर्ड की पुष्टि करें",
-    "changePassword": "पासवर्ड बदलें",
-
-    "userNotFound": "इस ईमेल से कोई उपयोगकर्ता नहीं मिला",
-    "securityMismatch": "सुरक्षा उत्तर मेल नहीं खाते",
-    "securityVerified": "सत्यापन सफल। कृपया नया पासवर्ड सेट करें।",
-    "passwordRule": "पासवर्ड में 8+ अक्षर, 1 बड़ा अक्षर, 1 नंबर और 1 चिन्ह होना चाहिए",
-    "passwordMismatch": "पासवर्ड मेल नहीं खाते",
-    "passwordChanged": "पासवर्ड सफलतापूर्वक बदल दिया गया। लॉगिन पर भेजा जा रहा है..."
-  },
-
   "complaint": {
     "title": "शिकायत दर्ज करें",
     "subject": "विषय",
@@ -148,17 +105,14 @@
     "validation": "कृपया सभी आवश्यक फ़ील्ड भरें",
     "pending": "लंबित"
   },
-
   "priority": {
     "high": "उच्च",
     "medium": "मध्यम",
-    "low": "निम्न"
+    "low": "कम"
   },
-
   "about": {
     "title": "कुमार वर्ष अपार्टमेंट के बारे में",
     "intro": "कुमार वर्ष अपार्टमेंट परिवारों के लिए आधुनिक, सुरक्षित और आरामदायक आवास प्रदान करता है।",
-
     "overviewTitle": "परियोजना अवलोकन",
     "projectTypeLabel": "परियोजना प्रकार",
     "projectType": "आवासीय अपार्टमेंट",
@@ -172,7 +126,6 @@
     "status": "पूर्ण",
     "completionLabel": "पूर्णता तिथि",
     "completion": "मार्च 2025",
-
     "amenitiesTitle": "सुविधाएँ",
     "amenities": [
       "विशाल और हवादार कमरे",
@@ -184,21 +137,21 @@
       "निरंतर जल आपूर्ति",
       "अग्नि सुरक्षा प्रणाली"
     ],
-
     "locationTitle": "स्थान लाभ",
     "locationDesc": "अपार्टमेंट स्कूलों, अस्पतालों, बाज़ार और सार्वजनिक परिवहन के पास स्थित है।",
-
     "contactTitle": "संपर्क जानकारी",
     "phoneLabel": "फ़ोन",
     "emailLabel": "ईमेल",
     "addressLabel": "पता",
-
     "address": {
       "line1": "कुमार वर्ष अपार्टमेंट",
       "line2": "मुख्य मार्ग, लैंडमार्क के पास",
       "line3": "शहर, राज्य, पिन कोड"
     },
-
     "mapTitle": "स्थान मानचित्र"
-  }
+  },
+  "footerTitle": "कुमार वर्ष",
+  "footerDescription": "मेंटेनेंस और शिकायतों को प्रभावी ढंग से प्रबंधित करने के लिए एक सरल और विश्वसनीय प्लेटफ़ॉर्म।",
+  "footerQuickLinks": "त्वरित लिंक",
+  "footerSupport": "सहायता"
 }

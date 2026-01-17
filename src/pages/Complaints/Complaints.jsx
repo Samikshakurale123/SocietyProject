@@ -27,7 +27,6 @@ const Complaints = () => {
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-
     if (name === "image" && files?.[0]) {
       const reader = new FileReader();
       reader.onload = () =>
@@ -43,11 +42,9 @@ const Complaints = () => {
       setMsg(t("complaint.validation"));
       return;
     }
-
     const updated = [...list, form];
     localStorage.setItem("complaints", JSON.stringify(updated));
     setList(updated);
-
     setForm(initialForm);
     setMsg(t("complaint.success"));
     setTimeout(() => setMsg(""), 3000);
@@ -57,23 +54,15 @@ const Complaints = () => {
     <div className="page-container">
       {/* ================= FORM ================= */}
       <div className="complaint-card">
-        <h2>{t("complaint.title")}</h2>
+        <h2>{t("complaintTitle")}</h2>
 
         {msg && <div className="message-box success">{msg}</div>}
 
         <label>{t("complaint.subject")} *</label>
-        <input
-          name="subject"
-          value={form.subject}
-          onChange={handleChange}
-        />
+        <input name="subject" value={form.subject} onChange={handleChange} />
 
         <label>{t("complaint.description")} *</label>
-        <textarea
-          name="body"
-          value={form.body}
-          onChange={handleChange}
-        />
+        <textarea name="body" value={form.body} onChange={handleChange} />
 
         <label>{t("complaint.date")} *</label>
         <input
@@ -100,15 +89,15 @@ const Complaints = () => {
           ))}
         </div>
 
-        <label>{t("complaint.upload")}</label>
+        <label>{t("complaintUpload")}</label>
         <input type="file" name="image" onChange={handleChange} />
 
         <button className="btn-submit" onClick={handleSubmit}>
-          {t("complaint.submit")}
+          {t("complaintSubmit")}
         </button>
       </div>
 
-      {/* ================= TABLE (FIRST IMAGE STYLE) ================= */}
+      {/* ================= TABLE ================= */}
       {list.length > 0 && (
         <div className="complaint-list-box">
           <table>
@@ -120,7 +109,6 @@ const Complaints = () => {
                 <th>{t("complaint.status")}</th>
               </tr>
             </thead>
-
             <tbody>
               {list.map((c, i) => (
                 <tr

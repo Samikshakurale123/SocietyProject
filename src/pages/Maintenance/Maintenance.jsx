@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
+const MONTHLY_CHARGE = 2200;
+
 const Maintenance = () => {
   const { t } = useTranslation();
 
@@ -13,17 +15,14 @@ const Maintenance = () => {
 
   const [form, setForm] = useState(initialState);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [showDownload, setShowDownload] = useState(false);
-
-  const monthlyAmount = 2200;
+  const [paid, setPaid] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     let updatedForm = { ...form, [name]: value };
 
     if (name === "monthCount") {
-      updatedForm.total = value * monthlyAmount;
+      updatedForm.total = value * MONTHLY_CHARGE;
     }
 
     setForm(updatedForm);
@@ -34,12 +33,12 @@ const Maintenance = () => {
       alert(t("maintenance.fillAllFields"));
       return;
     }
+    setPaid(true);
     setShowSuccess(true);
   };
 
   const handleSuccessOk = () => {
     setShowSuccess(false);
-    setShowDownload(true);
   };
 
   const downloadReceipt = () => {
@@ -64,29 +63,22 @@ ${t("maintenance.total")}: ₹${form.total}
 
     // reset form after download
     setForm(initialState);
-    setShowDownload(false);
+    setPaid(false);
   };
 
   return (
-    <div className="maintenance-container">
+    <div className="maintenance-page">
       <div className="maintenance-card">
         <h2>{t("maintenance.title")}</h2>
 
         <label>{t("maintenance.month")} *</label>
         <select name="month" value={form.month} onChange={handleChange}>
           <option value="">{t("maintenance.selectMonth")}</option>
-          <option value="January">{t("months.jan")}</option>
-          <option value="February">{t("months.feb")}</option>
-          <option value="March">{t("months.mar")}</option>
-          <option value="April">{t("months.apr")}</option>
-          <option value="May">{t("months.may")}</option>
-          <option value="June">{t("months.jun")}</option>
-          <option value="July">{t("months.jul")}</option>
-          <option value="August">{t("months.aug")}</option>
-          <option value="September">{t("months.sep")}</option>
-          <option value="October">{t("months.oct")}</option>
-          <option value="November">{t("months.nov")}</option>
-          <option value="December">{t("months.dec")}</option>
+          {["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"].map((m) => (
+            <option key={m} value={m}>
+              {t(`months.${m}`)}
+            </option>
+          ))}
         </select>
 
         <label>{t("maintenance.year")} *</label>
@@ -115,13 +107,12 @@ ${t("maintenance.total")}: ₹${form.total}
         <label>{t("maintenance.total")}</label>
         <input type="text" value={`₹ ${form.total}`} readOnly />
 
-        {!showDownload && (
+        {/* PAY / DOWNLOAD BUTTONS */}
+        {!paid ? (
           <button className="pay-btn" onClick={handlePay}>
             {t("maintenance.payNow")}
           </button>
-        )}
-
-        {showDownload && (
+        ) : (
           <button className="download-btn" onClick={downloadReceipt}>
             {t("maintenance.downloadReceipt")}
           </button>

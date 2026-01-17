@@ -1,90 +1,68 @@
 {
-  "common": {
-    "Home": "मुख्यपृष्ठ",
-    "About Us": "आमच्याबद्दल",
-    "Maintenance": "मेंटेनन्स",
-    "Complaints": "तक्रारी",
-    "Login": "लॉगिन",
-    "Logout": "लॉगआउट",
-    "Register": "नोंदणी",
-    "Hi": "नमस्कार",
-
-    "welcome": "आपले स्वागत आहे",
-    "Welcome to Kumar Varsh": "कुमार वर्ष येथे आपले स्वागत आहे",
-    "subtitle": "मेंटेनन्स व्यवस्थापन, तक्रारींचा मागोवा आणि उत्तम सामुदायिक जीवनासाठी एक सोपी व विश्वासार्ह प्रणाली.",
-
-    "features": "आमची वैशिष्ट्ये",
-    "maintenanceTracking": "मेंटेनन्स ट्रॅकिंग",
-    "maintenanceDesc": "पूर्ण पारदर्शकतेसह मेंटेनन्स पेमेंट सहज व्यवस्थापित करा.",
-
-    "complaintManagement": "तक्रार व्यवस्थापन",
-    "complaintDesc": "त्वरित निवारणासाठी तक्रारी नोंदवा आणि त्यांची स्थिती तपासा.",
-
-    "secureAccess": "सुरक्षित प्रवेश",
-    "secureDesc": "रहिवाशांसाठी गोपनीयता राखणारी सुरक्षित लॉगिन प्रणाली.",
-
-    "Residents": "रहिवासी",
-    "Support": "सहाय्य",
-    "Complaint Resolution": "तक्रार निवारण",
-
-    "Quick Links": "त्वरित दुवे",
-    "All rights reserved.": "सर्व हक्क राखीव.",
-
-    "Login successful!": "लॉगिन यशस्वी!",
-    "Incorrect password. Please try again.": "चुकीचा पासवर्ड. कृपया पुन्हा प्रयत्न करा.",
-    "User not registered. Please register first.": "वापरकर्ता नोंदणीकृत नाही. कृपया आधी नोंदणी करा.",
-
-    "Please fill all details": "कृपया सर्व माहिती भरा",
-    "Payment Successful": "पेमेंट यशस्वी",
-    "OK": "ठीक आहे",
-
-    "description": "वर्णन",
-    "close": "बंद करा",
-    "imageAlt": "तक्रारीची प्रतिमा"
+  "Home": "मुख्यपृष्ठ",
+  "About Us": "आमच्याबद्दल",
+  "Maintenance": "मेंटेनन्स",
+  "Complaints": "तक्रारी",
+  "Login": "लॉगिन",
+  "Logout": "लॉगआउट",
+  "Register": "नोंदणी",
+  "Hi": "नमस्कार",
+  "WelcomeMessage": "कुमार वर्ष येथे आपले स्वागत आहे",
+  "subtitle": "मेंटेनन्स व्यवस्थापन, तक्रारींचा मागोवा आणि सुरळीत सामुदायिक जीवनासाठी एक सोपी व विश्वासार्ह प्रणाली.",
+  "features": "आमची वैशिष्ट्ये",
+  "maintenanceTracking": "मेंटेनन्स ट्रॅकिंग",
+  "maintenanceDesc": "पूर्ण पारदर्शकतेसह मेंटेनन्स पेमेंट सहज व्यवस्थापित करा.",
+  "complaintManagement": "तक्रार व्यवस्थापन",
+  "complaintDesc": "त्वरित निवारणासाठी तक्रारी नोंदवा आणि त्यांची स्थिती तपासा.",
+  "secureAccess": "सुरक्षित प्रवेश",
+  "secureDesc": "रहिवाशांसाठी गोपनीयता राखणारी सुरक्षित लॉगिन प्रणाली.",
+  "Residents": "रहिवासी",
+  "Support": "सहाय्य",
+  "Complaint Resolution": "तक्रार निवारण",
+  "Quick Links": "त्वरित दुवे",
+  "All rights reserved.": "सर्व हक्क राखीव.",
+  "loginTitle": "लॉगिन",
+  "loginEmail": "ईमेल",
+  "loginPassword": "पासवर्ड",
+  "loginButton": "लॉगिन",
+  "loginForgot": "पासवर्ड विसरलात?",
+  "loginNoAccount": "खाते नाहीये?",
+  "loginIncorrectPassword": "चुकीचा पासवर्ड. कृपया पुन्हा प्रयत्न करा.",
+  "loginUserNotFound": "वापरकर्ता नोंदणीकृत नाही. कृपया आधी नोंदणी करा.",
+  "loginSuccess": "लॉगिन यशस्वी!",
+  "forgotPassword": {
+    "title": "पासवर्ड विसरलात",
+    "email": "ईमेल",
+    "emailPlaceholder": "नोंदणीकृत ईमेल प्रविष्ट करा",
+    "favoriteColor": "आवडता रंग?",
+    "motherName": "आईचे पहिले नाव?",
+    "birthCity": "जन्म शहर?",
+    "verifyAnswers": "उत्तरे तपासा",
+    "newPassword": "नवीन पासवर्ड",
+    "confirmPassword": "पासवर्ड पुष्टी करा",
+    "changePassword": "पासवर्ड बदला",
+    "userNotFound": "या ईमेलसह वापरकर्ता आढळला नाही",
+    "securityMismatch": "सुरक्षा उत्तरे जुळत नाहीत",
+    "securityVerified": "सत्यापन यशस्वी. कृपया नवीन पासवर्ड सेट करा.",
+    "passwordRule": "पासवर्डमध्ये 8+ अक्षरे, 1 मोठे अक्षर, 1 अंक व 1 चिन्ह असावे",
+    "passwordMismatch": "पासवर्ड जुळत नाहीत",
+    "passwordChanged": "पासवर्ड यशस्वीरीत्या बदलला. लॉगिन पृष्ठावर पाठवत आहे..."
   },
-
   "maintenance": {
     "title": "मेंटेनन्स पेमेंट",
     "month": "महिना",
-    "year": "वर्ष",
-    "monthCount": "महिन्यांची संख्या",
-    "total": "एकूण रक्कम",
-    "payNow": "आता पेमेंट करा",
-    "downloadReceipt": "पावती डाउनलोड करा",
-    "success": "यशस्वी",
-    "paymentSuccess": "पेमेंट यशस्वी झाले",
-    "fillAllFields": "कृपया सर्व आवश्यक माहिती भरा",
     "selectMonth": "महिना निवडा",
+    "year": "वर्ष",
     "enterYear": "वर्ष प्रविष्ट करा",
-    "select": "निवडा"
+    "monthsCount": "महिन्यांची संख्या",
+    "select": "निवडा",
+    "totalAmount": "एकूण रक्कम",
+    "payNow": "अभी भरा",
+    "download": "पावती डाउनलोड करा",
+    "success": "भरणा यशस्वी",
+    "ok": "ठीक आहे",
+    "validation": "कृपया सर्व माहिती भरा"
   },
-
-  "months": {
-    "jan": "जानेवारी",
-    "feb": "फेब्रुवारी",
-    "mar": "मार्च",
-    "apr": "एप्रिल",
-    "may": "मे",
-    "jun": "जून",
-    "jul": "जुलै",
-    "aug": "ऑगस्ट",
-    "sep": "सप्टेंबर",
-    "oct": "ऑक्टोबर",
-    "nov": "नोव्हेंबर",
-    "dec": "डिसेंबर"
-  },
-
-  "login": {
-    "Email": "ईमेल",
-    "Password": "पासवर्ड",
-    "Enter email": "ईमेल प्रविष्ट करा",
-    "Enter password": "पासवर्ड प्रविष्ट करा",
-    "Email is required": "ईमेल आवश्यक आहे",
-    "Password is required": "पासवर्ड आवश्यक आहे",
-    "Forgot password?": "पासवर्ड विसरलात?",
-    "Don’t have an account?": "खाते नाही?"
-  },
-
   "register": {
     "Register": "नोंदणी",
     "First Name": "पहिले नाव",
@@ -92,7 +70,7 @@
     "Email": "ईमेल",
     "Mobile": "मोबाईल",
     "Password": "पासवर्ड",
-    "Confirm Password": "पासवर्डची पुष्टी करा",
+    "Confirm Password": "पासवर्ड पुष्टी करा",
     "Date of Birth": "जन्मतारीख",
     "Address": "पत्ता",
     "Wing": "विंग",
@@ -114,27 +92,6 @@
     "Registration successful! Redirecting to login page...": "नोंदणी यशस्वी! लॉगिन पृष्ठावर पाठवत आहे...",
     "Please fix the errors above.": "कृपया वरील त्रुटी दुरुस्त करा."
   },
-
-  "forgotPassword": {
-    "title": "पासवर्ड विसरलात",
-    "email": "ईमेल",
-    "emailPlaceholder": "नोंदणीकृत ईमेल प्रविष्ट करा",
-    "favoriteColor": "आवडता रंग?",
-    "motherName": "आईचे पहिले नाव?",
-    "birthCity": "जन्म शहर?",
-    "verifyAnswers": "उत्तरे तपासा",
-    "newPassword": "नवीन पासवर्ड",
-    "confirmPassword": "पासवर्डची पुष्टी करा",
-    "changePassword": "पासवर्ड बदला",
-
-    "userNotFound": "या ईमेलसाठी कोणताही वापरकर्ता सापडला नाही",
-    "securityMismatch": "सुरक्षा उत्तरे जुळत नाहीत",
-    "securityVerified": "सत्यापन यशस्वी. कृपया नवीन पासवर्ड सेट करा.",
-    "passwordRule": "पासवर्डमध्ये 8+ अक्षरे, 1 मोठे अक्षर, 1 अंक आणि 1 चिन्ह असणे आवश्यक आहे",
-    "passwordMismatch": "पासवर्ड जुळत नाहीत",
-    "passwordChanged": "पासवर्ड यशस्वीपणे बदलला. लॉगिन पृष्ठावर पाठवत आहे..."
-  },
-
   "complaint": {
     "title": "तक्रार नोंदवा",
     "subject": "विषय",
@@ -144,61 +101,17 @@
     "upload": "प्रतिमा अपलोड करा",
     "submit": "तक्रार सबमिट करा",
     "status": "स्थिती",
-    "success": "तक्रार यशस्वीपणे नोंदवली गेली",
+    "success": "तक्रार यशस्वीरीत्या नोंदवली",
     "validation": "कृपया सर्व आवश्यक माहिती भरा",
     "pending": "प्रलंबित"
   },
-
   "priority": {
     "high": "उच्च",
     "medium": "मध्यम",
     "low": "कमी"
   },
-
-  "about": {
-    "title": "कुमार वर्ष अपार्टमेंट बद्दल",
-    "intro": "कुमार वर्ष अपार्टमेंट कुटुंबांसाठी आधुनिक, सुरक्षित आणि आरामदायक निवास सुविधा प्रदान करते.",
-
-    "overviewTitle": "प्रकल्पाचा आढावा",
-    "projectTypeLabel": "प्रकल्प प्रकार",
-    "projectType": "निवासी अपार्टमेंट",
-    "floorsLabel": "एकूण मजले",
-    "floors": "ग्राउंड + 5 मजले",
-    "unitsLabel": "एकूण युनिट्स",
-    "units": "40 अपार्टमेंट",
-    "typesLabel": "अपार्टमेंट प्रकार",
-    "types": "1 बीएचके / 2 बीएचके / 3 बीएचके",
-    "statusLabel": "बांधकाम स्थिती",
-    "status": "पूर्ण",
-    "completionLabel": "पूर्णत्व तारीख",
-    "completion": "मार्च 2025",
-
-    "amenitiesTitle": "सुविधा",
-    "amenities": [
-      "प्रशस्त आणि हवेशीर खोल्या",
-      "आधुनिक स्वयंपाकघर आणि स्नानगृह",
-      "24/7 सुरक्षा",
-      "लिफ्ट सुविधा",
-      "वीज बॅकअप",
-      "स्वतंत्र पार्किंग",
-      "सतत पाणीपुरवठा",
-      "अग्निसुरक्षा प्रणाली"
-    ],
-
-    "locationTitle": "स्थानाचे फायदे",
-    "locationDesc": "अपार्टमेंट शाळा, रुग्णालये, बाजारपेठ आणि सार्वजनिक वाहतुकीजवळ स्थित आहे.",
-
-    "contactTitle": "संपर्क माहिती",
-    "phoneLabel": "फोन",
-    "emailLabel": "ईमेल",
-    "addressLabel": "पत्ता",
-
-    "address": {
-      "line1": "कुमार वर्ष अपार्टमेंट",
-      "line2": "मुख्य रस्ता, लँडमार्कजवळ",
-      "line3": "शहर, राज्य, पिन कोड"
-    },
-
-    "mapTitle": "स्थान नकाशा"
-  }
+  "footerTitle": "कुमार वर्ष",
+  "footerDescription": "मेंटेनन्स आणि तक्रारी प्रभावीपणे व्यवस्थापित करण्यासाठी एक विश्वासार्ह व्यासपीठ.",
+  "footerQuickLinks": "जलद दुवे",
+  "footerSupport": "सहाय्य"
 }
