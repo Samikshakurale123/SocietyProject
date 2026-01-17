@@ -1,145 +1,103 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { generateMaintenancePDF } from "../../utils/generateMaintenancePDF";
+
+const MONTHLY_CHARGE = 2200;
 
 const Maintenance = () => {
   const { t } = useTranslation();
 
-  // ✅ States
-  const [monthIndex, setMonthIndex] = useState("");
-  const [year, setYear] = useState("");
-  const [monthsCount, setMonthsCount] = useState("");
-  const [amount, setAmount] = useState(0);
-  const [paid, setPaid] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
-
-  const monthlyCharge = 2200;
-
-  // ✅ Translated months array
   const months = t("months", { returnObjects: true });
 
-  // ✅ Calculate amount
-  const calculateAmount = (count) => {
-    setMonthsCount(count);
-    setAmount(count * monthlyCharge);
-  };
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState("");
+  const [monthsCount, setMonthsCount] = useState("");
+  const [isPaid, setIsPaid] = useState(false);
 
-  // ✅ Pay button
+  const totalAmount = useMemo(() => {
+    return monthsCount ? monthsCount * MONTHLY_CHARGE : 0;
+  }, [monthsCount]);
+
   const handlePay = () => {
-    if (monthIndex === "" || !year || !monthsCount) {
-      alert(t("maintenance.validation"));
+    if (!month || !year || !monthsCount) {
+      alert(t("Please fill all details")); // ✅ translated
       return;
     }
-    setPaid(true);
+    setIsPaid(true);
   };
 
-  // ✅ Download PDF
   const handleDownload = () => {
-    const selectedMonth =
-      Array.isArray(months) && monthIndex !== ""
-        ? months[monthIndex]
-        : "";
-
-    generateMaintenancePDF(
-      selectedMonth,
-      year,
-      monthsCount,
-      amount
-    );
-
-    setShowSuccess(true);
-  };
-
-  // ✅ Reset
-  const resetForm = () => {
-    setMonthIndex("");
-    setYear("");
-    setMonthsCount("");
-    setAmount(0);
-    setPaid(false);
-    setShowSuccess(false);
+    generateMaintenancePDF(month, year, monthsCount, totalAmount);
   };
 
   return (
-    <>
-      <div className={`maintenance-page ${showSuccess ? "blur-bg" : ""}`}>
-        <div className="maintenance-card">
-          <h2>{t("maintenance.title")}</h2>
+    <div className="maintenance-page">
+      <div className="maintenance-card">
+        <h2>{t("maintenance.title")}</h2>
 
-          {/* Month */}
-          <label>
-            {t("maintenance.month")} <span style={{ color: "red" }}>*</span>
-          </label>
-          <select
-            value={monthIndex}
-            onChange={(e) => setMonthIndex(e.target.value)}
-          >
-            <option value="">{t("maintenance.selectMonth")}</option>
-            {Array.isArray(months) &&
-              months.map((m, i) => (
-                <option key={i} value={i}>
-                  {m}
-                </option>
-              ))}
-          </select>
-
-          {/* Year */}
-          <label>
-            {t("maintenance.year")} <span style={{ color: "red" }}>*</span>
-          </label>
-          <input
-            type="number"
-            placeholder={t("maintenance.enterYear")}
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
-          />
-
-          {/* Number of Months */}
-          <label>
-            {t("maintenance.monthsCount")}{" "}
-            <span style={{ color: "red" }}>*</span>
-          </label>
-          <select
-            value={monthsCount}
-            onChange={(e) => calculateAmount(Number(e.target.value))}
-          >
-            <option value="">{t("maintenance.select")}</option>
-            {[...Array(12)].map((_, i) => (
-              <option key={i} value={i + 1}>
-                {i + 1}
+        {/* Month */}
+        <label>{t("maintenance.month")} *</label>
+        <select value={month} onChange={(e) => setMonth(e.target.value)}>
+          <option value="">{t("maintenance.selectMonth")}</option>
+          {Array.isArray(months) &&
+            months.map((m, i) => (
+              <option key={i} value={m}>
+                {m}
               </option>
             ))}
-          </select>
+        </select>
 
-          {/* Amount */}
-          <label>{t("maintenance.totalAmount")}</label>
-          <input value={`₹ ${amount}`} disabled />
+        {/* Year */}
+        <label>{t("maintenance.year")} *</label>
+        <input
+          type="number"
+          placeholder={t("maintenance.enterYear")}
+          value={year}
+          onChange={(e) => setYear(e.target.value)}
+        />
 
-          {/* Buttons */}
-          {!paid ? (
-            <button className="pay-btn" onClick={handlePay}>
+        {/* Months Count */}
+        <label>{t("maintenance.monthCount")} *</label>
+        <select
+          value={monthsCount}
+          onChange={(e) => setMonthsCount(Number(e.target.value))}
+        >
+          <option value="">{t("maintenance.select")}</option>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ].map((n) => (
+            <option key={n} value={n}>
+              {n}
+            </option>
+          ))}
+        </select>
+
+        {/* Total */}
+        <label>{t("maintenance.total")}</label>
+        <input value={`₹ ${totalAmount}`} readOnly />
+
+        {/* Buttons */}
+        {!isPaid ? (
+          <div className="pay-spacing">
+            <button
+              type="button"
+              className="pay-btn"
+              onClick={handlePay}
+            >
               {t("maintenance.payNow")}
             </button>
-          ) : (
-            <button className="download-btn" onClick={handleDownload}>
-              {t("maintenance.download")}
-            </button>
-          )}
-        </div>
-      </div>
-
-      {/* Success Popup */}
-      {showSuccess && (
-        <div className="popup-overlay">
-          <div className="popup-card">
-            <h3>{t("maintenance.success")}</h3>
-            <button onClick={resetForm}>
-              {t("maintenance.ok")}
+          </div>
+        ) : (
+          <div className="pay-spacing">
+            <button
+              type="button"
+              className="download-btn"
+              onClick={handleDownload}
+            >
+              {t("maintenance.downloadReceipt")} {/* ✅ FIXED */}
             </button>
           </div>
-        </div>
-      )}
-    </>
+        )}
+      </div>
+    </div>
   );
 };
 

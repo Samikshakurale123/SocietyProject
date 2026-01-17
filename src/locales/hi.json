@@ -224,22 +224,20 @@
     "दिसंबर"
   ],
 
+ 
   "maintenance": {
     "title": "मेंटेनेंस भुगतान",
     "month": "महीना",
     "selectMonth": "महीना चुनें",
     "year": "वर्ष",
     "enterYear": "वर्ष दर्ज करें",
-    "monthsCount": "महीनों की संख्या",
+    "monthCount": "महीनों की संख्या",
     "select": "चुनें",
-    "totalAmount": "कुल राशि",
+    "total": "कुल राशि",
     "payNow": "अभी भुगतान करें",
-    "download": "रसीद डाउनलोड करें (PDF)",
-    "success": "भुगतान सफल",
-    "ok": "ठीक है",
-    "validation": "कृपया सभी विवरण भरें"
-
+    "downloadReceipt": "रसीद डाउनलोड करें"
   }
 }
+
 
 
