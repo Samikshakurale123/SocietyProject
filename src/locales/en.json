@@ -135,23 +135,24 @@
     "passwordChanged": "Password changed successfully. Redirecting to login..."
   },
 
-  "complaintDetails": {
-    "title": "Complaint Details",
+  "complaint": {
+    "title": "Register Complaint",
     "subject": "Subject",
+    "description": "Description",
     "date": "Date",
     "priority": "Priority",
-    "image": "Upload Image",
+    "upload": "Upload Image",
     "submit": "Submit Complaint",
-    "update": "Update Complaint",
-    "success": "Complaint submitted successfully",
-    "updateSuccess": "Complaint updated successfully",
-    "validation": "Please fill all required fields correctly",
-    "listTitle": "Your Complaints",
-    "noData": "No complaints found",
     "status": "Status",
-    "actions": "Actions",
-    "edit": "Edit",
-    "delete": "Delete"
+    "success": "Complaint submitted successfully",
+    "validation": "Please fill all required fields",
+    "pending": "Pending"
+  },
+
+  "priority": {
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low"
   },
 
   "about": {
