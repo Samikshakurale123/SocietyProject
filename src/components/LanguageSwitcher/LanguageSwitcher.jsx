@@ -1,18 +1,24 @@
+import React from "react";
 import { useTranslation } from "react-i18next";
 
-export default function LanguageSwitcher() {
+const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
-  const changeLang = (lang) => {
+  const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
-    localStorage.setItem("lang", lang);
   };
 
   return (
-    <select onChange={(e) => changeLang(e.target.value)} value={i18n.language}>
+    <select
+      onChange={(e) => changeLanguage(e.target.value)}
+      defaultValue={i18n.language}
+      style={{ padding: "4px", borderRadius: "4px" }}
+    >
       <option value="en">English</option>
       <option value="hi">हिंदी</option>
       <option value="mr">मराठी</option>
     </select>
   );
-}
+};
+
+export default LanguageSwitcher;

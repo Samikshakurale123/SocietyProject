@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 
   
   
@@ -89,4 +90,208 @@
   "footerSupport": "सहायता"
 
 
+=======
+  "common": {
+    "Home": "होम",
+    "About Us": "हमारे बारे में",
+    "Maintenance": "मेंटेनेंस",
+    "Complaints": "शिकायतें",
+    "Login": "लॉगिन",
+    "Logout": "लॉगआउट",
+    "Register": "रजिस्टर",
+    "Hi": "नमस्ते",
+
+    "welcome": "आपका स्वागत है",
+    "Welcome to Kumar Varsh": "कुमार वर्ष में आपका स्वागत है",
+    "subtitle": "मेंटेनेंस प्रबंधन, शिकायतों की निगरानी और बेहतर सामुदायिक जीवन के लिए एक सरल और विश्वसनीय प्लेटफ़ॉर्म।",
+
+    "features": "हमारी विशेषताएँ",
+    "maintenanceTracking": "मेंटेनेंस ट्रैकिंग",
+    "maintenanceDesc": "पूरी पारदर्शिता के साथ मेंटेनेंस भुगतान को आसानी से प्रबंधित करें।",
+
+    "complaintManagement": "शिकायत प्रबंधन",
+    "complaintDesc": "त्वरित समाधान सहायता के साथ शिकायत दर्ज करें और उसकी स्थिति देखें।",
+
+    "secureAccess": "सुरक्षित पहुँच",
+    "secureDesc": "निवासियों की गोपनीयता के लिए सुरक्षित लॉगिन प्रणाली।",
+
+    "Residents": "निवासी",
+    "Support": "सहायता",
+    "Complaint Resolution": "शिकायत समाधान",
+
+    "Quick Links": "त्वरित लिंक",
+    "All rights reserved.": "सभी अधिकार सुरक्षित।",
+
+    "Login successful!": "लॉगिन सफल हुआ!",
+    "Incorrect password. Please try again.": "गलत पासवर्ड। कृपया पुनः प्रयास करें।",
+    "User not registered. Please register first.": "उपयोगकर्ता पंजीकृत नहीं है। कृपया पहले रजिस्टर करें।",
+
+    "Please fill all details": "कृपया सभी विवरण भरें",
+    "Payment Successful": "भुगतान सफल",
+    "OK": "ठीक है",
+
+    "description": "विवरण",
+    "close": "बंद करें",
+    "imageAlt": "शिकायत की छवि"
+  },
+
+  "months": [
+    "जनवरी",
+    "फ़रवरी",
+    "मार्च",
+    "अप्रैल",
+    "मई",
+    "जून",
+    "जुलाई",
+    "अगस्त",
+    "सितंबर",
+    "अक्टूबर",
+    "नवंबर",
+    "दिसंबर"
+  ],
+
+  "maintenance": {
+    "title": "मेंटेनेंस भुगतान",
+    "month": "महीना",
+    "selectMonth": "महीना चुनें",
+    "year": "वर्ष",
+    "enterYear": "वर्ष दर्ज करें",
+    "monthsCount": "महीनों की संख्या",
+    "select": "चुनें",
+    "totalAmount": "कुल राशि",
+    "payNow": "अभी भुगतान करें",
+    "download": "रसीद डाउनलोड करें (PDF)",
+    "success": "भुगतान सफल",
+    "ok": "ठीक है",
+    "validation": "कृपया सभी विवरण भरें"
+  },
+
+  "login": {
+    "Email": "ईमेल",
+    "Password": "पासवर्ड",
+    "Enter email": "ईमेल दर्ज करें",
+    "Enter password": "पासवर्ड दर्ज करें",
+    "Email is required": "ईमेल आवश्यक है",
+    "Password is required": "पासवर्ड आवश्यक है",
+    "Forgot password?": "पासवर्ड भूल गए?",
+    "Don’t have an account?": "खाता नहीं है?"
+  },
+
+  "register": {
+    "Register": "रजिस्टर",
+    "First Name": "पहला नाम",
+    "Last Name": "अंतिम नाम",
+    "Email": "ईमेल",
+    "Mobile": "मोबाइल",
+    "Password": "पासवर्ड",
+    "Confirm Password": "पासवर्ड की पुष्टि करें",
+    "Date of Birth": "जन्म तिथि",
+    "Address": "पता",
+    "Wing": "विंग",
+    "Flat No": "फ्लैट नंबर",
+    "Pincode": "पिनकोड",
+    "Security Questions": "सुरक्षा प्रश्न",
+    "Favorite color?": "पसंदीदा रंग?",
+    "Mother’s first name?": "माता का पहला नाम?",
+    "Birth city?": "जन्म शहर?",
+    "Register Button": "रजिस्टर",
+    "This field is required": "यह फ़ील्ड आवश्यक है",
+    "Enter a valid email": "मान्य ईमेल दर्ज करें",
+    "Enter valid 10-digit mobile": "मान्य 10 अंकों का मोबाइल दर्ज करें",
+    "Enter valid 6-digit pincode": "मान्य 6 अंकों का पिनकोड दर्ज करें",
+    "Future date not allowed": "भविष्य की तारीख मान्य नहीं है",
+    "Min 8 chars, 1 uppercase, 1 number & 1 symbol": "कम से कम 8 अक्षर, 1 बड़ा अक्षर, 1 नंबर और 1 चिन्ह आवश्यक",
+    "Passwords do not match": "पासवर्ड मेल नहीं खाते",
+    "User already registered": "उपयोगकर्ता पहले से पंजीकृत है",
+    "Registration successful! Redirecting to login page...": "पंजीकरण सफल! लॉगिन पेज पर भेजा जा रहा है...",
+    "Please fix the errors above.": "कृपया ऊपर दी गई त्रुटियाँ ठीक करें।"
+  },
+
+  "forgotPassword": {
+    "title": "पासवर्ड भूल गए",
+    "email": "ईमेल",
+    "emailPlaceholder": "पंजीकृत ईमेल दर्ज करें",
+    "favoriteColor": "पसंदीदा रंग?",
+    "motherName": "माता का पहला नाम?",
+    "birthCity": "जन्म शहर?",
+    "verifyAnswers": "उत्तर सत्यापित करें",
+    "newPassword": "नया पासवर्ड",
+    "confirmPassword": "पासवर्ड की पुष्टि करें",
+    "changePassword": "पासवर्ड बदलें",
+
+    "userNotFound": "इस ईमेल से कोई उपयोगकर्ता नहीं मिला",
+    "securityMismatch": "सुरक्षा उत्तर मेल नहीं खाते",
+    "securityVerified": "सत्यापन सफल। कृपया नया पासवर्ड सेट करें।",
+    "passwordRule": "पासवर्ड में 8+ अक्षर, 1 बड़ा अक्षर, 1 नंबर और 1 चिन्ह होना चाहिए",
+    "passwordMismatch": "पासवर्ड मेल नहीं खाते",
+    "passwordChanged": "पासवर्ड सफलतापूर्वक बदल दिया गया। लॉगिन पर भेजा जा रहा है..."
+  },
+
+  "complaint": {
+    "title": "शिकायत दर्ज करें",
+    "subject": "विषय",
+    "description": "विवरण",
+    "date": "तारीख",
+    "priority": "प्राथमिकता",
+    "upload": "छवि अपलोड करें",
+    "submit": "शिकायत सबमिट करें",
+    "status": "स्थिति",
+    "success": "शिकायत सफलतापूर्वक दर्ज की गई",
+    "validation": "कृपया सभी आवश्यक फ़ील्ड भरें",
+    "pending": "लंबित"
+  },
+
+  "priority": {
+    "high": "उच्च",
+    "medium": "मध्यम",
+    "low": "निम्न"
+  },
+
+  "about": {
+    "title": "कुमार वर्ष अपार्टमेंट के बारे में",
+    "intro": "कुमार वर्ष अपार्टमेंट परिवारों के लिए आधुनिक, सुरक्षित और आरामदायक आवास प्रदान करता है।",
+
+    "overviewTitle": "परियोजना अवलोकन",
+    "projectTypeLabel": "परियोजना प्रकार",
+    "projectType": "आवासीय अपार्टमेंट",
+    "floorsLabel": "कुल मंज़िलें",
+    "floors": "ग्राउंड + 5 मंज़िलें",
+    "unitsLabel": "कुल यूनिट",
+    "units": "40 अपार्टमेंट",
+    "typesLabel": "अपार्टमेंट प्रकार",
+    "types": "1 बीएचके / 2 बीएचके / 3 बीएचके",
+    "statusLabel": "निर्माण स्थिति",
+    "status": "पूर्ण",
+    "completionLabel": "पूर्णता तिथि",
+    "completion": "मार्च 2025",
+
+    "amenitiesTitle": "सुविधाएँ",
+    "amenities": [
+      "विशाल और हवादार कमरे",
+      "आधुनिक रसोई और बाथरूम",
+      "24/7 सुरक्षा",
+      "लिफ्ट सुविधा",
+      "पावर बैकअप",
+      "समर्पित पार्किंग",
+      "निरंतर जल आपूर्ति",
+      "अग्नि सुरक्षा प्रणाली"
+    ],
+
+    "locationTitle": "स्थान लाभ",
+    "locationDesc": "अपार्टमेंट स्कूलों, अस्पतालों, बाज़ार और सार्वजनिक परिवहन के पास स्थित है।",
+
+    "contactTitle": "संपर्क जानकारी",
+    "phoneLabel": "फ़ोन",
+    "emailLabel": "ईमेल",
+    "addressLabel": "पता",
+
+    "address": {
+      "line1": "कुमार वर्ष अपार्टमेंट",
+      "line2": "मुख्य मार्ग, लैंडमार्क के पास",
+      "line3": "शहर, राज्य, पिन कोड"
+    },
+
+    "mapTitle": "स्थान मानचित्र"
+  }
+>>>>>>> 903ae14ef92ceeff1775da8a3da3340003dcfa10
 }

@@ -442,6 +442,62 @@ table tr:hover {
   color: #0369a1;
   text-align: center;
 }
+/* ===============================
+   PROFESSIONAL PRIORITY BUTTONS
+================================ */
+
+.priority-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.priority-option {
+  flex: 1;
+  border: 2px solid #d1d5db;
+  border-radius: 999px;
+  padding: 8px 0;
+  text-align: center;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.priority-option input {
+  display: none;
+}
+
+.priority-option.high {
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+.priority-option.medium {
+  color: #f59e0b;
+  border-color: #f59e0b;
+}
+
+.priority-option.low {
+  color: #16a34a;
+  border-color: #16a34a;
+}
+
+.priority-option.high:has(input:checked) {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+
+.priority-option.medium:has(input:checked) {
+  background-color: #f59e0b;
+  color: #ffffff;
+}
+
+.priority-option.low:has(input:checked) {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+
 
 /* ===============================
    MAINTENANCE PAGE (ISOLATED)
