@@ -3,8 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import logo from "../../assets/logo/logo.jpg";
-import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
-
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
 const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate();
@@ -14,13 +13,10 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   const [showMenu, setShowMenu] = useState(false);
   const dropdownRef = useRef(null);
 
+  // Load username from localStorage whenever login state changes
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (user?.firstName) {
-      setUsername(user.firstName);
-    } else {
-      setUsername("");
-    }
+    setUsername(user?.firstName || "");
   }, [isLoggedIn]);
 
   // Close dropdown when clicking outside
@@ -30,7 +26,6 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
         setShowMenu(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
@@ -51,7 +46,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
           <span className="brand-name">Kumar Varsh</span>
         </Link>
 
-        {/* 🌐 Language Switcher */}
+        {/* Language Switcher */}
         <div className="ms-auto me-3">
           <LanguageSwitcher />
         </div>
@@ -80,7 +75,6 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
                     {t("About Us")}
                   </Link>
                 </li>
-
                 <li className="nav-item ms-3">
                   <Link className="btn btn-primary btn-sm px-4" to="/login">
                     {t("Login")}
@@ -94,25 +88,23 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
                     {t("Maintenance")}
                   </Link>
                 </li>
-
                 <li className="nav-item">
                   <Link className="nav-link" to="/complaint">
                     {t("Complaints")}
                   </Link>
                 </li>
 
-                {/* User icon */}
+                {/* User dropdown */}
                 <li className="nav-item position-relative ms-3" ref={dropdownRef}>
                   <FaUserCircle
                     size={26}
                     className="user-icon"
                     onClick={() => setShowMenu(!showMenu)}
                   />
-
                   {showMenu && (
                     <div className="user-dropdown">
                       <p className="username">
-                        {t("Hi")}, {username}
+                        {t("Hi")}, {username || t("User")}
                       </p>
                       <button
                         className="btn btn-outline-danger btn-sm w-100"

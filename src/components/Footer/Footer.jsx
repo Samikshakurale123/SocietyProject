@@ -10,23 +10,26 @@ function Footer() {
       <div className="container">
         <div className="row">
 
+          {/* About / Description */}
           <div className="col-md-6 mb-3">
-            <h5 className="footer-title">Kumar Varsh</h5>
-            <p className="footer-text">
-              {t("A simple and reliable platform for managing maintenance and complaints efficiently.")}
-            </p>
+            <h5 className="footer-title">{t("footerTitle")}</h5>
+            <p className="footer-text">{t("footerDescription")}</p>
           </div>
 
+          {/* Quick Links */}
           <div className="col-md-3 mb-3">
-            <h6>{t("Quick Links")}</h6>
+            <h6>{t("footerQuickLinks")}</h6>
             <ul className="footer-links">
               <li><Link to="/">{t("Home")}</Link></li>
               <li><Link to="/about">{t("About Us")}</Link></li>
+              <li><Link to="/maintenance">{t("Maintenance")}</Link></li>
+              <li><Link to="/complaints">{t("Complaints")}</Link></li>
             </ul>
           </div>
 
+          {/* Support */}
           <div className="col-md-3 mb-3">
-            <h6>{t("Support")}</h6>
+            <h6>{t("footerSupport")}</h6>
             <p className="footer-text">support@kumarvarsh.com</p>
           </div>
 

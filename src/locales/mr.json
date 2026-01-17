@@ -1,93 +1,21 @@
 {
-  "Home": "मुख्यपृष्ठ",
+
+  
+ 
   "About Us": "आमच्याबद्दल",
   "Maintenance": "मेंटेनन्स",
   "Complaints": "तक्रारी",
+  
+
+
+
+  "Home": "मुख्यपृष्ठ",
   "Login": "लॉगिन",
   "Logout": "लॉगआउट",
   "Register": "नोंदणी करा",
   "Hi": "नमस्कार",
-
-  "Welcome to Kumar Varsh": "कुमार वर्ष मध्ये आपले स्वागत आहे",
-  "A simple and reliable platform to manage maintenance, track complaints, and ensure smooth community living.": "मेंटेनन्स व्यवस्थापन, तक्रारींचा मागोवा आणि सुरळीत सामुदायिक जीवनासाठी एक विश्वासार्ह व्यासपीठ.",
-
-  "Our Features": "आमची वैशिष्ट्ये",
-  "Maintenance Tracking": "मेंटेनन्स ट्रॅकिंग",
-  "Easily manage and track maintenance payments with full transparency.": "मेंटेनन्स पेमेंट पारदर्शकतेने व्यवस्थापित करा.",
-  "Complaint Management": "तक्रार व्यवस्थापन",
-  "Raise and monitor complaints with quick resolution support.": "जलद निवारणासाठी तक्रारी नोंदवा व ट्रॅक करा.",
-  "Secure Access": "सुरक्षित प्रवेश",
-  "Safe login system ensuring privacy and secure access for residents.": "रहिवाशांसाठी सुरक्षित लॉगिन प्रणाली.",
-
-  "Quick Links": "जलद दुवे",
-  "A simple and reliable platform for managing maintenance and complaints efficiently.": "मेंटेनन्स आणि तक्रारी प्रभावीपणे व्यवस्थापित करण्यासाठी एक विश्वासार्ह व्यासपीठ.",
-  "All rights reserved.": "सर्व हक्क राखीव.",
-
-  "Residents": "रहिवासी",
-  "Support": "सहाय्य",
-  "Complaint Resolution": "तक्रार निवारण",
-
-  "Forgot Password": "पासवर्ड विसरलात",
-  "Email": "ईमेल",
-  "Password": "पासवर्ड",
-  "Confirm Password": "पासवर्डची पुष्टी",
-  "Verify Answers": "उत्तरे पडताळा",
-  "Change Password": "पासवर्ड बदला",
-
-  "Maintenance Payment": "मेंटेनन्स पेमेंट",
-  "Month": "महिना",
-  "Select Month": "महिना निवडा",
-  "Year": "वर्ष",
-  "Enter Year": "वर्ष प्रविष्ट करा",
-  "Number of Months": "महिन्यांची संख्या",
-  "Total Amount": "एकूण रक्कम",
-  "Pay Now": "आता भरा",
-  "Download Receipt": "पावती डाउनलोड करा",
-  "Download Receipt (PDF)": "पावती डाउनलोड करा (PDF)",
-  "Payment Successful": "भरणा यशस्वी",
-  "Please fill all details": "कृपया सर्व माहिती भरा",
-  "OK": "ठीक आहे",
-
-  "Complaint Details": "तक्रार तपशील",
-  "Subject": "विषय",
-  "Date": "तारीख",
-  "Priority": "प्राधान्य",
-  "Description": "वर्णन",
-  "Close": "बंद करा",
-  "imageAlt": "तक्रारीची प्रतिमा",
-
-  "About Kumar Varsh Apartment": "कुमार वर्ष अपार्टमेंट विषयी",
-  "Project Overview": "प्रकल्प माहिती",
-  "Amenities & Features": "सुविधा व वैशिष्ट्ये",
-  "Location Advantages": "स्थानाचे फायदे",
-  "Contact Information": "संपर्क माहिती",
-
-  "Login successful!": "लॉगिन यशस्वी!",
-  "Incorrect password. Please try again.": "चुकीचा पासवर्ड. कृपया पुन्हा प्रयत्न करा.",
-  "User not registered. Please register first.": "वापरकर्ता नोंदणीकृत नाही. कृपया आधी नोंदणी करा.",
-  "Registration successful! Redirecting to login page...": "नोंदणी यशस्वी! लॉगिन पृष्ठावर वळवले जात आहे...",
-  "Please fix the errors above.": "कृपया वरील त्रुटी दुरुस्त करा.",
-
-  "Maintenance Receipt": "मेंटेनन्स पावती",
-  "SOCIETY MAINTENANCE RECEIPT": "सोसायटी मेंटेनन्स पावती",
-  "Monthly Charge": "मासिक शुल्क",
-  "Total Amount Paid": "एकूण भरलेली रक्कम",
-  "Payment Status": "पेमेंट स्थिती",
-  "PAID": "भरले आहे",
-
-  "First Name": "पहिले नाव",
-  "Last Name": "आडनाव",
-  "Mobile": "मोबाईल",
-  "This field is required": "हे फील्ड आवश्यक आहे",
-  "Enter email": "ईमेल प्रविष्ट करा",
-  "Enter password": "पासवर्ड प्रविष्ट करा",
-  "Email is required": "ईमेल आवश्यक आहे",
-  "Password is required": "पासवर्ड आवश्यक आहे",
-  "Forgot password?": "पासवर्ड विसरलात?",
-  "Don’t have an account?": "खाते नाहीये?",
-
-  "welcome": "स्वागत आहे",
-  "subtitle": "देखभाल व्यवस्थापन, तक्रार नोंदणी आणि सुलभ सोसायटी जीवनासाठी एक विश्वासार्ह व्यासपीठ.",
+  "WelcomeMessage": "कुमार वर्ष मध्ये आपले स्वागत आहे",
+  "subtitle": "देखभाल व्यवस्थापन, तक्रार नोंदणी आणि सोयीस्कर सामुदायिक जीवनासाठी एक विश्वासार्ह व्यासपीठ.",
   "features": "आमची वैशिष्ट्ये",
   "maintenanceTracking": "देखभाल ट्रॅकिंग",
   "maintenanceDesc": "पूर्ण पारदर्शकतेसह देखभाल शुल्क व्यवस्थापित करा.",
@@ -96,44 +24,69 @@
   "secureAccess": "सुरक्षित प्रवेश",
   "secureDesc": "रहिवाशांसाठी सुरक्षित व गोपनीय लॉगिन प्रणाली.",
 
-  "registerPage": {
-    "title": "नोंदणी करा",
-    "firstName": "पहिले नाव",
-    "lastName": "आडनाव",
-    "email": "ईमेल",
-    "mobile": "मोबाईल",
-    "password": "पासवर्ड",
-    "confirmPassword": "पासवर्डची पुष्टी",
-    "dob": "जन्म तारीख",
-    "address": "पत्ता",
-    "wing": "विंग",
-    "flatNumber": "फ्लॅट नंबर",
-    "pincode": "पिनकोड",
-    "securityQuestions": "सुरक्षा प्रश्न",
-    "securityA1": "पसंदीदा रंग?",
-    "securityA2": "आईचे पहिले नाव?",
-    "securityA3": "जन्म शहर?",
-    "submitButton": "नोंदणी करा",
-    "errors": {
-      "required": "हे फील्ड आवश्यक आहे",
-      "invalidEmail": "सही ईमेल प्रविष्ट करा",
-      "invalidMobile": "सही 10-अंकी मोबाइल नंबर प्रविष्ट करा",
-      "invalidPincode": "सही 6-अंकी पिनकोड प्रविष्ट करा",
-      "futureDate": "भविष्यातील तारीख स्वीकारार्ह नाही",
-      "passwordRule": "किमान 8 अक्षरे, 1 मोठा अक्षर, 1 संख्या आणि 1 चिन्ह",
-      "passwordMismatch": "पासवर्ड जुळत नाही",
-      "userExists": "वापरकर्ता आधीच नोंदणीकृत आहे"
-    },
-    "messages": {
-      "success": "नोंदणी यशस्वी! लॉगिन पृष्ठावर वळवले जात आहे...",
-      "fixErrors": "कृपया वर दाखविलेल्या त्रुटी दुरुस्त करा"
-    }
-  }
+  "loginTitle": "लॉगिन",
+  "loginEmail": "ईमेल",
+  "loginPassword": "पासवर्ड",
+  "loginButton": "लॉगिन",
+  "loginForgot": "पासवर्ड विसरलात?",
+  "loginNoAccount": "खाते नाहीये?",
+  "loginIncorrectPassword": "चुकीचा पासवर्ड. कृपया पुन्हा प्रयत्न करा.",
+  "loginUserNotFound": "वापरकर्ता नोंदणीकृत नाही. कृपया आधी नोंदणी करा.",
+  "loginSuccess": "लॉगिन यशस्वी!",
+
+  "forgotTitle": "पासवर्ड विसरलात",
+  "forgotEmail": "ईमेल",
+  "forgotEmailPlaceholder": "नोंदणीकृत ईमेल प्रविष्ट करा",
+  "forgotSecurityA1": "पसंदीदा रंग?",
+  "forgotSecurityA2": "आईचे पहिले नाव?",
+  "forgotSecurityA3": "जन्म शहर?",
+  "forgotVerifyButton": "उत्तर पडताळा",
+  "forgotNewPassword": "नवीन पासवर्ड",
+  "forgotConfirmPassword": "पासवर्डची पुष्टी",
+  "forgotChangeButton": "पासवर्ड बदला",
+  "forgotUserNotFound": "या ईमेलसह वापरकर्ता आढळला नाही",
+  "forgotSecurityMismatch": "सुरक्षा उत्तरे जुळत नाहीत",
+  "forgotSecurityVerified": "सुरक्षा पडताळणी यशस्वी. कृपया नवीन पासवर्ड सेट करा.",
+  "forgotPasswordRule": "पासवर्ड कमीतकमी 8 अक्षरे, 1 मोठा अक्षर, 1 संख्या आणि 1 चिन्ह असावा",
+  "forgotPasswordMismatch": "पासवर्ड जुळत नाही",
+  "forgotPasswordChanged": "पासवर्ड यशस्वीपणे बदलला. लॉगिनवर वळवले जात आहे...",
+
+  "maintenanceTitle": "मेंटेनन्स पेमेंट",
+  "maintenanceMonth": "महिना",
+  "maintenanceSelectMonth": "महिना निवडा",
+  "maintenanceYear": "वर्ष",
+  "maintenanceEnterYear": "वर्ष प्रविष्ट करा",
+  "maintenanceNumMonths": "महिन्यांची संख्या",
+  "maintenanceTotalAmount": "एकूण रक्कम",
+  "maintenancePayNow": "अभी भरा",
+  "maintenanceDownloadReceipt": "पावती डाउनलोड करा",
+  "maintenancePaymentSuccess": "भरणा यशस्वी",
+  "maintenanceFillAllDetails": "कृपया सर्व माहिती भरा",
+  "maintenanceOK": "ठीक आहे",
+
+
+  "complaintTitle": "तक्रारी",
+  "complaintSubject": "विषय",
+  "complaintDescription": "वर्णन",
+  "complaintDate": "तारीख",
+  "complaintPriority": "प्राधान्य",
+  "complaintUpload": "प्रतिमा अपलोड करा",
+  "complaintSubmit": "सबमिट करा",
+  "complaintSuccess": "तक्रार यशस्वीपणे सबमिट केली",
+  "complaintError": "कृपया सर्व आवश्यक माहिती भरा",
+  "complaintStatusPending": "प्रलंबित",
+  "complaintStatusResolved": "निवारण झाले",
+  "complaintImageAlt": "तक्रारीची प्रतिमा",
+  "priorityHigh": "उच्च",
+  "priorityMedium": "मध्यम",
+  "priorityLow": "कमी",
+
+
+  
+  "footerTitle": "कुमार वर्ष",
+  "footerDescription": "मेंटेनन्स आणि तक्रारी प्रभावीपणे व्यवस्थापित करण्यासाठी एक विश्वासार्ह व्यासपीठ.",
+  "footerQuickLinks": "जलद दुवे",
+  "footerSupport": "सहाय्य"
 }
-
-
-
-
-
 
 

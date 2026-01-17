@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "../../App.css";
 
 export default function RegistrationForm() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -19,13 +21,15 @@ export default function RegistrationForm() {
     pincode: "",
     securityA1: "",
     securityA2: "",
-    securityA3: "",
+    securityA3: ""
   });
 
   const [errors, setErrors] = useState({});
-  const [message, setMessage] = useState({ text: "", type: "" });
+  const [message, setMessage] = useState({ key: "", type: "" });
 
-  // Handle input changes
+  const today = new Date().toISOString().split("T")[0];
+
+  /* ---------------- INPUT CHANGE ---------------- */
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -35,175 +39,238 @@ export default function RegistrationForm() {
     setFormData({ ...formData, [name]: value });
   };
 
-  // Validation function
+  /* ---------------- VALIDATION ---------------- */
   const validate = () => {
     const err = {};
 
     Object.keys(formData).forEach((key) => {
-      if (!formData[key]) err[key] = "This field is required";
+      if (!formData[key]) err[key] = "required";
     });
 
     if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
-      err.email = "Enter a valid email";
+      err.email = "invalidEmail";
 
     if (formData.mobile && !/^[6-9]\d{9}$/.test(formData.mobile))
-      err.mobile = "Enter valid 10-digit mobile";
+      err.mobile = "invalidMobile";
 
     if (formData.pincode && !/^[1-9][0-9]{5}$/.test(formData.pincode))
-      err.pincode = "Enter valid 6-digit pincode";
+      err.pincode = "invalidPincode";
 
     if (formData.dob && new Date(formData.dob) > new Date())
-      err.dob = "Future date not allowed";
+      err.dob = "futureDate";
 
     if (
       formData.password &&
       !/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(formData.password)
     )
-      err.password =
-        "Min 8 chars, 1 uppercase, 1 number & 1 symbol";
+      err.password = "passwordRule";
 
     if (formData.password !== formData.confirmPassword)
-      err.confirmPassword = "Passwords do not match";
+      err.confirmPassword = "passwordMismatch";
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
     if (users.some(u => u.email === formData.email || u.mobile === formData.mobile)) {
-      err.email = err.mobile = "User already registered";
+      err.email = "userExists";
+      err.mobile = "userExists";
     }
 
     setErrors(err);
     return Object.keys(err).length === 0;
   };
 
-  // Handle form submit
+  /* ---------------- SUBMIT ---------------- */
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validate()) {
-      const users = JSON.parse(localStorage.getItem("users")) || [];
-      users.push(formData);
-      localStorage.setItem("users", JSON.stringify(users));
 
-      // Show success message
-      setMessage({
-        text: "Registration successful! Redirecting to login page...",
-        type: "success",
-      });
-
-      // Auto redirect after 2 seconds
-      setTimeout(() => navigate("/login"), 2000);
-    } else {
-      setMessage({ text: "Please fix the errors above.", type: "error" });
+    if (!validate()) {
+      setMessage({ key: "fixErrors", type: "error" });
+      return;
     }
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    users.push(formData);
+    localStorage.setItem("users", JSON.stringify(users));
+
+    setMessage({ key: "success", type: "success" });
+    setTimeout(() => navigate("/login"), 2000);
   };
 
-  // Fade-up animation effect on mount
+  /* ---------------- ANIMATION ---------------- */
   useEffect(() => {
     const card = document.querySelector(".fade-up");
-    if (card) card.classList.add("show");
+    card && card.classList.add("show");
   }, []);
 
+  /* ---------------- UI ---------------- */
   return (
     <div className="page-container">
       <div className="registration-card fade-up">
-        <h2 className="text-center mb-4">Register</h2>
+        <h2 className="text-center mb-4">{t("registerTitle")}</h2>
 
-        {/* Inline message */}
-        {message.text && (
+        {message.key && (
           <div className={`message-box ${message.type}`}>
-            {message.text}
+            {t(message.key)}
           </div>
         )}
 
         <form onSubmit={handleSubmit}>
-          {/* Name */}
+          {/* NAME */}
           <div className="row mb-3">
             <div className="col-md-6">
-              <label>First Name</label>
-              <input className="form-control" name="firstName" onChange={handleChange} />
-              {errors.firstName && <span className="error-text">{errors.firstName}</span>}
+              <label>{t("registerFirstName")}</label>
+              <input
+                className="form-control"
+                name="firstName"
+                onChange={handleChange}
+              />
+              {errors.firstName && <span className="error-text">{t(errors.firstName)}</span>}
             </div>
+
             <div className="col-md-6">
-              <label>Last Name</label>
-              <input className="form-control" name="lastName" onChange={handleChange} />
-              {errors.lastName && <span className="error-text">{errors.lastName}</span>}
+              <label>{t("registerLastName")}</label>
+              <input
+                className="form-control"
+                name="lastName"
+                onChange={handleChange}
+              />
+              {errors.lastName && <span className="error-text">{t(errors.lastName)}</span>}
             </div>
           </div>
 
-          {/* Email & Mobile */}
+          {/* EMAIL & MOBILE */}
           <div className="row mb-3">
             <div className="col-md-6">
-              <label>Email</label>
-              <input className="form-control" name="email" onChange={handleChange} />
-              {errors.email && <span className="error-text">{errors.email}</span>}
+              <label>{t("registerEmail")}</label>
+              <input
+                className="form-control"
+                name="email"
+                onChange={handleChange}
+              />
+              {errors.email && <span className="error-text">{t(errors.email)}</span>}
             </div>
+
             <div className="col-md-6">
-              <label>Mobile</label>
-              <input className="form-control" name="mobile" maxLength="10" onChange={handleChange} />
-              {errors.mobile && <span className="error-text">{errors.mobile}</span>}
+              <label>{t("registerMobile")}</label>
+              <input
+                className="form-control"
+                name="mobile"
+                maxLength="10"
+                onChange={handleChange}
+              />
+              {errors.mobile && <span className="error-text">{t(errors.mobile)}</span>}
             </div>
           </div>
 
-          {/* Password */}
+          {/* PASSWORD */}
           <div className="row mb-3">
             <div className="col-md-6">
-              <label>Password</label>
-              <input type="password" className="form-control" name="password" onChange={handleChange} />
-              {errors.password && <span className="error-text">{errors.password}</span>}
+              <label>{t("registerPassword")}</label>
+              <input
+                type="password"
+                className="form-control"
+                name="password"
+                onChange={handleChange}
+              />
+              {errors.password && <span className="error-text">{t(errors.password)}</span>}
             </div>
+
             <div className="col-md-6">
-              <label>Confirm Password</label>
-              <input type="password" className="form-control" name="confirmPassword" onChange={handleChange} />
-              {errors.confirmPassword && <span className="error-text">{errors.confirmPassword}</span>}
+              <label>{t("registerConfirmPassword")}</label>
+              <input
+                type="password"
+                className="form-control"
+                name="confirmPassword"
+                onChange={handleChange}
+              />
+              {errors.confirmPassword && <span className="error-text">{t(errors.confirmPassword)}</span>}
             </div>
           </div>
 
           {/* DOB */}
           <div className="mb-3">
-            <label>Date of Birth</label>
-            <input type="date" className="form-control" name="dob" max={new Date().toISOString().split("T")[0]} onChange={handleChange} />
-            {errors.dob && <span className="error-text">{errors.dob}</span>}
+            <label>{t("registerDob")}</label>
+            <input
+              type="date"
+              className="form-control"
+              name="dob"
+              max={today}
+              onChange={handleChange}
+            />
+            {errors.dob && <span className="error-text">{t(errors.dob)}</span>}
           </div>
 
-          {/* Address */}
+          {/* ADDRESS */}
           <div className="mb-3">
-            <label>Address</label>
-            <textarea className="form-control" rows="2" name="address" onChange={handleChange} />
+            <label>{t("registerAddress")}</label>
+            <textarea
+              className="form-control"
+              rows="2"
+              name="address"
+              onChange={handleChange}
+            />
           </div>
 
-          {/* Society */}
+          {/* SOCIETY */}
           <div className="row mb-3">
             <div className="col-md-6">
-              <label>Wing</label>
-              <input className="form-control" name="wing" onChange={handleChange} />
+              <label>{t("registerWing")}</label>
+              <input
+                className="form-control"
+                name="wing"
+                onChange={handleChange}
+              />
             </div>
             <div className="col-md-6">
-              <label>Flat No</label>
-              <input className="form-control" name="flatNumber" onChange={handleChange} />
+              <label>{t("registerFlatNumber")}</label>
+              <input
+                className="form-control"
+                name="flatNumber"
+                onChange={handleChange}
+              />
             </div>
           </div>
 
-          {/* Pincode */}
+          {/* PINCODE */}
           <div className="mb-3">
-            <label>Pincode</label>
-            <input className="form-control" name="pincode" maxLength="6" onChange={handleChange} />
-            {errors.pincode && <span className="error-text">{errors.pincode}</span>}
+            <label>{t("registerPincode")}</label>
+            <input
+              className="form-control"
+              name="pincode"
+              maxLength="6"
+              onChange={handleChange}
+            />
+            {errors.pincode && <span className="error-text">{t(errors.pincode)}</span>}
           </div>
 
-          {/* Security questions */}
+          {/* SECURITY */}
           <div className="mb-3">
-            <h5>Security Questions</h5>
-            <input className="form-control mb-2" placeholder="Favorite color?" name="securityA1" onChange={handleChange} />
-            <input className="form-control mb-2" placeholder="Mother’s first name?" name="securityA2" onChange={handleChange} />
-            <input className="form-control mb-2" placeholder="Birth city?" name="securityA3" onChange={handleChange} />
+            <h5>{t("registerSecurityQuestions")}</h5>
+            <input
+              className="form-control mb-2"
+              placeholder={t("registerSecurityA1")}
+              name="securityA1"
+              onChange={handleChange}
+            />
+            <input
+              className="form-control mb-2"
+              placeholder={t("registerSecurityA2")}
+              name="securityA2"
+              onChange={handleChange}
+            />
+            <input
+              className="form-control mb-2"
+              placeholder={t("registerSecurityA3")}
+              name="securityA3"
+              onChange={handleChange}
+            />
           </div>
 
-          {/* Register Button */}
-          <div className="text-center mt-3">
-            <button type="submit" className="btn btn-primary w-100">
-              Register
-            </button>
-          </div>
+          <button type="submit" className="btn btn-primary w-100">
+            {t("registerSubmit")}
+          </button>
         </form>
       </div>
     </div>
   );
 }
+
