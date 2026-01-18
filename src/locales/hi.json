@@ -21,7 +21,6 @@
   "loginUserNotFound": "उपयोगकर्ता नहीं मिला",
   "loginSuccess": "लॉगिन सफल!",
 
-  
   "forgotTitle": "पासवर्ड भूल गए",
   "forgotEmail": "ईमेल",
   "forgotEmailPlaceholder": "पंजीकृत ईमेल दर्ज करें",
@@ -41,9 +40,6 @@
   "forgotPasswordMismatch": "पासवर्ड मेल नहीं खाते",
   "forgotPasswordChanged": "पासवर्ड सफलतापूर्वक बदला गया। लॉगिन पर भेजा जा रहा है...",
 
-
-  
-    
   "registerTitle": "रजिस्टर",
 
   "registerFirstName": "पहला नाम",
@@ -76,7 +72,6 @@
   "fixErrors": "कृपया ऊपर दी गई त्रुटियाँ ठीक करें",
   "success": "पंजीकरण सफल! लॉगिन पेज पर भेजा जा रहा है...",
 
-
   "maintenance": {
     "title": "मेंटेनेंस भुगतान",
     "month": "महीना",
@@ -103,5 +98,30 @@
       "november": "नवंबर",
       "december": "दिसंबर"
     }
+  },
+
+  "complaint": {
+    "title": "शिकायत दर्ज करें",
+    "subject": "विषय",
+    "description": "विवरण",
+    "date": "तारीख",
+    "priority": "प्राथमिकता",
+    "status": "स्थिति",
+    "pending": "लंबित",
+    "success": "शिकायत सफलतापूर्वक दर्ज की गई",
+    "validation": "कृपया सभी आवश्यक फ़ील्ड भरें"
+  },
+
+  "complaintUpload": "छवि अपलोड करें",
+  "complaintSubmit": "शिकायत जमा करें",
+
+  "priority": {
+    "high": "उच्च",
+    "medium": "मध्यम",
+    "low": "निम्न"
+  },
+
+  "common": {
+    "close": "बंद करें"
   }
 }
