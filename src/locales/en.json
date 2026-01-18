@@ -22,51 +22,63 @@
   "loginUserNotFound": "User not registered. Please register first.",
   "loginSuccess": "Login successful!",
 
-  "forgotPassword": {
-    "title": "Forgot Password",
-    "email": "Email",
-    "emailPlaceholder": "Enter registered email",
-    "favoriteColor": "Favorite color?",
-    "motherName": "Mother's first name?",
-    "birthCity": "Birth city?",
-    "verifyAnswers": "Verify Answers",
-    "newPassword": "New Password",
-    "confirmPassword": "Confirm Password",
-    "changePassword": "Change Password",
-    "userNotFound": "User not found",
-    "securityMismatch": "Security answers do not match",
-    "securityVerified": "Verification successful. Set new password.",
-    "passwordRule": "Password must have 8+ chars, 1 uppercase, 1 number & 1 symbol",
-    "passwordMismatch": "Passwords do not match",
-    "passwordChanged": "Password changed successfully. Redirecting..."
-  },
+  
+  "forgotTitle": "Forgot Password",
+  "forgotEmail": "Email",
+  "forgotEmailPlaceholder": "Enter registered email",
+  "forgotSecurityA1": "Favorite color?",
+  "forgotSecurityA2": "Mother’s first name?",
+  "forgotSecurityA3": "Birth city?",
+  "forgotVerifyButton": "Verify Answers",
 
-  "register": {
-    "title": "Register",
-    "firstName": "First Name",
-    "lastName": "Last Name",
-    "email": "Email",
-    "mobile": "Mobile",
-    "password": "Password",
-    "confirmPassword": "Confirm Password",
-    "dob": "Date of Birth",
-    "address": "Address",
-    "wing": "Wing",
-    "flatNo": "Flat No",
-    "pincode": "Pincode",
-    "security": "Security Questions",
-    "submit": "Register",
-    "required": "This field is required",
-    "invalidEmail": "Enter a valid email",
-    "invalidMobile": "Enter valid 10-digit mobile",
-    "invalidPincode": "Enter valid 6-digit pincode",
-    "futureDate": "Future date not allowed",
-    "passwordRule": "Min 8 chars, 1 uppercase, 1 number & 1 symbol",
-    "passwordMismatch": "Passwords do not match",
-    "userExists": "User already registered",
-    "success": "Registration successful! Redirecting to login...",
-    "fixErrors": "Please fix the errors above."
-  },
+  "forgotNewPassword": "New Password",
+  "forgotConfirmPassword": "Confirm Password",
+  "forgotChangeButton": "Change Password",
+
+  "forgotUserNotFound": "User not found with this email",
+  "forgotSecurityMismatch": "Security answers do not match",
+  "forgotSecurityVerified": "Verification successful. Please set a new password.",
+  "forgotPasswordRule": "Password must have 8+ chars, 1 uppercase, 1 number & 1 symbol",
+  "forgotPasswordMismatch": "Passwords do not match",
+  "forgotPasswordChanged": "Password changed successfully. Redirecting to login...",
+
+  "registerTitle": "Register",
+
+  "registerFirstName": "First Name",
+  "registerLastName": "Last Name",
+
+  "registerEmail": "Email",
+  "registerMobile": "Mobile Number",
+
+  "registerPassword": "Password",
+  "registerConfirmPassword": "Confirm Password",
+
+  "registerDob": "Date of Birth",
+  "registerAddress": "Address",
+
+  "registerWing": "Wing",
+  "registerFlatNumber": "Flat Number",
+  "registerPincode": "Pincode",
+
+  "registerSecurityQuestions": "Security Questions",
+  "registerSecurityA1": "Favorite color?",
+  "registerSecurityA2": "Mother’s first name?",
+  "registerSecurityA3": "Birth city?",
+
+  "registerSubmit": "Register",
+
+  "required": "This field is required",
+  "invalidEmail": "Enter a valid email address",
+  "invalidMobile": "Enter a valid 10-digit mobile number",
+  "invalidPincode": "Enter a valid 6-digit pincode",
+  "futureDate": "Future date is not allowed",
+  "passwordRule": "Minimum 8 characters, 1 uppercase letter, 1 number & 1 symbol required",
+  "passwordMismatch": "Passwords do not match",
+  "userExists": "User already registered",
+
+  "fixErrors": "Please fix the errors above.",
+  "success": "Registration successful! Redirecting to login page...",
+
 
   "maintenance": {
     "title": "Maintenance Payment",
@@ -94,5 +106,32 @@
       "november": "November",
       "december": "December"
     }
+  },
+
+  "complaint": {
+    "title": "Register Complaint",
+    "subject": "Subject",
+    "description": "Description",
+    "date": "Date",
+    "priority": "Priority",
+    "status": "Status",
+    "pending": "Pending",
+    "success": "Complaint submitted successfully",
+    "validation": "Please fill all required fields"
+  },
+
+  "complaintUpload": "Upload Image",
+  "complaintSubmit": "Submit Complaint",
+
+  "priority": {
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low"
+  },
+
+  "common": {
+    "close": "Close"
   }
 }
+
+

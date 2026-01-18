@@ -21,24 +21,26 @@
   "loginUserNotFound": "उपयोगकर्ता नहीं मिला",
   "loginSuccess": "लॉगिन सफल!",
 
-  "forgotPassword": {
-    "title": "पासवर्ड भूल गए",
-    "email": "ईमेल",
-    "emailPlaceholder": "पंजीकृत ईमेल दर्ज करें",
-    "favoriteColor": "पसंदीदा रंग?",
-    "motherName": "माँ का पहला नाम?",
-    "birthCity": "जन्म शहर?",
-    "verifyAnswers": "उत्तर सत्यापित करें",
-    "newPassword": "नया पासवर्ड",
-    "confirmPassword": "पासवर्ड की पुष्टि करें",
-    "changePassword": "पासवर्ड बदलें",
-    "userNotFound": "उपयोगकर्ता नहीं मिला",
-    "securityMismatch": "सुरक्षा उत्तर मेल नहीं खाते",
-    "securityVerified": "सत्यापन सफल",
-    "passwordRule": "8+ अक्षर, 1 बड़ा अक्षर, 1 अंक, 1 चिन्ह आवश्यक",
-    "passwordMismatch": "पासवर्ड मेल नहीं खाते",
-    "passwordChanged": "पासवर्ड बदला गया"
-  },
+  
+  "forgotTitle": "पासवर्ड भूल गए",
+  "forgotEmail": "ईमेल",
+  "forgotEmailPlaceholder": "पंजीकृत ईमेल दर्ज करें",
+  "forgotSecurityA1": "पसंदीदा रंग?",
+  "forgotSecurityA2": "माँ का पहला नाम?",
+  "forgotSecurityA3": "जन्म शहर?",
+  "forgotVerifyButton": "उत्तर सत्यापित करें",
+
+  "forgotNewPassword": "नया पासवर्ड",
+  "forgotConfirmPassword": "पासवर्ड की पुष्टि करें",
+  "forgotChangeButton": "पासवर्ड बदलें",
+
+  "forgotUserNotFound": "इस ईमेल से कोई उपयोगकर्ता नहीं मिला",
+  "forgotSecurityMismatch": "सुरक्षा उत्तर मेल नहीं खाते",
+  "forgotSecurityVerified": "सत्यापन सफल। नया पासवर्ड सेट करें।",
+  "forgotPasswordRule": "पासवर्ड में 8+ अक्षर, 1 बड़ा अक्षर, 1 अंक और 1 चिन्ह होना चाहिए",
+  "forgotPasswordMismatch": "पासवर्ड मेल नहीं खाते",
+  "forgotPasswordChanged": "पासवर्ड सफलतापूर्वक बदला गया। लॉगिन पर भेजा जा रहा है...",
+
 
   
     
