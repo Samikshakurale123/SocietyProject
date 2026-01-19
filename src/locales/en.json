@@ -7,29 +7,22 @@
   "Logout": "Logout",
   "Register": "Register",
   "Hi": "Hi",
-  "WelcomeMessage": "Welcome to Kumar Varsh",
-  "subtitle": "A simple and reliable platform to manage maintenance, track complaints, and ensure smooth community living.",
+
+  "WelcomeMessage": "Welcome to Kumar Varsha",
+  "subtitle": "A simple and reliable platform for maintenance management and complaint tracking.",
   "features": "Our Features",
-  "maintenanceTracking": "Maintenance Tracking",
-  "maintenanceDesc": "Easily manage and track maintenance payments with full transparency.",
-  "complaintManagement": "Complaint Management",
-  "complaintDesc": "Raise and monitor complaints with quick resolution support.",
-  "secureAccess": "Secure Access",
-  "secureDesc": "Safe login system ensuring privacy and secure access for residents.",
-  "Residents": "Residents",
-  "Support": "Support",
-  "Complaint Resolution": "Complaint Resolution",
-  "Quick Links": "Quick Links",
-  "All rights reserved.": "All rights reserved.",
+
   "loginTitle": "Login",
   "loginEmail": "Email",
   "loginPassword": "Password",
   "loginButton": "Login",
-  "loginForgot": "Forgot password?",
-  "loginNoAccount": "Don’t have an account?",
+  "loginForgot": "Forgot Password?",
+  "loginNoAccount": "Don't have an account?",
   "loginIncorrectPassword": "Incorrect password. Please try again.",
   "loginUserNotFound": "User not registered. Please register first.",
   "loginSuccess": "Login successful!",
+
+  
   "forgotTitle": "Forgot Password",
   "forgotEmail": "Email",
   "forgotEmailPlaceholder": "Enter registered email",
@@ -37,105 +30,109 @@
   "forgotSecurityA2": "Mother’s first name?",
   "forgotSecurityA3": "Birth city?",
   "forgotVerifyButton": "Verify Answers",
+
   "forgotNewPassword": "New Password",
   "forgotConfirmPassword": "Confirm Password",
   "forgotChangeButton": "Change Password",
+
   "forgotUserNotFound": "User not found with this email",
   "forgotSecurityMismatch": "Security answers do not match",
-  "forgotSecurityVerified": "Security verified. Please set a new password.",
-  "forgotPasswordRule": "Password must be 8+ chars with 1 uppercase, 1 number & 1 symbol",
+  "forgotSecurityVerified": "Verification successful. Please set a new password.",
+  "forgotPasswordRule": "Password must have 8+ chars, 1 uppercase, 1 number & 1 symbol",
   "forgotPasswordMismatch": "Passwords do not match",
   "forgotPasswordChanged": "Password changed successfully. Redirecting to login...",
+
+  "registerTitle": "Register",
+
+  "registerFirstName": "First Name",
+  "registerLastName": "Last Name",
+
+  "registerEmail": "Email",
+  "registerMobile": "Mobile Number",
+
+  "registerPassword": "Password",
+  "registerConfirmPassword": "Confirm Password",
+
+  "registerDob": "Date of Birth",
+  "registerAddress": "Address",
+
+  "registerWing": "Wing",
+  "registerFlatNumber": "Flat Number",
+  "registerPincode": "Pincode",
+
+  "registerSecurityQuestions": "Security Questions",
+  "registerSecurityA1": "Favorite color?",
+  "registerSecurityA2": "Mother’s first name?",
+  "registerSecurityA3": "Birth city?",
+
+  "registerSubmit": "Register",
+
+  "required": "This field is required",
+  "invalidEmail": "Enter a valid email address",
+  "invalidMobile": "Enter a valid 10-digit mobile number",
+  "invalidPincode": "Enter a valid 6-digit pincode",
+  "futureDate": "Future date is not allowed",
+  "passwordRule": "Minimum 8 characters, 1 uppercase letter, 1 number & 1 symbol required",
+  "passwordMismatch": "Passwords do not match",
+  "userExists": "User already registered",
+
+  "fixErrors": "Please fix the errors above.",
+  "success": "Registration successful! Redirecting to login page...",
+
+
   "maintenance": {
     "title": "Maintenance Payment",
     "month": "Month",
-    "selectMonth": "Select Month",
+    "selectMonth": "Select month",
     "year": "Year",
-    "enterYear": "Enter Year",
-    "monthsCount": "Number of Months",
+    "enterYear": "Enter year",
+    "monthsCount": "Number of months",
     "select": "Select",
     "totalAmount": "Total Amount",
     "payNow": "Pay Now",
-    "download": "Download Receipt (PDF)",
-    "success": "Payment Successful",
-    "ok": "OK",
-    "validation": "Please fill all details"
+    "download": "Download Receipt",
+    "validation": "Please fill all details",
+    "successTitle": "Payment Successful",
+    "successMsg": "Your maintenance payment was completed successfully.",
+
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    }
   },
-  "login": {
-    "Email": "Email",
-    "Password": "Password",
-    "Enter email": "Enter email",
-    "Enter password": "Enter password",
-    "Email is required": "Email is required",
-    "Password is required": "Password is required",
-    "Forgot password?": "Forgot password?",
-    "Don’t have an account?": "Don’t have an account?"
-  },
-  "register": {
-    "Register": "Register",
-    "First Name": "First Name",
-    "Last Name": "Last Name",
-    "Email": "Email",
-    "Mobile": "Mobile",
-    "Password": "Password",
-    "Confirm Password": "Confirm Password",
-    "Date of Birth": "Date of Birth",
-    "Address": "Address",
-    "Wing": "Wing",
-    "Flat No": "Flat No",
-    "Pincode": "Pincode",
-    "Security Questions": "Security Questions",
-    "Favorite color?": "Favorite color?",
-    "Mother’s first name?": "Mother’s first name?",
-    "Birth city?": "Birth city?",
-    "Register Button": "Register",
-    "This field is required": "This field is required",
-    "Enter a valid email": "Enter a valid email",
-    "Enter valid 10-digit mobile": "Enter valid 10-digit mobile",
-    "Enter valid 6-digit pincode": "Enter valid 6-digit pincode",
-    "Future date not allowed": "Future date not allowed",
-    "Min 8 chars, 1 uppercase, 1 number & 1 symbol": "Min 8 chars, 1 uppercase, 1 number & 1 symbol",
-    "Passwords do not match": "Passwords do not match",
-    "User already registered": "User already registered",
-    "Registration successful! Redirecting to login page...": "Registration successful! Redirecting to login page...",
-    "Please fix the errors above.": "Please fix the errors above."
-  },
-  
+
+  "complaint": {
     "title": "Register Complaint",
     "subject": "Subject",
     "description": "Description",
     "date": "Date",
     "priority": "Priority",
-    "upload": "Upload Image",
-    "submit": "Submit Complaint",
     "status": "Status",
-    "success": "Complaint submitted successfully",
-    "validation": "Please fill all required fields",
     "pending": "Pending",
-  
+    "success": "Complaint submitted successfully",
+    "validation": "Please fill all required fields"
+  },
+
+  "complaintUpload": "Upload Image",
+  "complaintSubmit": "Submit Complaint",
+
   "priority": {
     "high": "High",
     "medium": "Medium",
     "low": "Low"
   },
-  "about": {
-    "title": "About Kumar Varsh Apartment",
-    "intro": "Kumar Varsh Apartment offers modern, secure, and comfortable living designed for families seeking a peaceful residential environment.",
-    "locationTitle": "Location Advantages",
-    "locationDesc": "The apartment is strategically located with easy access to schools, hospitals, shopping centers, and public transport.",
-    "contactTitle": "Contact Information",
-    "phoneLabel": "Phone",
-    "emailLabel": "Email",
-    "addressLabel": "Address",
-    "address": {
-      "line1": "Kumar Varsh Apartment",
-      "line2": "Main Road, Near Landmark",
-      "line3": "City, State, ZIP Code"
-    },
-    "mapTitle": "Location Map"
-  },
-  "footerTitle": "Kumar Varsh",
-  "footerDescription": "A simple and reliable platform for managing maintenance and complaints efficiently.",
-  "footerQuickLinks": "Quick Links",
-  "footerSupport": "Support"
+
+  "common": {
+    "close": "Close"
+  }
 }

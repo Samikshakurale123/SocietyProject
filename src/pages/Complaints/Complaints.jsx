@@ -54,7 +54,7 @@ const Complaints = () => {
     <div className="page-container">
       {/* ================= FORM ================= */}
       <div className="complaint-card">
-        <h2>{t("complaintTitle")}</h2>
+        <h2>{t("complaint.title")}</h2>
 
         {msg && <div className="message-box success">{msg}</div>}
 
@@ -154,9 +154,7 @@ const Complaints = () => {
 
             <p>
               <strong>{t("complaint.priority")}:</strong>{" "}
-              <span
-                className={`priority-badge ${selectedComplaint.priority}`}
-              >
+              <span className={`priority-badge ${selectedComplaint.priority}`}>
                 {t(`priority.${selectedComplaint.priority}`)}
               </span>
             </p>
@@ -170,11 +168,7 @@ const Complaints = () => {
               <img
                 src={selectedComplaint.image}
                 alt="complaint"
-                style={{
-                  width: "100%",
-                  marginTop: "12px",
-                  borderRadius: "6px",
-                }}
+                style={{ width: "100%", marginTop: "12px", borderRadius: "6px" }}
               />
             )}
 

@@ -83,7 +83,7 @@ export default function RegistrationForm() {
     e.preventDefault();
 
     if (!validate()) {
-      setMessage({ key: "Please fix the errors above.", type: "error" });
+      setMessage({ key: "fixErrors", type: "error" });
       return;
     }
 
@@ -91,7 +91,7 @@ export default function RegistrationForm() {
     users.push(formData);
     localStorage.setItem("users", JSON.stringify(users));
 
-    setMessage({ key: "Registration successful! Redirecting to login page...", type: "success" });
+    setMessage({ key: "success", type: "success" });
     setTimeout(() => navigate("/login"), 2000);
   };
 
