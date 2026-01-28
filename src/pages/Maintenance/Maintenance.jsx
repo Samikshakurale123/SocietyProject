@@ -1,22 +1,13 @@
 import React, { useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { createPayment } from "../../api/paymentApi";
+import { generateMaintenancePDF } from "../../utils/generateMaintenancePDF";
 
 const MONTHLY_CHARGE = 2200;
 
-// month keys (DO NOT TRANSLATE THESE)
-const MONTH_KEYS = [
-  "january",
-  "february",
-  "march",
-  "april",
-  "may",
-  "june",
-  "july",
-  "august",
-  "september",
-  "october",
-  "november",
-  "december"
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
 ];
 
 const Maintenance = () => {
@@ -26,82 +17,101 @@ const Maintenance = () => {
   const [year, setYear] = useState("");
   const [monthsCount, setMonthsCount] = useState("");
   const [isPaid, setIsPaid] = useState(false);
+  const [msg, setMsg] = useState("");
 
   const totalAmount = useMemo(() => {
     return monthsCount ? monthsCount * MONTHLY_CHARGE : 0;
   }, [monthsCount]);
 
-  const handlePay = () => {
+  // ================= PAY + SAVE TO DB =================
+  const handlePay = async () => {
     if (!month || !year || !monthsCount) {
-      alert(t("maintenance.validation"));
+      alert("Please fill all required fields");
       return;
     }
-    setIsPaid(true);
+
+    // ✅ BACKEND-COMPATIBLE PAYLOAD
+    const payload = {
+      month: month,
+      year: Number(year),
+      months: monthsCount,      // IMPORTANT
+      amount: totalAmount,      // IMPORTANT
+      userId: 1                 // TEMP (replace with logged-in user later)
+    };
+
+    try {
+      await createPayment(payload);
+      setIsPaid(true);
+      setMsg("Payment successful");
+    } catch (error) {
+      console.error("Payment error:", error);
+      setMsg("Payment failed");
+    }
   };
 
+  // ================= DOWNLOAD PDF =================
   const handleDownload = () => {
-    console.log("Downloading receipt:", {
-      month,
-      year,
-      monthsCount,
-      totalAmount
-    });
+    generateMaintenancePDF(month, year, monthsCount, totalAmount);
+    resetForm();
+  };
+
+  const resetForm = () => {
+    setMonth("");
+    setYear("");
+    setMonthsCount("");
+    setIsPaid(false);
+    setMsg("");
   };
 
   return (
-    <div className="maintenance-page">
+    <div className="page-container">
       <div className="maintenance-card">
-        <h2>{t("maintenance.title")}</h2>
+        <h2>{t("maintenance.title") || "Maintenance Payment"}</h2>
 
-        {/* Month */}
-        <label>{t("maintenance.month")} *</label>
+        {msg && (
+          <div className={`message-box ${isPaid ? "success" : "error"}`}>
+            {msg}
+          </div>
+        )}
+
+        <label>Month *</label>
         <select value={month} onChange={(e) => setMonth(e.target.value)}>
-          <option value="">{t("maintenance.selectMonth")}</option>
-          {MONTH_KEYS.map((m) => (
-            <option key={m} value={m}>
-              {t(`maintenance.months.${m}`)}
-            </option>
+          <option value="">Select Month</option>
+          {MONTHS.map((m) => (
+            <option key={m} value={m}>{m}</option>
           ))}
         </select>
 
-        {/* Year */}
-        <label>{t("maintenance.year")} *</label>
+        <label>Year *</label>
         <input
           type="number"
-          placeholder={t("maintenance.enterYear")}
+          placeholder="Year"
           value={year}
           onChange={(e) => setYear(e.target.value)}
         />
 
-        {/* Months Count */}
-        <label>{t("maintenance.monthsCount")} *</label>
+        <label>Number of months *</label>
         <select
           value={monthsCount}
           onChange={(e) => setMonthsCount(Number(e.target.value))}
         >
-          <option value="">{t("maintenance.select")}</option>
+          <option value="">Select</option>
           {[1,2,3,4,5,6,7,8,9,10,11,12].map((n) => (
             <option key={n} value={n}>{n}</option>
           ))}
         </select>
 
-        {/* Total Amount */}
-        <label>{t("maintenance.totalAmount")}</label>
+        <label>Total</label>
         <input value={`₹ ${totalAmount}`} readOnly />
 
-        {/* Buttons */}
         {!isPaid ? (
-          <div className="pay-spacing">
-            <button type="button" className="pay-btn" onClick={handlePay}>
-              {t("maintenance.payNow")}
-            </button>
-          </div>
+          <button className="pay-btn" onClick={handlePay}>
+            Pay Now
+          </button>
         ) : (
-          <div className="pay-spacing">
-            <button type="button" className="download-btn" onClick={handleDownload}>
-              {t("maintenance.download")}
-            </button>
-          </div>
+          <button className="download-btn" onClick={handleDownload}>
+            Download Receipt
+          </button>
         )}
       </div>
     </div>

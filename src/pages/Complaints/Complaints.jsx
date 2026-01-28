@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { getComplaints, addComplaint } from "../../api/complaintApi";
 
 const Complaints = () => {
   const { t } = useTranslation();
 
+  /* ================= INITIAL FORM ================= */
   const initialForm = {
     subject: "",
-    body: "",
-    date: "",
+    description: "",
     priority: "",
     image: "",
-    progress: t("complaint.pending"),
   };
 
   const [form, setForm] = useState(initialForm);
@@ -18,36 +18,55 @@ const Complaints = () => {
   const [msg, setMsg] = useState("");
   const [selectedComplaint, setSelectedComplaint] = useState(null);
 
-  const today = new Date().toISOString().split("T")[0];
-
+  /* ================= LOAD FROM DATABASE ================= */
   useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("complaints")) || [];
-    setList(saved);
+    loadComplaints();
   }, []);
 
+  const loadComplaints = async () => {
+    try {
+      const res = await getComplaints();
+      setList(res.data);
+    } catch (error) {
+      console.error(error);
+      setMsg("Failed to load complaints");
+    }
+  };
+
+  /* ================= HANDLE INPUT CHANGE ================= */
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    if (name === "image" && files?.[0]) {
+
+    // Image upload (Base64)
+    if (name === "image" && files && files[0]) {
       const reader = new FileReader();
-      reader.onload = () =>
+      reader.onload = () => {
         setForm((prev) => ({ ...prev, image: reader.result }));
+      };
       reader.readAsDataURL(files[0]);
     } else {
       setForm((prev) => ({ ...prev, [name]: value }));
     }
   };
 
-  const handleSubmit = () => {
-    if (!form.subject || !form.body || !form.date || !form.priority) {
+  /* ================= SUBMIT TO DATABASE ================= */
+  const handleSubmit = async () => {
+    if (!form.subject || !form.description || !form.priority) {
       setMsg(t("complaint.validation"));
       return;
     }
-    const updated = [...list, form];
-    localStorage.setItem("complaints", JSON.stringify(updated));
-    setList(updated);
-    setForm(initialForm);
-    setMsg(t("complaint.success"));
-    setTimeout(() => setMsg(""), 3000);
+
+    try {
+      await addComplaint(form);
+      setMsg(t("complaint.success"));
+      setForm(initialForm);
+      loadComplaints();
+
+      setTimeout(() => setMsg(""), 3000);
+    } catch (error) {
+      console.error(error);
+      setMsg("Error saving complaint");
+    }
   };
 
   return (
@@ -59,24 +78,23 @@ const Complaints = () => {
         {msg && <div className="message-box success">{msg}</div>}
 
         <label>{t("complaint.subject")} *</label>
-        <input name="subject" value={form.subject} onChange={handleChange} />
+        <input
+          name="subject"
+          value={form.subject}
+          onChange={handleChange}
+        />
 
         <label>{t("complaint.description")} *</label>
-        <textarea name="body" value={form.body} onChange={handleChange} />
-
-        <label>{t("complaint.date")} *</label>
-        <input
-          type="date"
-          name="date"
-          min={today}
-          value={form.date}
+        <textarea
+          name="description"
+          value={form.description}
           onChange={handleChange}
         />
 
         <label>{t("complaint.priority")} *</label>
         <div className="priority-group">
-          {["high", "medium", "low"].map((p) => (
-            <label key={p} className={`priority-option ${p}`}>
+          {["HIGH", "MEDIUM", "LOW"].map((p) => (
+            <label key={p} className={`priority-option ${p.toLowerCase()}`}>
               <input
                 type="radio"
                 name="priority"
@@ -84,7 +102,7 @@ const Complaints = () => {
                 checked={form.priority === p}
                 onChange={handleChange}
               />
-              <span>{t(`priority.${p}`)}</span>
+              <span>{t(`priority.${p.toLowerCase()}`)}</span>
             </label>
           ))}
         </div>
@@ -104,26 +122,26 @@ const Complaints = () => {
             <thead>
               <tr>
                 <th>{t("complaint.subject")}</th>
-                <th>{t("complaint.date")}</th>
                 <th>{t("complaint.priority")}</th>
                 <th>{t("complaint.status")}</th>
               </tr>
             </thead>
             <tbody>
-              {list.map((c, i) => (
+              {list.map((c) => (
                 <tr
-                  key={i}
-                  style={{ cursor: "pointer" }}
+                  key={c.id}
                   onClick={() => setSelectedComplaint(c)}
+                  style={{ cursor: "pointer" }}
                 >
                   <td>{c.subject}</td>
-                  <td>{c.date}</td>
                   <td>
-                    <span className={`priority-badge ${c.priority}`}>
-                      {t(`priority.${c.priority}`)}
+                    <span
+                      className={`priority-badge ${c.priority.toLowerCase()}`}
+                    >
+                      {c.priority}
                     </span>
                   </td>
-                  <td>{c.progress}</td>
+                  <td>{c.status}</td>
                 </tr>
               ))}
             </tbody>
@@ -131,7 +149,7 @@ const Complaints = () => {
         </div>
       )}
 
-      {/* ================= POPUP DETAILS ================= */}
+      {/* ================= POPUP ================= */}
       {selectedComplaint && (
         <div className="popup-overlay">
           <div className="popup-card">
@@ -144,31 +162,24 @@ const Complaints = () => {
 
             <p>
               <strong>{t("complaint.description")}:</strong>{" "}
-              {selectedComplaint.body}
-            </p>
-
-            <p>
-              <strong>{t("complaint.date")}:</strong>{" "}
-              {selectedComplaint.date}
+              {selectedComplaint.description}
             </p>
 
             <p>
               <strong>{t("complaint.priority")}:</strong>{" "}
-              <span className={`priority-badge ${selectedComplaint.priority}`}>
-                {t(`priority.${selectedComplaint.priority}`)}
-              </span>
+              {selectedComplaint.priority}
             </p>
 
             <p>
               <strong>{t("complaint.status")}:</strong>{" "}
-              {selectedComplaint.progress}
+              {selectedComplaint.status}
             </p>
 
             {selectedComplaint.image && (
               <img
                 src={selectedComplaint.image}
                 alt="complaint"
-                style={{ width: "100%", marginTop: "12px", borderRadius: "6px" }}
+                style={{ width: "100%", marginTop: "12px" }}
               />
             )}
 
