@@ -1,0 +1,153 @@
+{
+  "Home": "मुख्यपृष्ठ",
+  "About Us": "हमारे बारे में",
+  "Maintenance": "मेंटेनेंस",
+  "Complaints": "शिकायतें",
+  "Login": "लॉगिन",
+  "Logout": "लॉगआउट",
+  "Register": "रजिस्टर",
+  "Hi": "नमस्ते",
+
+  "WelcomeMessage": "कुमार वर्ष में आपका स्वागत है",
+  "subtitle": "मेंटेनेंस प्रबंधन और शिकायत ट्रैकिंग के लिए एक विश्वसनीय प्लेटफ़ॉर्म।",
+
+  "loginTitle": "लॉगिन",
+  "loginEmail": "ईमेल",
+  "loginPassword": "पासवर्ड",
+  "loginButton": "लॉगिन",
+  "loginForgot": "पासवर्ड भूल गए?",
+  "loginNoAccount": "खाता नहीं है?",
+  "loginIncorrectPassword": "गलत पासवर्ड",
+  "loginUserNotFound": "उपयोगकर्ता नहीं मिला",
+  "loginSuccess": "लॉगिन सफल!",
+
+  "forgotTitle": "पासवर्ड भूल गए",
+  "forgotEmail": "ईमेल",
+  "forgotEmailPlaceholder": "पंजीकृत ईमेल दर्ज करें",
+  "forgotSecurityA1": "पसंदीदा रंग?",
+  "forgotSecurityA2": "माँ का पहला नाम?",
+  "forgotSecurityA3": "जन्म शहर?",
+  "forgotVerifyButton": "उत्तर सत्यापित करें",
+
+  "forgotNewPassword": "नया पासवर्ड",
+  "forgotConfirmPassword": "पासवर्ड की पुष्टि करें",
+  "forgotChangeButton": "पासवर्ड बदलें",
+
+  "forgotUserNotFound": "इस ईमेल से कोई उपयोगकर्ता नहीं मिला",
+  "forgotSecurityMismatch": "सुरक्षा उत्तर मेल नहीं खाते",
+  "forgotSecurityVerified": "सत्यापन सफल। नया पासवर्ड सेट करें।",
+  "forgotPasswordRule": "पासवर्ड में 8+ अक्षर, 1 बड़ा अक्षर, 1 अंक और 1 चिन्ह होना चाहिए",
+  "forgotPasswordMismatch": "पासवर्ड मेल नहीं खाते",
+  "forgotPasswordChanged": "पासवर्ड सफलतापूर्वक बदला गया। लॉगिन पर भेजा जा रहा है...",
+
+  "registerTitle": "रजिस्टर",
+
+  "registerFirstName": "पहला नाम",
+  "registerLastName": "अंतिम नाम",
+  "registerEmail": "ईमेल",
+  "registerMobile": "मोबाइल",
+  "registerPassword": "पासवर्ड",
+  "registerConfirmPassword": "पासवर्ड की पुष्टि करें",
+  "registerDob": "जन्म तिथि",
+  "registerAddress": "पता",
+  "registerWing": "विंग",
+  "registerFlatNumber": "फ्लैट नंबर",
+  "registerPincode": "पिनकोड",
+
+  "registerSecurityQuestions": "सुरक्षा प्रश्न",
+  "registerSecurityA1": "पसंदीदा रंग?",
+  "registerSecurityA2": "माँ का पहला नाम?",
+  "registerSecurityA3": "जन्म शहर?",
+
+  "registerSubmit": "रजिस्टर करें",
+
+  "required": "यह फ़ील्ड आवश्यक है",
+  "invalidEmail": "मान्य ईमेल दर्ज करें",
+  "invalidMobile": "मान्य 10 अंकों का मोबाइल दर्ज करें",
+  "invalidPincode": "मान्य 6 अंकों का पिनकोड दर्ज करें",
+  "futureDate": "भविष्य की तारीख मान्य नहीं है",
+  "passwordRule": "कम से कम 8 अक्षर, 1 बड़ा अक्षर, 1 संख्या और 1 प्रतीक आवश्यक",
+  "passwordMismatch": "पासवर्ड मेल नहीं खाते",
+  "userExists": "उपयोगकर्ता पहले से पंजीकृत है",
+  "fixErrors": "कृपया ऊपर दी गई त्रुटियाँ ठीक करें",
+  "success": "पंजीकरण सफल! लॉगिन पेज पर भेजा जा रहा है...",
+
+
+  
+  "complaint": {
+    "title": "शिकायतें",
+    "subject": "विषय",
+    "description": "विवरण",
+    "date": "तारीख",
+    "priority": "प्राथमिकता",
+    "status": "स्थिति",
+    "pending": "लंबित",
+    "success": "शिकायत सफलतापूर्वक जमा की गई",
+    "validation": "कृपया सभी आवश्यक जानकारी भरें"
+  },
+  "priority": {
+    "high": "उच्च",
+    "medium": "मध्यम",
+    "low": "कम"
+  },
+  "complaintUpload": "चित्र अपलोड करें (वैकल्पिक)",
+  "complaintSubmit": "शिकायत दर्ज करें",
+  "common": {
+    "close": "बंद करें"
+  },
+
+
+
+  "maintenance": {
+    "title": "मेंटेनेंस भुगतान",
+    "month": "महीना",
+    "selectMonth": "महीना चुनें",
+    "year": "वर्ष",
+    "enterYear": "वर्ष दर्ज करें",
+    "monthsCount": "महिनों की संख्या",
+    "select": "चुनें",
+    "totalAmount": "कुल राशि",
+    "payNow": "अभी भुगतान करें",
+    "download": "रसीद डाउनलोड करें",
+    "validation": "कृपया सभी विवरण भरें",
+    "months": {
+      "january": "जनवरी",
+      "february": "फरवरी",
+      "march": "मार्च",
+      "april": "अप्रैल",
+      "may": "मई",
+      "june": "जून",
+      "july": "जुलाई",
+      "august": "अगस्त",
+      "september": "सितंबर",
+      "october": "अक्टूबर",
+      "november": "नवंबर",
+      "december": "दिसंबर"
+    }
+  },
+
+  "complaint": {
+    "title": "शिकायत दर्ज करें",
+    "subject": "विषय",
+    "description": "विवरण",
+    "date": "तारीख",
+    "priority": "प्राथमिकता",
+    "status": "स्थिति",
+    "pending": "लंबित",
+    "success": "शिकायत सफलतापूर्वक दर्ज की गई",
+    "validation": "कृपया सभी आवश्यक फ़ील्ड भरें"
+  },
+
+  "complaintUpload": "छवि अपलोड करें",
+  "complaintSubmit": "शिकायत जमा करें",
+
+  "priority": {
+    "high": "उच्च",
+    "medium": "मध्यम",
+    "low": "निम्न"
+  },
+
+  "common": {
+    "close": "बंद करें"
+  }
+}

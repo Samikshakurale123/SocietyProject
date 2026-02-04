@@ -1,0 +1,131 @@
+{
+  "Home": "मुख्यपृष्ठ",
+  "About Us": "आमच्याबद्दल",
+  "Maintenance": "मेंटेनन्स",
+  "Complaints": "तक्रारी",
+  "Login": "लॉगिन",
+  "Logout": "लॉगआउट",
+  "Register": "नोंदणी",
+  "Hi": "नमस्कार",
+
+  "WelcomeMessage": "कुमार वर्ष येथे आपले स्वागत आहे",
+  "subtitle": "मेंटेनन्स व्यवस्थापन आणि तक्रार नोंदणीसाठी विश्वासार्ह प्रणाली.",
+
+  "loginTitle": "लॉगिन",
+  "loginEmail": "ईमेल",
+  "loginPassword": "पासवर्ड",
+  "loginButton": "लॉगिन",
+  "loginForgot": "पासवर्ड विसरलात?",
+  "loginNoAccount": "खाते नाही?",
+  "loginIncorrectPassword": "चुकीचा पासवर्ड",
+  "loginUserNotFound": "वापरकर्ता आढळला नाही",
+  "loginSuccess": "लॉगिन यशस्वी!",
+
+  
+    
+  "forgotTitle": "पासवर्ड विसरलात",
+  "forgotEmail": "ईमेल",
+  "forgotEmailPlaceholder": "नोंदणीकृत ईमेल प्रविष्ट करा",
+  "forgotSecurityA1": "आवडता रंग?",
+  "forgotSecurityA2": "आईचे पहिले नाव?",
+  "forgotSecurityA3": "जन्म शहर?",
+  "forgotVerifyButton": "उत्तरे तपासा",
+
+  "forgotNewPassword": "नवीन पासवर्ड",
+  "forgotConfirmPassword": "पासवर्ड पुष्टी करा",
+  "forgotChangeButton": "पासवर्ड बदला",
+
+  "forgotUserNotFound": "या ईमेलसह वापरकर्ता आढळला नाही",
+  "forgotSecurityMismatch": "सुरक्षा उत्तरे जुळत नाहीत",
+  "forgotSecurityVerified": "सत्यापन यशस्वी. कृपया नवीन पासवर्ड सेट करा.",
+  "forgotPasswordRule": "पासवर्डमध्ये 8+ अक्षरे, 1 मोठे अक्षर, 1 अंक व 1 चिन्ह असावे",
+  "forgotPasswordMismatch": "पासवर्ड जुळत नाहीत",
+  "forgotPasswordChanged": "पासवर्ड यशस्वीरीत्या बदलला. लॉगिन पृष्ठावर पाठवत आहे...",
+
+  
+    
+  "registerTitle": "नोंदणी",
+
+  "registerFirstName": "पहिले नाव",
+  "registerLastName": "आडनाव",
+  "registerEmail": "ईमेल",
+  "registerMobile": "मोबाईल",
+  "registerPassword": "पासवर्ड",
+  "registerConfirmPassword": "पासवर्ड पुष्टी करा",
+  "registerDob": "जन्मतारीख",
+  "registerAddress": "पत्ता",
+  "registerWing": "विंग",
+  "registerFlatNumber": "फ्लॅट क्रमांक",
+  "registerPincode": "पिनकोड",
+
+  "registerSecurityQuestions": "सुरक्षा प्रश्न",
+  "registerSecurityA1": "आवडता रंग?",
+  "registerSecurityA2": "आईचे पहिले नाव?",
+  "registerSecurityA3": "जन्म शहर?",
+
+  "registerSubmit": "नोंदणी करा",
+
+  "required": "हे क्षेत्र आवश्यक आहे",
+  "invalidEmail": "वैध ईमेल प्रविष्ट करा",
+  "invalidMobile": "वैध 10 अंकी मोबाईल प्रविष्ट करा",
+  "invalidPincode": "वैध 6 अंकी पिनकोड प्रविष्ट करा",
+  "futureDate": "भविष्यातील तारीख मान्य नाही",
+  "passwordRule": "किमान 8 अक्षरे, 1 मोठे अक्षर, 1 अंक आणि 1 चिन्ह आवश्यक",
+  "passwordMismatch": "पासवर्ड जुळत नाहीत",
+  "userExists": "वापरकर्ता आधीच नोंदणीकृत आहे",
+  "fixErrors": "कृपया वरील त्रुटी दुरुस्त करा",
+  "success": "नोंदणी यशस्वी! लॉगिन पृष्ठावर पाठवत आहे...",
+
+  
+  "complaint": {
+    "title": "तक्रारी",
+    "subject": "विषय",
+    "description": "वर्णन",
+    "date": "तारीख",
+    "priority": "प्राधान्य",
+    "status": "स्थिती",
+    "pending": "प्रलंबित",
+    "success": "तक्रार यशस्वीरीत्या सबमिट केली",
+    "validation": "कृपया सर्व आवश्यक माहिती भरा"
+  },
+  "priority": {
+    "high": "उच्च",
+    "medium": "मध्यम",
+    "low": "कमी"
+  },
+  "complaintUpload": "प्रतिमा अपलोड करा (ऐच्छिक)",
+  "complaintSubmit": "तक्रार सबमिट करा",
+  "common": {
+    "close": "बंद करा"
+  },
+
+
+
+  "maintenance": {
+    "title": "मेंटेनन्स भरणा",
+    "month": "महिना",
+    "selectMonth": "महिना निवडा",
+    "year": "वर्ष",
+    "enterYear": "वर्ष प्रविष्ट करा",
+    "monthsCount": "महिन्यांची संख्या",
+    "select": "निवडा",
+    "totalAmount": "एकूण रक्कम",
+    "payNow": "भरणा करा",
+    "download": "पावती डाउनलोड करा",
+    "validation": "कृपया सर्व माहिती भरा",
+    "months": {
+      "january": "जानेवारी",
+      "february": "फेब्रुवारी",
+      "march": "मार्च",
+      "april": "एप्रिल",
+      "may": "मे",
+      "june": "जून",
+      "july": "जुलै",
+      "august": "ऑगस्ट",
+      "september": "सप्टेंबर",
+      "october": "ऑक्टोबर",
+      "november": "नोव्हेंबर",
+      "december": "डिसेंबर"
+    }
+  }
+}

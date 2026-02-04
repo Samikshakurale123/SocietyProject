@@ -1,0 +1,137 @@
+{
+  "Home": "Home",
+  "About Us": "About Us",
+  "Maintenance": "Maintenance",
+  "Complaints": "Complaints",
+  "Login": "Login",
+  "Logout": "Logout",
+  "Register": "Register",
+  "Hi": "Hi",
+
+  "WelcomeMessage": "Welcome to Kumar Varsha",
+  "subtitle": "A simple and reliable platform for maintenance management and complaint tracking.",
+  "features": "Our Features",
+
+  "loginTitle": "Login",
+  "loginEmail": "Email",
+  "loginPassword": "Password",
+  "loginButton": "Login",
+  "loginForgot": "Forgot Password?",
+  "loginNoAccount": "Don't have an account?",
+  "loginIncorrectPassword": "Incorrect password. Please try again.",
+  "loginUserNotFound": "User not registered. Please register first.",
+  "loginSuccess": "Login successful!",
+
+  
+  "forgotTitle": "Forgot Password",
+  "forgotEmail": "Email",
+  "forgotEmailPlaceholder": "Enter registered email",
+  "forgotSecurityA1": "Favorite color?",
+  "forgotSecurityA2": "Mother’s first name?",
+  "forgotSecurityA3": "Birth city?",
+  "forgotVerifyButton": "Verify Answers",
+
+  "forgotNewPassword": "New Password",
+  "forgotConfirmPassword": "Confirm Password",
+  "forgotChangeButton": "Change Password",
+
+  "forgotUserNotFound": "User not found with this email",
+  "forgotSecurityMismatch": "Security answers do not match",
+  "forgotSecurityVerified": "Verification successful. Please set a new password.",
+  "forgotPasswordRule": "Password must have 8+ chars, 1 uppercase, 1 number & 1 symbol",
+  "forgotPasswordMismatch": "Passwords do not match",
+  "forgotPasswordChanged": "Password changed successfully. Redirecting to login...",
+
+  "registerTitle": "Register",
+
+  "registerFirstName": "First Name",
+  "registerLastName": "Last Name",
+
+  "registerEmail": "Email",
+  "registerMobile": "Mobile Number",
+
+  "registerPassword": "Password",
+  "registerConfirmPassword": "Confirm Password",
+
+  "registerDob": "Date of Birth",
+  "registerAddress": "Address",
+
+  "registerWing": "Wing",
+  "registerFlatNumber": "Flat Number",
+  "registerPincode": "Pincode",
+
+  "registerSecurityQuestions": "Security Questions",
+  "registerSecurityA1": "Favorite color?",
+  "registerSecurityA2": "Mother’s first name?",
+  "registerSecurityA3": "Birth city?",
+
+  "registerSubmit": "Register",
+
+  "required": "This field is required",
+  "invalidEmail": "Enter a valid email address",
+  "invalidMobile": "Enter a valid 10-digit mobile number",
+  "invalidPincode": "Enter a valid 6-digit pincode",
+  "futureDate": "Future date is not allowed",
+  "passwordRule": "Minimum 8 characters, 1 uppercase letter, 1 number & 1 symbol required",
+  "passwordMismatch": "Passwords do not match",
+  "userExists": "User already registered",
+
+  "fixErrors": "Please fix the errors above.",
+  "success": "Registration successful! Redirecting to login page...",
+
+
+  "maintenance": {
+    "title": "Maintenance Payment",
+    "month": "Month",
+    "selectMonth": "Select month",
+    "year": "Year",
+    "enterYear": "Enter year",
+    "monthsCount": "Number of months",
+    "select": "Select",
+    "totalAmount": "Total Amount",
+    "payNow": "Pay Now",
+    "download": "Download Receipt",
+    "validation": "Please fill all details",
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    }
+  },
+
+  "complaint": {
+    "title": "Register Complaint",
+    "subject": "Subject",
+    "description": "Description",
+    "date": "Date",
+    "priority": "Priority",
+    "status": "Status",
+    "pending": "Pending",
+    "success": "Complaint submitted successfully",
+    "validation": "Please fill all required fields"
+  },
+
+  "complaintUpload": "Upload Image",
+  "complaintSubmit": "Submit Complaint",
+
+  "priority": {
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low"
+  },
+
+  "common": {
+    "close": "Close"
+  }
+}
+
+
