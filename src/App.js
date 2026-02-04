@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -13,36 +13,27 @@ import Complaint from "./pages/Complaints/Complaints";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const user = localStorage.getItem("loggedInUser");
-    setIsLoggedIn(!!user);
-  }, []);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("loggedIn") === "true"
+  );
 
   return (
     <Router>
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
       <Routes>
-        {/* Public Routes */}
+        {/* Public */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
 
-        {/* Protected Routes */}
-        <Route
-          path="/maintenance"
-          element={isLoggedIn ? <Maintenance /> : <Navigate to="/login" replace />}
-        />
-        <Route
-          path="/complaint"
-          element={isLoggedIn ? <Complaint /> : <Navigate to="/login" replace />}
-        />
+        {/* App pages */}
+        <Route path="/maintenance" element={<Maintenance />} />
+        <Route path="/complaint" element={<Complaint />} />
 
-        {/* 404 */}
+        {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 

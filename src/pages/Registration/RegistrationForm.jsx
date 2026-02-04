@@ -36,7 +36,7 @@ export default function RegistrationForm() {
     if (name === "mobile" && !/^\d*$/.test(value)) return;
     if (name === "pincode" && !/^\d*$/.test(value)) return;
 
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: value.trimStart() });
   };
 
   /* ---------------- VALIDATION ---------------- */
@@ -69,8 +69,10 @@ export default function RegistrationForm() {
       err.confirmPassword = "passwordMismatch";
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    if (users.some(u => u.email === formData.email || u.mobile === formData.mobile)) {
+    if (users.some(u => u.email === formData.email)) {
       err.email = "userExists";
+    }
+    if (users.some(u => u.mobile === formData.mobile)) {
       err.mobile = "userExists";
     }
 
@@ -97,8 +99,7 @@ export default function RegistrationForm() {
 
   /* ---------------- ANIMATION ---------------- */
   useEffect(() => {
-    const card = document.querySelector(".fade-up");
-    card && card.classList.add("show");
+    document.querySelector(".fade-up")?.classList.add("show");
   }, []);
 
   /* ---------------- UI ---------------- */
@@ -118,21 +119,15 @@ export default function RegistrationForm() {
           <div className="row mb-3">
             <div className="col-md-6">
               <label>{t("registerFirstName")}</label>
-              <input
-                className="form-control"
-                name="firstName"
-                onChange={handleChange}
-              />
+              <input className="form-control" name="firstName"
+                value={formData.firstName} onChange={handleChange} />
               {errors.firstName && <span className="error-text">{t(errors.firstName)}</span>}
             </div>
 
             <div className="col-md-6">
               <label>{t("registerLastName")}</label>
-              <input
-                className="form-control"
-                name="lastName"
-                onChange={handleChange}
-              />
+              <input className="form-control" name="lastName"
+                value={formData.lastName} onChange={handleChange} />
               {errors.lastName && <span className="error-text">{t(errors.lastName)}</span>}
             </div>
           </div>
@@ -141,22 +136,15 @@ export default function RegistrationForm() {
           <div className="row mb-3">
             <div className="col-md-6">
               <label>{t("registerEmail")}</label>
-              <input
-                className="form-control"
-                name="email"
-                onChange={handleChange}
-              />
+              <input className="form-control" name="email"
+                value={formData.email} onChange={handleChange} />
               {errors.email && <span className="error-text">{t(errors.email)}</span>}
             </div>
 
             <div className="col-md-6">
               <label>{t("registerMobile")}</label>
-              <input
-                className="form-control"
-                name="mobile"
-                maxLength="10"
-                onChange={handleChange}
-              />
+              <input className="form-control" name="mobile" maxLength="10"
+                value={formData.mobile} onChange={handleChange} />
               {errors.mobile && <span className="error-text">{t(errors.mobile)}</span>}
             </div>
           </div>
@@ -165,23 +153,15 @@ export default function RegistrationForm() {
           <div className="row mb-3">
             <div className="col-md-6">
               <label>{t("registerPassword")}</label>
-              <input
-                type="password"
-                className="form-control"
-                name="password"
-                onChange={handleChange}
-              />
+              <input type="password" className="form-control" name="password"
+                value={formData.password} onChange={handleChange} />
               {errors.password && <span className="error-text">{t(errors.password)}</span>}
             </div>
 
             <div className="col-md-6">
               <label>{t("registerConfirmPassword")}</label>
-              <input
-                type="password"
-                className="form-control"
-                name="confirmPassword"
-                onChange={handleChange}
-              />
+              <input type="password" className="form-control" name="confirmPassword"
+                value={formData.confirmPassword} onChange={handleChange} />
               {errors.confirmPassword && <span className="error-text">{t(errors.confirmPassword)}</span>}
             </div>
           </div>
@@ -189,80 +169,49 @@ export default function RegistrationForm() {
           {/* DOB */}
           <div className="mb-3">
             <label>{t("registerDob")}</label>
-            <input
-              type="date"
-              className="form-control"
-              name="dob"
-              max={today}
-              onChange={handleChange}
-            />
+            <input type="date" className="form-control" name="dob"
+              max={today} value={formData.dob} onChange={handleChange} />
             {errors.dob && <span className="error-text">{t(errors.dob)}</span>}
           </div>
 
           {/* ADDRESS */}
           <div className="mb-3">
             <label>{t("registerAddress")}</label>
-            <textarea
-              className="form-control"
-              rows="2"
-              name="address"
-              onChange={handleChange}
-            />
+            <textarea className="form-control" rows="2" name="address"
+              value={formData.address} onChange={handleChange} />
           </div>
 
           {/* SOCIETY */}
           <div className="row mb-3">
             <div className="col-md-6">
               <label>{t("registerWing")}</label>
-              <input
-                className="form-control"
-                name="wing"
-                onChange={handleChange}
-              />
+              <input className="form-control" name="wing"
+                value={formData.wing} onChange={handleChange} />
             </div>
             <div className="col-md-6">
               <label>{t("registerFlatNumber")}</label>
-              <input
-                className="form-control"
-                name="flatNumber"
-                onChange={handleChange}
-              />
+              <input className="form-control" name="flatNumber"
+                value={formData.flatNumber} onChange={handleChange} />
             </div>
           </div>
 
           {/* PINCODE */}
           <div className="mb-3">
             <label>{t("registerPincode")}</label>
-            <input
-              className="form-control"
-              name="pincode"
-              maxLength="6"
-              onChange={handleChange}
-            />
+            <input className="form-control" name="pincode" maxLength="6"
+              value={formData.pincode} onChange={handleChange} />
             {errors.pincode && <span className="error-text">{t(errors.pincode)}</span>}
           </div>
 
           {/* SECURITY */}
           <div className="mb-3">
             <h5>{t("registerSecurityQuestions")}</h5>
-            <input
-              className="form-control mb-2"
-              placeholder={t("registerSecurityA1")}
-              name="securityA1"
-              onChange={handleChange}
-            />
-            <input
-              className="form-control mb-2"
-              placeholder={t("registerSecurityA2")}
-              name="securityA2"
-              onChange={handleChange}
-            />
-            <input
-              className="form-control mb-2"
-              placeholder={t("registerSecurityA3")}
-              name="securityA3"
-              onChange={handleChange}
-            />
+            {["securityA1","securityA2","securityA3"].map((q) => (
+              <input key={q} className="form-control mb-2"
+                name={q} value={formData[q]}
+                placeholder={t(`register${q.toUpperCase()}`)}
+                onChange={handleChange} />
+            ))}
           </div>
 
           <button type="submit" className="btn btn-primary w-100">
