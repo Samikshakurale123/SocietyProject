@@ -72,6 +72,28 @@
   "fixErrors": "कृपया ऊपर दी गई त्रुटियाँ ठीक करें",
   "success": "पंजीकरण सफल! लॉगिन पेज पर भेजा जा रहा है...",
 
+  "complaint": {
+    "title": "शिकायतें",
+    "subject": "विषय",
+    "description": "विवरण",
+    "date": "तारीख",
+    "priority": "प्राथमिकता",
+    "status": "स्थिति",
+    "pending": "लंबित",
+    "success": "शिकायत सफलतापूर्वक जमा की गई",
+    "validation": "कृपया सभी आवश्यक जानकारी भरें"
+  },
+  "priority": {
+    "high": "उच्च",
+    "medium": "मध्यम",
+    "low": "कम"
+  },
+  "complaintUpload": "चित्र अपलोड करें (वैकल्पिक)",
+  "complaintSubmit": "शिकायत दर्ज करें",
+  "common": {
+    "close": "बंद करें"
+  },
+
   "maintenance": {
     "title": "मेंटेनेंस भुगतान",
     "month": "महीना",
@@ -103,7 +125,7 @@
 
   },
 
-  "complaint": {
+ "complaint": {
     "title": "शिकायत दर्ज करें",
     "subject": "विषय",
     "description": "विवरण",
